@@ -29,7 +29,6 @@
     "babel-jest": "^27.4.4",
     "babel-loader": "^8.2.5",
     "jest": "^27.4.4",
-    "storybook": "^6.5.9",
     "vue-jest": "^3.0.4"
   }
 }
