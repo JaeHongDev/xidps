@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "npx nuxt storybook build"
+    "eject": "nuxt storybook eject --force",
+    "build-storybook": "npm run eject && nuxt storybook build"
   },
   "dependencies": {
     "core-js": "^3.19.3",
