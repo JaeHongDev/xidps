@@ -1,15 +1,12 @@
-const { nuxifyStorybook } = require('../.nuxt-storybook/storybook/main.js')
-
-module.exports = nuxifyStorybook({
-  webpackFinal (config, options) {
-    // extend config here
-    return config
-  },
+module.exports = {
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/**/*.stories.mdx",
+    "../stories/**/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  addons: [
-    // Add your addons here
-  ]
-})
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions"
+  ],
+  "framework": "@storybook/vue"
+}
