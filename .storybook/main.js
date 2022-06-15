@@ -5,8 +5,9 @@ module.exports = nuxifyStorybook({
     // extend config here
     return config
   },
-  stories: [
-    // Add your stories here
+  "stories": [
+    "../stories/**/*.stories.mdx",
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
     // Add your addons here
