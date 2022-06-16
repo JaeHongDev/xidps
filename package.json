@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "test": "jest",
     "storybook": "nuxt storybook",
-    "eject": "nuxt storybook eject",
+    "eject": "nuxt storybook eject --force",
     "build-storybook": "npm run eject && nuxt storybook build"
   },
   "dependencies": {
