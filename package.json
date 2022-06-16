@@ -8,8 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "nuxt storybook",
+    "build-storybook": "nuxt storybook build"
   },
   "dependencies": {
     "core-js": "^3.19.3",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "~2.15.0",
+    "@nuxtjs/storybook": "^4.3.2",
     "@nuxtjs/vuetify": "^1.12.3",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
