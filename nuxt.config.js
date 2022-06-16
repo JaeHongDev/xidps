@@ -17,17 +17,24 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        href:
+          'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2'
+      }
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/reset.scss'
   ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [{ path: '~/components', pathPrefix: false }],
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
@@ -59,7 +66,6 @@ export default {
       '~/components/**/**/*.stories.@(js|jsx|ts|tsx)',
       ],
     parameters: {
-      viewMode: 'docs'
     },
     webpackFinal (config) {
       return config
