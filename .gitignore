@@ -88,7 +88,3 @@ sw.*
 
 # Vim swap files
 *.swp
-
-
-storybook-static
-.nuxt-storybok
