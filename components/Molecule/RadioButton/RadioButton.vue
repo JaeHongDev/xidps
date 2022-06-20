@@ -36,15 +36,15 @@ export default {
 
 <style scoped lang="scss">
 .radio-button-wrap{
-  width:420px;
+  width:300px;
   display: flex;
   flex-wrap: wrap;
   .v-btn{
-    min-width:24px !important;
+    max-width:24px !important;
+    max-height:24px !important;
     min-height:24px !important;
+    min-width: 24px !important;
     margin:5px;
-
-
   }
 }
 .unchecked{

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="login-wrap">
     <Nuxt/>
   </v-app>
 </template>
@@ -10,6 +10,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.login-wrap{
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
