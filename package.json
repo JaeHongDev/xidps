@@ -11,10 +11,12 @@
     "storybook": "nuxt storybook",
     "eject": "nuxt storybook eject --force",
     "build-storybook": "npm run eject && nuxt storybook build",
+    "mock:server": "json-server -p 4444 --watch db.json",
     "a": "rm -rf storybook && mkdir storybook && npm run eject &&  mv .storybook ./storybook && npx nuxt storybook build && mv .nuxt-storybook ./storybook && mv storybook-static ./storybook "
   },
   "dependencies": {
     "core-js": "^3.19.3",
+    "json-server": "^0.17.0",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",

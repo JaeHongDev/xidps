@@ -1,7 +1,7 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
+  treeShake:true,
+
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -46,22 +46,12 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
   },
   storybook: {
+    decorators: [
+      // VApp decorator for Vuetify
+      '<v-app><story/></v-app>'
+    ],
     stories: [
       '~/components/**/**/*.stories.@(js|jsx|ts|tsx)',
       ],
@@ -73,5 +63,11 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    assetsPublicPath:"./"
   }
+  // 절대 경로 설정
+  /*router: {
+    base: '/jh_dist/dist/'
+  }*/
+
 }
