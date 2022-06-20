@@ -6,7 +6,7 @@
           <v-card-text>
             XID메시징 서비스
           </v-card-text>
-          <radio-button :lists="lists" :selected-index="selectedIndex"  ></radio-button>
+          <radio-button :lists="lists" :selected-index="selectedIndex"  v-on:call:Api="callApi"></radio-button>
           <div class="pa-3">
             <v-select outlined :items="items"  label="대학선택" dense :loading="loading"></v-select>
           </div>
@@ -72,7 +72,8 @@ export default {
   },
   methods:{
     async callApi(index){
-      console.log(this.items[index].text);
+      //console.log(this.items[index].text);
+      this.selectedIndex = index;
       const result = await api.get("http://localhost:4444/consonant")
       this.loading = true;
       this.items = result.map(item=> item.text);

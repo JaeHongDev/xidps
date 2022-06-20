@@ -19,23 +19,18 @@ export default {
     selectedIndex:{
       type:Number,
       required: false,
-      default:-1
     }
   },
   methods: {
     select(index) {
       if (index === this.selectedIndex) return; // 현재 선택한 버튼과 동일한 버튼의 경우
-      this.selectedIndex = index;
-      this.$emit("callApi",index);
+      this.$emit("call:Api",index);
     },
     checkedStyle(index){
       return index === this.selectedIndex ? 'checked' : 'unchecked'
+    },
 
-    }
   },
-  created() {
-    console.log("create");
-  }
 }
 </script>
 
