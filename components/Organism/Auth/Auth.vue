@@ -74,7 +74,7 @@ export default {
 
 .auth-container {
   width: 900px;
-  border-radius: 41px;
+  border-radius: 40px;
   .auth-form-content{
     padding-right:40px;
 

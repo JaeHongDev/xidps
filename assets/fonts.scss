@@ -1,61 +1,79 @@
+$thin: 100;
+$extra-light: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$heavy: 900;
+$fs1: 24px;
+$fs2: 20px;
+$fs3: 18px;
+$fs4: 16px;
+$fs5: 14px;
+$fs6: 12px;
+$fs7: 10px;
+$fs8: 8px;
+
 .fs-1 {
-  font-size: 24px;
+  font-size: $fs1;
 }
 
 .fs-2 {
-  font-size: 20px;
+  font-size: $fs2;
 }
 
 .fs-3 {
-  font-size: 18px;
+  font-size: $fs3;
 }
 
 .fs-4 {
-  font-size: 16px;
+  font-size: $fs4;
 }
 
 .fs-5 {
-  font-size: 14px;
+  font-size: $fs5;
 }
 
 .fs-6 {
-  font-size: 12px;
+  font-size: $fs6;
 }
 
 .fs-7 {
-  font-size: 10px;
+  font-size: $fs7;
 }
 
 .fs-8 {
-  font-size: 8px;
+  font-size: $fs8;
 }
 
 .fw-thin {
-  font-weight: 100;
+  font-weight: $thin;
 }
 .fw-extra-light {
-  font-weight: 200;
+  font-weight: $extra-light;
 }
 .fw-light {
-  font-weight: 300;
+  font-weight: $light;
 }
 .fw-regular {
-  font-weight: 400;
+  font-weight: $regular;
 }
 .fw-medium {
-  font-weight: 500;
+  font-weight: $medium;
 }
 .fw-semi-bold {
-  font-weight: 600;
+  font-weight: $semi-bold;
 }
 .fw-bold {
-  font-weight: 700;
+  font-weight: $bold;
 }
 .fw-extra-bold {
-  font-weight: 800;
+  font-weight: $extra-bold;
 }
 .fw-heavy {
-  font-weight: 900;
+  font-weight: $heavy;
 }
 
 
