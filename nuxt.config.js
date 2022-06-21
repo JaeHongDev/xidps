@@ -22,13 +22,13 @@ export default {
         rel: 'stylesheet',
         type: 'text/css',
         href:
-          'https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2'
+          'https://webfontworld.github.io/sunn/SUIT.css'
       }
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/reset.scss'
+    '~/assets/reset.scss',
   ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

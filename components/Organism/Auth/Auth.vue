@@ -4,9 +4,12 @@
       <v-col class="auth-form-wrap" cols="6">
         <form>
           <div class="auth-form-content">
-            <v-card-text>
-              XID메시징 서비스
-            </v-card-text>
+            <div>
+              <v-icon small>mdi-send</v-icon>
+              <span class="fs-1 fc-light-navy-blue fw-bold">
+                XID메시징 서비스
+              </span>
+            </div>
             <radio-button :lists="lists" :selected-index="selectedIndex" v-on:call:Api="callApi"></radio-button>
             <div class="pa-3">
               <v-select outlined :items="items" label="대학선택" dense :loading="loading"></v-select>
@@ -44,7 +47,6 @@
       </v-col>
     </v-row>
   </v-card>
-
 </template>
 
 <script>
@@ -89,6 +91,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+
 .auth-container {
   width: 900px;
   border-radius: 41px;
@@ -104,8 +108,9 @@ export default {
 }
 
 .auth-logo {
-  background-image: url("~/static/v.png");
-  width: 450px;
-  height: 450px;
+  background-image: url("~/static/login.png");
+  height: 100%;
+  background-size:cover;
+
 }
 </style>
