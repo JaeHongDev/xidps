@@ -62,7 +62,8 @@ export default {
       this.selectedIndex = index;
       const result = await api.get("http://localhost:4444/consonant")
       this.loading = true;
-      this.items = result.map(item => item.text);
+      //this.items = result.map(item => item.text);
+      this.items = ["sample1","sample2","sample3","sample4","sample5","sample6"]
       this.loading = false;
     }
   }
