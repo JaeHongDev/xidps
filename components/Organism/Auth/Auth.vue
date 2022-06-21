@@ -4,40 +4,35 @@
       <v-col class="auth-form-wrap" cols="6">
         <form>
           <div class="auth-form-content">
-            <div>
-              <v-icon small>mdi-send</v-icon>
+            <div class="d-flex align-center">
+              <v-icon class="icon-size">mdi-send</v-icon>
               <span class="fs-1 fc-light-navy-blue fw-bold">
                 XID메시징 서비스
               </span>
             </div>
-            <radio-button :lists="lists" :selected-index="selectedIndex" v-on:call:Api="callApi"></radio-button>
-            <div class="pa-3">
+            <radio-button class="pt-5" :lists="lists"  v-on:call:Api="callApi"></radio-button>
+            <div class="pt-3">
               <v-select outlined :items="items" label="대학선택" dense :loading="loading"></v-select>
             </div>
             <div>
-              <v-text-field label="ID"></v-text-field>
-              <v-text-field label="PW"></v-text-field>
+              <v-text-field label="ID" class="fc-light-navy-blue fw-semi-bold"></v-text-field>
+              <v-text-field label="PW" class="fc-light-navy-blue fw-semi-bold"></v-text-field>
             </div>
             <v-row>
               <v-col cols="8">
-                <span>서비스를 체험해보고 싶으신가요?</span>
+                <span class="fc-light-navy-blue fs-7 fw-regular">서비스를 체험해보고 싶으신가요?</span>
               </v-col>
               <v-col cols="4">
-                <a>체험하기</a>
+                <a class="fc-light-navy-blue fs-5 fw-regular">체험하기</a>
               </v-col>
             </v-row>
-            <v-row>
-              <v-col>
+            <v-row class="d-flex">
                 <v-checkbox label='설정기억'></v-checkbox>
-              </v-col>
-              <v-col>
                 <v-checkbox label='아이디기억'></v-checkbox>
-              </v-col>
             </v-row>
           </div>
-
           <div class="float-end">
-            <v-btn @click="callApi">로그인</v-btn>
+            <v-btn class="bg-light-navy-blue" color="bg-light-navy-blue">로그인</v-btn>
           </div>
         </form>
       </v-col>
@@ -56,24 +51,8 @@ export default {
   name: "Auth",
   data() {
     return {
-      selectedIndex: -1,
       loading: false,
-      lists: [
-        {text: "ㄱ"},
-        {text: "ㄴ"},
-        {text: "ㄷ"},
-        {text: "ㄹ"},
-        {text: "ㅁ"},
-        {text: "ㅂ"},
-        {text: "ㅅ"},
-        {text: "ㅇ"},
-        {text: "ㅈ"},
-        {text: "ㅊ"},
-        {text: "ㅋ"},
-        {text: "ㅌ"},
-        {text: "ㅍ"},
-        {text: "ㅎ"}
-      ],
+      lists: ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"],
       items: ['가나다대학교', '가대학교'],
     }
   },
@@ -92,15 +71,26 @@ export default {
 
 <style scoped lang="scss">
 
-
 .auth-container {
   width: 900px;
   border-radius: 41px;
   .auth-form-content{
     padding-right:40px;
+
+    .v-text-field{
+      color:$light-navy-blue-color !important;
+      width:250px !important;
+    }
+
+    .v-input--checkbox{
+      padding:0 !important;
+    }
+
+    .v-btn{
+      background-color:$light-navy-blue !important;
+    }
   }
 }
-
 .auth-form-wrap {
   padding-top: 70px;
   padding-left: 100px;
@@ -111,6 +101,7 @@ export default {
   background-image: url("~/static/login.png");
   height: 100%;
   background-size:cover;
-
 }
+
+
 </style>
