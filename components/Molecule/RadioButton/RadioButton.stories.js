@@ -2,8 +2,7 @@
 export default{
   title:"Molecule/RadioButton",
   argTypes: {
-    list:{
-    },
+    list:[],
   },
 }
 
@@ -17,22 +16,6 @@ const Template = (args,{argTypes})=>({
 
 export const Default = Template.bind({});
 Default.args = {
-  lists: [
-    {text: "ㄱ"},
-    {text: "ㄴ"},
-    {text: "ㄷ"},
-    {text: "ㄹ"},
-    {text: "ㅁ"},
-    {text: "ㅂ"},
-    {text: "ㅅ"},
-    {text: "ㅇ"},
-    {text: "ㅈ"},
-    {text: "ㅊ"},
-    {text: "ㅋ"},
-    {text: "ㅌ"},
-    {text: "ㅍ"},
-    {text: "ㅎ"}
-  ],
-  selectedIndex: -1
+  lists: ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ",],
 
 }

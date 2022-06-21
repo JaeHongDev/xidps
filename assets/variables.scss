@@ -3,12 +3,11 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
+@import "~/assets/colors.scss";
+@import "~/assets/fonts.scss";
 
 @font-face {
-  font-family: 'SUIT-Medium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  font-family: "SUIT";
 }
 
 $light-navy-blue-color: #2c347a;
@@ -16,21 +15,14 @@ $light-navy-blue-color: #2c347a;
 .login_btn {
   background-color: $light-navy-blue-color;
 }
-.fs-1{
-  font-size:40px;
+
+
+.v-application {
+  font-family: 'SUIT', sans-serif !important;
 }
-.fs-2{
-  font-size:24px
-}
-.fs-3{
-  font-size:18px;
-}
-.fs-4 {
-  font-size:16px;
-}
-.fs-5{
-  font-size:14px;
-}
-.fs-6{
-  font-size: 8px;
+
+
+.icon-size{
+  width:32px;
+  height:32px;
 }

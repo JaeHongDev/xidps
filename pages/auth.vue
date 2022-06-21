@@ -1,5 +1,5 @@
 <template>
-  <div>로그인</div>
+  <Auth></Auth>
 </template>
 
 <script>
@@ -9,6 +9,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
