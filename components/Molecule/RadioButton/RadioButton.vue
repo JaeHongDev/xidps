@@ -1,6 +1,6 @@
 <template>
   <div class="radio-button-wrap">
-    <v-btn v-for="(item,index) in lists " :key="index" :class="checkedStyle(index)" class="fw-bold"
+    <v-btn  data-test="button" v-for="(item,index) in lists " :key="index" :class="checkedStyle(index)" class="fw-bold"
            @click="select(item,index)"> {{ item }}
     </v-btn>
   </div>

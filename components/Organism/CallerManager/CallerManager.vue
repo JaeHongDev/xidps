@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="pa-3">
     <v-data-table dense :headers="headers" :items="items" hide-default-header="true" class="caller-manager-table">
       <template
         v-slot:header="{ props: { headers } }"
@@ -74,15 +74,22 @@ export default {
 
   td {
     border-right: 1px dashed $white-two !important;
+    border-bottom: none !important;
     text-align: center;
     color: $light-navy-blue !important;
+    vertical-align: middle !important;
+
   }
 
   th {
     border-right: 1px dashed $white-two !important;
     text-align: center !important;
+    vertical-align: middle !important;
     color: $light-navy-blue !important;
     font-size: $semi-bold;
+  }
+  tr:hover{
+    background-color:$pale-lilac !important;
   }
 }
 </style>
