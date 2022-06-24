@@ -102,7 +102,7 @@ export default {
     padding-right:40px;
 
     .v-text-field{
-      color:$light-navy-blue-color !important;
+      color:$light-navy-blue !important;
       width:250px !important;
     }
 
@@ -111,7 +111,7 @@ export default {
     }
 
     .v-btn{
-      background-color:$light-navy-blue !important;
+      background-color: $light-navy-blue !important;
     }
   }
 }
