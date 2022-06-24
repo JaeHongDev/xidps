@@ -62,30 +62,30 @@ export default {
 <style scoped lang="scss">
 .caller-manager-table {
   thead {
-    border-top: 1px solid $warm-grey !important;
-    border-bottom: 1px solid $warm-grey !important;
+    //border-top: 1px solid $warm-grey !important;
+    //border-bottom: 1px solid $warm-grey !important;
     border-left: none;
     border-right: none;
   }
 
   tbody {
-    border-bottom: 1px solid $warm-grey !important;
+    //border-bottom: 1px solid $warm-grey !important;
   }
 
   td {
-    border-right: 1px dashed $white-two !important;
+    //border-right: 1px dashed  !important;
     border-bottom: none !important;
     text-align: center;
-    color: $light-navy-blue !important;
+    //color: $light-navy-blue-color !important;
     vertical-align: middle !important;
 
   }
 
   th {
-    border-right: 1px dashed $white-two !important;
+    //border-right: 1px dashed $white-two !important;
     text-align: center !important;
     vertical-align: middle !important;
-    color: $light-navy-blue !important;
+    //color: $light-navy-blue-color !important;
     font-size: $semi-bold;
   }
   tr:hover{
