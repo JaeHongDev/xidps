@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div :class="setColor"></div>
+    <div :class="color"></div>
     <span>{{color}}</span>
   </div>
 </template>
@@ -11,12 +11,6 @@ export default {
   props:{
     color:""
   },
-  computed:{
-    setColor(){
-      console.log(this.$props.color)
-      return `bg-${this.$props.color}`
-    }
-  }
 }
 </script>
 
