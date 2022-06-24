@@ -4,6 +4,17 @@
       <v-col class="auth-form-wrap" cols="6">
         <form>
           <div class="auth-form-content">
+            <v-fab-transition>
+              <v-alert
+                v-show="loginFail"
+                prominent
+                type="error"
+                class="fs-7"
+              >
+                아이디 혹은 비밀번호가 존재하지 않습니다.
+              </v-alert>
+            </v-fab-transition>
+
             <div class="d-flex align-center">
               <v-icon class="icon-size">mdi-send</v-icon>
               <span class="fs-1 fc-light-navy-blue fw-bold">
@@ -12,11 +23,11 @@
             </div>
             <radio-button class="pt-5" :lists="lists"  v-on:call:Api="callApi"></radio-button>
             <div class="pt-3">
-              <v-select outlined :items="items" label="대학선택" dense :loading="loading"></v-select>
+              <v-select outlined :items="items" label="기업 및 대학 선택" dense :loading="loading" v-model="userAuthForm.selectedCompany"></v-select>
             </div>
             <div>
-              <v-text-field label="ID" class="fc-light-navy-blue fw-semi-bold"></v-text-field>
-              <v-text-field label="PW" class="fc-light-navy-blue fw-semi-bold"></v-text-field>
+              <v-text-field label="ID" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.id"></v-text-field>
+              <v-text-field label="PW" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.password"></v-text-field>
             </div>
             <v-row>
               <v-col cols="8">
@@ -27,12 +38,12 @@
               </v-col>
             </v-row>
             <v-row class="d-flex">
-                <v-checkbox label='설정기억'></v-checkbox>
-                <v-checkbox label='아이디기억'></v-checkbox>
+                <v-checkbox label='설정기억' v-model="isSavedCompanyName"></v-checkbox>
+                <v-checkbox label='아이디기억' v-model="isSavedId"></v-checkbox>
             </v-row>
           </div>
           <div class="float-end">
-            <v-btn class="bg-light-navy-blue" color="bg-light-navy-blue">로그인</v-btn>
+            <v-btn class="bg-light-navy-blue" color="bg-light-navy-blue" @click="handleLogin">로그인</v-btn>
           </div>
         </form>
       </v-col>
@@ -53,18 +64,30 @@ export default {
     return {
       loading: false,
       lists: ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"],
-      items: ['가나다대학교', '가대학교'],
+      items: [],
+      userAuthForm:{
+        id:"",
+        password:"",
+        selectedCompany:"",
+      },
+      isSavedCompanyName:false,
+      isSavedId:false,
+      loginFail:false,
     }
   },
   methods: {
     async callApi(index) {
       //console.log(this.items[index].text);
       this.selectedIndex = index;
-      const result = await api.get("http://localhost:4444/consonant")
       this.loading = true;
+      const result = await api.get("http://localhost:4444/consonant")
       //this.items = result.map(item => item.text);
-      this.items = ["sample1","sample2","sample3","sample4","sample5","sample6"]
+      this.$data.items = ["sample1","sample2","sample3","sample4","sample5","sample6"]
       this.loading = false;
+    },
+    handleLogin(){
+      console.log(this.$data);
+      this.$data.loginFail = this.$data.userAuthForm.id !== "admin";
     }
   }
 }
@@ -106,3 +129,4 @@ export default {
 
 
 </style>
+
