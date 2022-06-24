@@ -3,25 +3,21 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
-@import "~/assets/colors.scss";
+@import "~/assets/colorVariable.scss";
 @import "~/assets/fonts.scss";
 
 @font-face {
   font-family: "SUIT";
 }
 
-$light-navy-blue-color: #2c347a;
+
 
 .login_btn {
-  background-color: $light-navy-blue-color;
+  background-color: $light-navy-blue;
 }
-
-
 .v-application {
   font-family: 'SUIT', sans-serif !important;
 }
-
-
 .icon-size{
   width:32px;
   height:32px;
