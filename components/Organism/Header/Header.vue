@@ -1,30 +1,17 @@
 <template>
   <v-app-bar
-    class="xidps-header bg-light-navy-blue"
+    class="xidps-header bg-light-navy-blue "
     fixed
     app
   >
-    <v-app-bar-nav-icon/>
-    <v-btn
-      icon
-    >
-    </v-btn>
-    <v-btn
-      icon
-    >
-      <v-icon>mdi-application</v-icon>
-    </v-btn>
-    <v-btn
-      icon
-    >
-      <v-icon>mdi-minus</v-icon>
-    </v-btn>
-    <v-spacer />
-    <v-btn
-      icon
-    >
-      <v-icon>mdi-menu</v-icon>
-    </v-btn>
+
+    <div>
+      <v-icon color="white">mdi-send</v-icon>
+      <span>XID 메시징 서비스</span>
+    </div>
+    <v-spacer></v-spacer>
+    <a class="text-decoration-none">Q&A</a>
+    <a>1:1문의</a>
   </v-app-bar>
 </template>
 
@@ -34,6 +21,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
