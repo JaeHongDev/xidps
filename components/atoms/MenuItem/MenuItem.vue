@@ -47,7 +47,7 @@ export default {
   font-weight: $semi-bold;
 
   &:hover {
-    background-color: $dark-blue-grey;
+    background-color: $dark-indigo;
   }
 
   .v-icon {
@@ -61,7 +61,7 @@ export default {
 }
 
 .clicked {
-  background-color: $dark-indigo;
+  background-color: $dark-blue-grey;
   border-left: 6px solid $cornflower;
   margin-left: -6px;
 }

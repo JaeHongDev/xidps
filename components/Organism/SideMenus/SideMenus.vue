@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <user-profile></user-profile>
-    <menu-list></menu-list>
+    <tree-view></tree-view>
   </v-card>
 </template>
 
