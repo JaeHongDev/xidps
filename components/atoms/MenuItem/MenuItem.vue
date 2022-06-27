@@ -1,11 +1,9 @@
 <template>
 
-
-  <nuxt-link class="xidps-menu-item"  to="/admin/user/manage" :class="{clicked:selected}">
+  <nuxt-link :class="{clicked:selected}" class="xidps-menu-item" to="/admin/user/manage" @click="selected=true">
     <v-icon>{{ icon }}</v-icon>
     <span class="xidps-menu-content">{{ menuName }}</span>
   </nuxt-link>
-
 
 </template>
 

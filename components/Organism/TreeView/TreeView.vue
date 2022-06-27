@@ -1,7 +1,20 @@
 <template>
-  <v-treeview :items="items" expand-icon=""  open-on-click class="xidps-menu">
-    <template v-slot:label="{item,open}"  >
-      <menu-item :menu-name="item.name" :icon="item.icon"></menu-item>
+  <v-treeview
+    class="xidps-menu"
+    v-model="tree"
+    :open="initiallyOpen"
+    :items="items"
+    activatable
+    item-key="name"
+    open-on-click
+  >
+    <template v-slot:append="{ item, open }">
+      <v-icon v-if="!item.file">
+        {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
+      </v-icon>
+      <v-icon v-else>
+        {{ files[item.file] }}
+      </v-icon>
     </template>
   </v-treeview>
 </template>
@@ -9,20 +22,72 @@
 <script>
 export default {
   name: "TreeView",
-    data: () => ({
-      items: [
-        {
-          id: 1,
-          name: '대시보드',
-          icon:"mdi-home",
-          children: [
-            {id: 2, name: 'Calendar : app'},
-            {id: 3, name: 'Chrome : app'},
-            {id: 4, name: 'Webstorm : app'},
-          ],
-        },
-      ],
-    }),
+  data: () => ({
+    initiallyOpen: ['public'],
+    files: {
+      html: 'mdi-language-html5',
+      js: 'mdi-nodejs',
+      json: 'mdi-code-json',
+      md: 'mdi-language-markdown',
+      pdf: 'mdi-file-pdf',
+      png: 'mdi-file-image',
+      txt: 'mdi-file-document-outline',
+      xls: 'mdi-file-excel',
+    },
+    tree: [],
+    items: [
+      {
+        name: '.git',
+      },
+      {
+        name: 'node_modules',
+      },
+      {
+        name: 'public',
+        children: [
+          {
+            name: 'static',
+            children: [{
+              name: 'logo.png',
+              file: 'png',
+            }],
+          },
+          {
+            name: 'favicon.ico',
+            file: 'png',
+          },
+          {
+            name: 'index.html',
+            file: 'html',
+          },
+        ],
+      },
+      {
+        name: '.gitignore',
+        file: 'txt',
+      },
+      {
+        name: 'babel.config.js',
+        file: 'js',
+      },
+      {
+        name: 'package.json',
+        file: 'json',
+      },
+      {
+        name: 'README.md',
+        file: 'md',
+      },
+      {
+        name: 'vue.config.js',
+        file: 'js',
+      },
+      {
+        name: 'yarn.lock',
+        file: 'txt',
+      },
+    ],
+  }),
 }
 </script>
 
@@ -30,23 +95,13 @@ export default {
 
 .xidps-menu{
   width:310px;
-  height:90vh;
   background-color:$dark-blue-grey;
-  .v-treeview-node__children{
-    padding:0 !important;
-    width:100% !important;
-  }
-  ::v-deep .v-treeview-node__toggle{
-    width:0px !important;
-  }
-  ::v-deep .v-treeview{
-    padding:0px !important;
-  }
-  ::v-deep .v-treeview-node__root{
-    padding:0px !important;
-  }
-  ::v-deep .v-treeview-node__level{
-    width:0px !important;
-  }
+  color:$white !important;
+}
+::v-deep .v-treeview-node--active{
+  background-color: $dark-blue-grey;
+  border-left: 6px solid $cornflower;
+  margin-left: -6px;
+  color:$white !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <user-profile></user-profile>
-    <tree-view></tree-view>
+    <tree-view class="xidps-menu"></tree-view>
   </v-card>
 </template>
 
@@ -11,6 +11,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .xidps-menu{
+    height:60vh;
+    overflow-y: scroll;
+    padding:6px;
+  }
 </style>
