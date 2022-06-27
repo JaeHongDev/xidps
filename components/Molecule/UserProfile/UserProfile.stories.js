@@ -8,7 +8,7 @@ const Template = (args,{argsType}) =>({
       VApp:() =>import('vuetify/lib/components/VApp') //VApp
     },
     props:Object.keys(args),
-    template:`<v-app><user-profile :message="$props.message" :notification="$props.notification"></user-profile></v-app>`
+    template:`<v-app><user-profile :message="$props.message" :notification="$props.notification"  :username="$props.username" :companyName="$props.companyName" :avatar="$props.avatar"></user-profile></v-app>`
   }
 )
 
@@ -22,5 +22,8 @@ Default.args = {
   },
   notification:{
     count:0
-  }
+  },
+  username:"",
+  companyName:"",
+  avatar:"https://cdn.vuetifyjs.com/images/john.jpg",
 }

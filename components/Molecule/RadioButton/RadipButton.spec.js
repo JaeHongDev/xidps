@@ -2,7 +2,6 @@ import {shallowMount} from "@vue/test-utils";
 import "@vue/test-utils"
 import RadioButton from "@/components/Molecule/RadioButton/RadioButton";
 import {findItemToArray} from "@/helper/Array";
-import nuxt from "@/.nuxt-storybook/components/nuxt";
 
 describe("RadioButton.vue", () => {
   const lists = ["버튼1", "버튼2", "버튼3", "버튼4"];
