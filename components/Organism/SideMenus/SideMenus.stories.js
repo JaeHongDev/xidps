@@ -10,3 +10,6 @@ const Template = (args,{argsType}) =>({
 
   template: `<v-app><SideMenus></SideMenus></v-app>`
 })
+
+
+export const Sample = Template.bind({});

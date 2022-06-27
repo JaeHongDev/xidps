@@ -1,7 +1,8 @@
 <template>
-  <div>
-    sideMenus
-  </div>
+  <v-card>
+    <user-profile></user-profile>
+    <menu-list></menu-list>
+  </v-card>
 </template>
 
 <script>
