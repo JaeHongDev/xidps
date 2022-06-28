@@ -1,19 +1,19 @@
 <template>
   <v-treeview
-    class="xidps-menu"
+    class="xidps-menu-wrap"
     v-model="tree"
-    :open="initiallyOpen"
     :items="items"
     activatable
     item-key="name"
     open-on-click
+    expand-icon=""
   >
+    <template v-slot:label="{item,open}" >
+      <menu-item class="xidps-menu" :menu-name="item.name" :has-child="item.children" :icon="item.icon" ></menu-item>
+    </template>
     <template v-slot:append="{ item, open }">
-      <v-icon v-if="!item.file">
-        {{ open ? 'mdi-folder-open' : 'mdi-folder' }}
-      </v-icon>
-      <v-icon v-else>
-        {{ files[item.file] }}
+      <v-icon class="white--text" v-if="item.children">
+        {{ open ? 'mdi-chevron-down' : 'mdi-chevron-up' }}
       </v-icon>
     </template>
   </v-treeview>
@@ -23,85 +23,37 @@
 export default {
   name: "TreeView",
   data: () => ({
-    initiallyOpen: ['public'],
-    files: {
-      html: 'mdi-language-html5',
-      js: 'mdi-nodejs',
-      json: 'mdi-code-json',
-      md: 'mdi-language-markdown',
-      pdf: 'mdi-file-pdf',
-      png: 'mdi-file-image',
-      txt: 'mdi-file-document-outline',
-      xls: 'mdi-file-excel',
-    },
     tree: [],
-    items: [
-      {
-        name: '.git',
-      },
-      {
-        name: 'node_modules',
-      },
-      {
-        name: 'public',
-        children: [
-          {
-            name: 'static',
-            children: [{
-              name: 'logo.png',
-              file: 'png',
-            }],
-          },
-          {
-            name: 'favicon.ico',
-            file: 'png',
-          },
-          {
-            name: 'index.html',
-            file: 'html',
-          },
-        ],
-      },
-      {
-        name: '.gitignore',
-        file: 'txt',
-      },
-      {
-        name: 'babel.config.js',
-        file: 'js',
-      },
-      {
-        name: 'package.json',
-        file: 'json',
-      },
-      {
-        name: 'README.md',
-        file: 'md',
-      },
-      {
-        name: 'vue.config.js',
-        file: 'js',
-      },
-      {
-        name: 'yarn.lock',
-        file: 'txt',
-      },
-    ],
+    items:[
+      {icon:"mdi-home", name:"대시보드"},
+      {icon:"mdi-phone", name:"발신번호 관리"},
+      {icon:"mdi-account-plus", name:"사용자 관리"},
+      {icon:"mdi-folder-account", name:"공통 주소록 관리"},
+      {icon:"mdi-view-dashboard", name:"발송량 관리"},
+      {icon:"mdi-cog", name:"기능 설정"},
+    ]
   }),
 }
 </script>
 
 <style scoped lang="scss">
 
-.xidps-menu{
+.xidps-menu-wrap{
   width:310px;
   background-color:$dark-blue-grey;
   color:$white !important;
+  padding-left:6px;
 }
 ::v-deep .v-treeview-node--active{
-  background-color: $dark-blue-grey;
+  background-color: $dark-indigo !important;
   border-left: 6px solid $cornflower;
   margin-left: -6px;
   color:$white !important;
+}
+::v-deep .v-treeview-node__level {
+  width:0 !important;
+}
+::v-deep .v-treeview-node__toggle{
+  width:0 !important;
 }
 </style>

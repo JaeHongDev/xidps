@@ -1,7 +1,10 @@
 <template>
-
-  <nuxt-link :class="{clicked:selected}" class="xidps-menu-item" to="/admin/user/manage" @click="selected=true">
-    <v-icon>{{ icon }}</v-icon>
+  <div v-if="hasChild" :class="[{'fs-6': IsChild}]" class="xidps-menu-item">
+    <v-icon size="6">{{ icon }}</v-icon>
+    <span class="xidps-menu-content">{{ menuName }}</span>
+  </div>
+  <nuxt-link v-else :class="[{'fs-6': IsChild}]" class="xidps-menu-item" to="/admin/user/manage">
+    <v-icon size="14">{{ icon }}</v-icon>
     <span class="xidps-menu-content">{{ menuName }}</span>
   </nuxt-link>
 
@@ -29,14 +32,23 @@ export default {
         return true
       }
     },
+    hasChild:{
+      type:Boolean,
+      default:function(){
+        return false;
+      }
+    }
   },
+  computed:{
+    IsChild(){
+      return this.$parent.level;
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .xidps-menu-item {
-  width: 310px;
-  padding-left: 30px;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -44,9 +56,6 @@ export default {
   color: $white;
   font-weight: $semi-bold;
 
-  &:hover {
-    background-color: $dark-indigo;
-  }
 
   .v-icon {
     color: $lavender !important;
@@ -54,13 +63,7 @@ export default {
   }
 
   .xidps-menu-content {
-    padding-left: 10px;
   }
 }
 
-.clicked {
-  background-color: $dark-blue-grey;
-  border-left: 6px solid $cornflower;
-  margin-left: -6px;
-}
 </style>

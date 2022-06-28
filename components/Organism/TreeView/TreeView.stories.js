@@ -4,9 +4,11 @@ export default{
 
 const Template = (args,{argsType}) =>({
   components:{
-    TreeView:()=> import('~/components/Organism/TreeView/TreeView')
+    TreeView:()=> import('~/components/Organism/TreeView/TreeView'),
+    VApp:() =>import('vuetify/lib/components/VApp') //VApp
+
   },
-  template:`<tree-view></tree-view>`
+  template:`<v-app><tree-view></tree-view></v-app>`
 })
 
 export const Default = Template.bind({});
