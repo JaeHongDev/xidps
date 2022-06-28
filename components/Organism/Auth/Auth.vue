@@ -26,8 +26,8 @@
               <v-select outlined :items="items" label="기업 및 대학 선택" dense :loading="loading" v-model="userAuthForm.selectedCompany"></v-select>
             </div>
             <div>
-              <v-text-field label="ID" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.id"></v-text-field>
-              <v-text-field label="PW" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.password"></v-text-field>
+              <v-text-field @input="setChange($event,'userId')" label="ID" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.id"></v-text-field>
+              <v-text-field @input="setChange($event,'userPassword')" label="PW" class="fc-light-navy-blue fw-semi-bold" v-model="userAuthForm.password"></v-text-field>
             </div>
             <v-row>
               <v-col cols="8">
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import api from "~/helper/api";
+import api from "@/helper/api/api";
 
 export default {
   name: "Auth",
@@ -85,8 +85,17 @@ export default {
       this.$data.items = ["sample1","sample2","sample3","sample4","sample5","sample6"]
       this.loading = false;
     },
+    setChange(value,target){
+      console.log(value,target);
+      this.$store.commit('auth/setValue',{
+        target,
+        value
+      })
+    },
     handleLogin(){
-      console.log(this.$data);
+      //console.log(this.$data);
+      console.log(this.$store.state.auth);
+      this.$store.dispatch("auth/requestLogin");
       this.$data.loginFail = this.$data.userAuthForm.id !== "admin";
     }
   }

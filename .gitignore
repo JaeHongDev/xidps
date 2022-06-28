@@ -93,3 +93,6 @@ sw.*
 .nuxt-storybook
 .storybook
 storybook-static
+
+
+request.json

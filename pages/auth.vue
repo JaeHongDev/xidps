@@ -5,7 +5,17 @@
 <script>
 export default {
   name: "auth",
-  layout:"login"
+  layout:"login",
+  data(){
+    return {
+      token:this.$store.state.auth.token
+    }
+  },
+  watch:{
+    token:function(){
+      location.href="/index";
+    }
+  }
 }
 </script>
 

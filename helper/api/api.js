@@ -1,3 +1,4 @@
+
 const apiConfig = {
   mode: 'cors', // no-cors, *cors, same-origin
   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -32,13 +33,20 @@ const apiConfig = {
  * @param {targetElement} $elements
  * @summary
  */
-const get = (url, config) => {
+const get = (url,data, config) => {
   return request(url, {
     ...apiConfig,
+    body:JSON.stringify(data),
     method: "GET"
   });
 }
-
+const post = (url,data,config) =>{
+  return request(url,{
+    ...apiConfig,
+    method:"POST",
+    body: JSON.stringify(data)
+  })
+}
 /**
  * @param {string} url url bla bla
  * @param {requestOption} config - config
@@ -60,5 +68,8 @@ const request = async (url, config) => {
 
 
 export default {
-  get
+  get,
+  post
 }
+
+
