@@ -31,9 +31,10 @@ export const actions = {
       long1:l_time
     };
     const result = await api.post("https://otp.xidsys.co.kr/mbs/lo_ent",data)
-    console.log(result);
-    context.commit("setToken",result.token);
+    if(result.token === null) return ;
 
+    context.commit("setToken",result.token);
+    location.href="/";
     /*const requestUserData = await api
       .post("https://otp.xidsys.co.kr/mbs/add_usr_inf",{
         Authorization:`Bearer ${context.state.token}`
