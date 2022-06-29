@@ -13,18 +13,12 @@ export const mutations = {
   setToken(state,token){
     state.token = token;
   },
-  setUserId(state, value){
-    state.auth.userId = value;
-  },
-  setUserPassword(state,password){
-    state.auth.userPassword = password;
-  }
 }
 
 export const actions = {
   async requestLogin(context){
     const {l_time} =  await api.get("https://otp.xidsys.co.kr/mbs/access");
-    console.log(l_time);
+
     const data ={
       str1:context.state.userId,
       str2:context.state.userPassword,
@@ -34,7 +28,8 @@ export const actions = {
     if(result.token === null) return ;
 
     context.commit("setToken",result.token);
-    location.href="/";
+    await this.$router.push("/");
+
     /*const requestUserData = await api
       .post("https://otp.xidsys.co.kr/mbs/add_usr_inf",{
         Authorization:`Bearer ${context.state.token}`

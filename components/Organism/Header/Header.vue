@@ -10,8 +10,8 @@
       <span>XID 메시징 서비스</span>
     </div>
     <v-spacer></v-spacer>
-    <a class="text-decoration-none">Q&A</a>
-    <a>1:1문의</a>
+    <a class="text-decoration-none white--text">Q&A</a>
+    <a class="text-decoration-none white--text">1:1문의</a>
   </v-app-bar>
 </template>
 

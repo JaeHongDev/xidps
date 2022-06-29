@@ -1,8 +1,8 @@
 <template>
-  <v-card>
+  <div class="xidps-menu-wrap">
     <user-profile></user-profile>
     <tree-view class="xidps-menu"></tree-view>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -12,9 +12,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .xidps-menu-wrap{
+
+  }
   .xidps-menu{
-    height:60vh;
-    overflow-y: scroll;
     padding:6px;
+    overflow-y: scroll;
+    height: calc(100vh - 300px);
   }
 </style>
