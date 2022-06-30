@@ -15,23 +15,14 @@
 <script>
 export default {
   name: "ItemSelector",
-
-  data: () => ({
-    items: [{
-      id:1,
-      value:"aaa"
-    },{
-      id:2,
-      value:"bbb"
-    },{
-      id:3,
-      value:"ccc"
+  props:{
+    items:{
+      type:Array,
+      default:function(){
+        return [{id:1,value:"게시글이 없습니다."}]
+      }
     }
-    ],
-    index:0,
-    counter:-1
-  }),
-
+  },
   mounted(){
     setInterval(()=>{
       if(this.index === 0){
