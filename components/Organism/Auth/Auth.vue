@@ -14,7 +14,6 @@
                 아이디 혹은 비밀번호가 존재하지 않습니다.
               </v-alert>
             </v-fab-transition>
-
             <div class="d-flex align-center">
               <v-icon class="icon-size">mdi-send</v-icon>
               <span class="fs-1 fc-light-navy-blue fw-bold">
@@ -43,7 +42,7 @@
             </v-row>
           </div>
           <div class="float-end">
-            <v-btn class="bg-light-navy-blue" color="bg-light-navy-blue" @click="handleLogin">로그인</v-btn>
+            <v-btn class="bg-light-navy-blue white--text"  @click="handleLogin">로그인</v-btn>
           </div>
         </form>
       </v-col>
@@ -134,6 +133,9 @@ export default {
   background-image: url("~/static/login.png");
   height: 100%;
   background-size:cover;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+
 }
 
 
