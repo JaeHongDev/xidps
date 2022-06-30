@@ -1,7 +1,7 @@
 <template>
   <div class="xidps-menu-wrap">
     <div class="xidps-menu-title">
-      Manager
+      {{ title }}
     </div>
     <v-treeview
       v-model="tree"
@@ -32,6 +32,12 @@
 export default {
   name: "TreeView",
   props: {
+    title: {
+      type: String,
+      default: function () {
+        return ""
+      }
+    },
     items: {
       type: Array,
       default: function () {
