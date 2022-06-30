@@ -15,6 +15,11 @@
 <script>
 export default {
   name: "ItemSelector",
+  data(){
+    return {
+      index:0
+    }
+  },
   props:{
     items:{
       type:Array,

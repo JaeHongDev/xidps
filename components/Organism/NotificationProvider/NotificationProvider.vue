@@ -20,7 +20,7 @@ export default {
   name: "NotificationProvider",
   props: {
     notification: {
-      type:Array,
+      type:Object,
       default:function(){
         return {
           warn: "긴급) 2022년 5월 12일 2시~3시 서버장애 안내 - 해결완료되었습니다.",
