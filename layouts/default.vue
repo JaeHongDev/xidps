@@ -1,46 +1,17 @@
 <template>
   <v-app>
-    <Header app/>
-
+    <Header/>
     <v-main>
       <!-- Provides the application the proper gutter -->
         <side-menus class="xidps-navigation"/>
         <div class="xidps-main-container">
-
           <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
-          <NotificationProvider />
+          <Nuxt/>
         </div>
 
-        <!-- If using vue-router -->
     </v-main>
 
-    <v-footer app>
-      <!-- -->
-    </v-footer>
+
   </v-app>
 </template>
 
@@ -51,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
+.v-application{
+}
 .xidps-navigation{
   position: fixed;
   left: 0;

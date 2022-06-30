@@ -55,14 +55,14 @@ export default {
 }
 
 .xidps-menu-wrap {
-  background-color: $dark-blue-grey;
   width: 310px;
 }
 
 .xidps-menu {
+  background-color: $dark-blue-grey;
   padding-right: 6px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 294px);
 }
 </style>

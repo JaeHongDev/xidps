@@ -1,5 +1,5 @@
 <template>
-  <div class="xidps-menu-wrap">
+  <div class="xidps-treeview-wrap">
     <div class="xidps-menu-title">
       {{ title }}
     </div>
@@ -83,7 +83,7 @@ export default {
 
 <style scoped lang="scss">
 
-.xidps-menu-wrap {
+.xidps-treeview-wrap {
   width: 310px;
   background-color: $dark-blue-grey;
   color: $white !important;

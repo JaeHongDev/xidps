@@ -34,9 +34,13 @@ export default {
 
 <style scoped lang="scss">
 .xidps-header{
+  height:64px !important;
   .xidps-qna{
     margin-right:42px;
   }
+}
+::v-deep .v-app-bar-title__content{
+  height:56px;
 }
 ::v-deep .v-toolbar__content{
   padding:0;

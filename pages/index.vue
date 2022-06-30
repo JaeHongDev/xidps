@@ -1,5 +1,4 @@
 <template>
- <notification-provider/>
 </template>
 
 <script>
