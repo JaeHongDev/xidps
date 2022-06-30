@@ -94,5 +94,6 @@ sw.*
 .storybook
 storybook-static
 
+package-lock.json
 
 request.json
