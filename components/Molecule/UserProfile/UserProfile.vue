@@ -26,7 +26,10 @@
         <span data-test="remain-message" @mouseleave="messageVisible=false" @mouseover="messageVisible=true"
               @click="messageFixable=!messageFixable">{{ representMessageCount }}</span>
         </template>
-        <span data-test="tooltip-text">1234</span>
+        <span data-test="tooltip-text">
+          <div><span>SMS {{ concatMessageCount(message.SMS) }} LMS {{concatMessageCount(message.LMS)}}</span></div>
+          <div>MMS {{concatMessageCount(message.MMS)}}  PUSH {{concatMessageCount(message.PUSH)}}</div>
+        </span>
       </v-tooltip>
     </div>
 
@@ -82,6 +85,12 @@ export default {
     },
     tooltipVisible() {
       return this.messageVisible || this.messageFixable;
+    },
+
+  },
+  methods:{
+    concatMessageCount(count){
+      return count.toLocaleString("ko-KR") + "건";
     }
   }
 }
