@@ -10,7 +10,6 @@
         </tr>
         </thead>
       </template>
-
       <template v-slot:body="{items}">
         <tbody>
         <tr v-for="item in items">
@@ -51,6 +50,11 @@ export default {
         {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
         {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
         {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
+        {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
+        {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
+        {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
+        {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
+        {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1},
         {a: 1, b: 1, c: 1, d: 1, e: 1, f: 1}
 
       ]
@@ -64,21 +68,30 @@ export default {
   thead {
     //border-top: 1px solid $warm-grey !important;
     //border-bottom: 1px solid $warm-grey !important;
+    border-top:1px solid $warm-grey;
+    border-bottom:1px solid $warm-grey;
     border-left: none;
     border-right: none;
+
   }
+
 
   tbody {
-    //border-bottom: 1px solid $warm-grey !important;
+    border-bottom: 1px solid $warm-grey;
   }
 
-  td {
+  td , th{
     //border-right: 1px dashed  !important;
     border-bottom: none !important;
     text-align: center;
     //color: $light-navy-blue-color !important;
     vertical-align: middle !important;
+    border-right:2px dashed #d5d5d5;
+    border-spacing: 5px;
 
+    &:last-child{
+      border-right:none;
+    }
   }
 
   th {

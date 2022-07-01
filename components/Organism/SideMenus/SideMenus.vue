@@ -21,9 +21,9 @@ export default {
         return [
           {
             title: "Empty", items: [
-          {id: 2, icon: "mdi-phone", name: "sample1" },
-          {id: 3, icon: "mdi-account-plus", name: "sample2" },
-          {id: 4, icon: "mdi-folder-account", name: "sample3" },
+              {id: 2, icon: "mdi-phone", name: "sample1" },
+              {id: 3, icon: "mdi-account-plus", name: "sample2" },
+              {id: 4, icon: "mdi-folder-account", name: "sample3" },
               {id: 5, icon: "mdi-view-dashboard", name: "sample4" },
               {id: 6, icon: "mdi-cog", name  : "sample5 "}
             ]
