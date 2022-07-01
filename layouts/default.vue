@@ -6,12 +6,9 @@
         <side-menus class="xidps-navigation"/>
         <div class="xidps-main-container">
           <NotificationProvider />
-          <Nuxt/>
+          <Nuxt class="pt-3"/>
         </div>
-
     </v-main>
-
-
   </v-app>
 </template>
 

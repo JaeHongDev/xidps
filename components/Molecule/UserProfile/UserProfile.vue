@@ -12,7 +12,7 @@
       </div>
       <v-divider class="bg-white"></v-divider>
       <div>
-        <span class="fw-regular fs-5">로그아웃</span>
+          <nuxt-link to="/auth" class="fw-regular fs-5 text-decoration-none white--text" >로그아웃</nuxt-link>
       </div>
     </div>
     <div class="xidps-unread-notification">
@@ -50,10 +50,10 @@ export default {
       type: Object,
       default: function () {
         return {
-          SMS: 0,
-          LMS: 0,
-          MMS: 0,
-          PUSH: 0,
+          SMS: 1000,
+          LMS: 2000,
+          MMS: 3000,
+          PUSH: 4000,
         }
       }
     },

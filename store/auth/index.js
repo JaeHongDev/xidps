@@ -28,7 +28,6 @@ export const actions = {
     if(result.token === null) return ;
 
     context.commit("setToken",result.token);
-    await this.$router.push("/");
 
     /*const requestUserData = await api
       .post("https://otp.xidsys.co.kr/mbs/add_usr_inf",{

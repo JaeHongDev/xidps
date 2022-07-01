@@ -4,16 +4,6 @@
       <v-col class="auth-form-wrap" cols="6">
         <form>
           <div class="auth-form-content">
-            <v-fab-transition>
-              <v-alert
-                v-show="loginFail"
-                prominent
-                type="error"
-                class="fs-7"
-              >
-                아이디 혹은 비밀번호가 존재하지 않습니다.
-              </v-alert>
-            </v-fab-transition>
             <div class="d-flex align-center">
               <v-icon class="icon-size">mdi-send</v-icon>
               <span class="fs-1 fc-light-navy-blue fw-bold">
@@ -31,6 +21,17 @@
               <v-text-field @input="setChange($event,'userPassword')" label="PW" class="fc-light-navy-blue fw-semi-bold"
                             v-model="userAuthForm.password" type="password"></v-text-field>
             </div>
+            <v-fab-transition>
+              <v-alert
+                v-show="loginFail"
+                prominent
+                type="error"
+                class="fs-6"
+                dense
+              >
+                아이디 혹은 비밀번호가 존재하지 않습니다.
+              </v-alert>
+            </v-fab-transition>
             <v-row>
               <v-col cols="7">
                 <span class="fc-light-navy-blue fs-7 fw-regular">서비스를 체험해보고 싶으신가요?</span>
@@ -39,6 +40,7 @@
                 <a class="fc-light-navy-blue fs-5 fw-regular">체험하기</a>
               </v-col>
             </v-row>
+
             <div class="d-flex">
               <v-checkbox dense label='설정기억' class="fs-8" v-model="isSavedCompanyName"></v-checkbox>
               <v-checkbox dense label='아이디기억' class="ml-2 fs-6" v-model="isSavedId"></v-checkbox>
@@ -98,7 +100,11 @@ export default {
       //console.log(this.$data);
       console.log(this.$store.state.auth);
       this.$store.dispatch("auth/requestLogin");
-      this.$data.loginFail = this.$data.userAuthForm.id !== "admin";
+      this.$data.loginFail = this.$data.userAuthForm.id !== "xidsys";
+      if(this.$data.loginFail) return;
+
+      this.$router.push("/");
+
     }
   }
 }
