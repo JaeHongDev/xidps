@@ -2,7 +2,6 @@ export default{
   title:"Organism/CallerManager"
 }
 
-
 const Template = (args, { argTypes }) => ({
   components: {
     CallerManager:()=>import('~/components/Organism/CallerManager/CallerManager'),

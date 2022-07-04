@@ -1,7 +1,5 @@
 <template>
-  <v-container>
   <v-text-field
-    v-model="message"
     outlined
     clearable
     dense
@@ -16,7 +14,6 @@
       </v-btn>
     </template>
   </v-text-field>
-  </v-container>
 </template>
 
 <script>
@@ -26,9 +23,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.v-input__control{
-  min-height: 30px !important;
-}
 .xidps-search-bar{
   font-size: $fs8 !important;
 }

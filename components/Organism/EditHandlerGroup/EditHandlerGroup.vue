@@ -1,26 +1,18 @@
 <template>
   <div class="xidps-container">
-      <v-text-field
-        label="Solo"
-        solo
-        class="xidps-search-bar"
-        hide-details
-        dense
-      ></v-text-field>
-
+    <search-text-box></search-text-box>
     <slot></slot>
     <v-btn class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
-    <v-btn class="xidps-btn xidps-btn-add xidps-btn-import" elevation="1">
+    <v-btn class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0">
       <v-icon>mdi-plus</v-icon>
       엑셀 추가
     </v-btn>
-    <v-btn class="xidps-btn xidps-btn-add" elevation="1">
+    <v-btn class="xidps-btn xidps-btn-add" elevation="0">
       <v-icon>mdi-plus</v-icon>
       추가
     </v-btn>
     <v-btn class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
   </div>
-
 </template>
 
 <script>
@@ -30,23 +22,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.xidps-container{
-  display:flex;
+.xidps-container {
+  display: flex;
   justify-content: space-around;
-  width:790px;
-  align-items: center;
+  align-items:flex-start;
 
-  *{
-    margin-right:10px;
+  * {
+    margin-right: 10px;
   }
 }
 
-.v-text-field{
-  height:30px !important;
+.v-text-field {
+  height: 30px !important;
 }
+
 .xidps-search-bar {
   width: 210px;
-  height:30px !important;
+  height: 30px !important;
 }
 
 .xidps-btn-delete {
