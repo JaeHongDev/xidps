@@ -9,7 +9,7 @@
     class="xidps-search-text"
   >
     <template v-slot:append>
-      <v-btn icon  width="24" height="24">
+      <v-btn icon  width="12" height="12">
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </template>
