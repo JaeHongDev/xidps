@@ -8,32 +8,53 @@
         <v-btn @click="findRows">조회</v-btn>
       </edit-handler-group>
     </div>
-    <v-data-table dense :headers="headers" :items="items" class="caller-manager-table" show-select  item-key="number">
-        <template v-slot:item="{item}">
-          <tr v-if="item.division === 'SELECT'">
-            <td><v-simple-checkbox></v-simple-checkbox></td>
-            <td>{{ item.number }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.dept }}</td>
-            <td>{{ item.status }}</td>
-            <td>{{ item.memo }}</td>
-            <td>
-              <v-btn @click = "item.changeDivisionByUpdate()">수정</v-btn>
-              <v-btn>설정</v-btn>
-            </td>
-          </tr>
-          <tr v-if="item.division === 'INSERT' || item.division === 'UPDATE' ">
-            <td><v-simple-checkbox></v-simple-checkbox></td>
-            <td>{{item.number}}</td>
-            <td><v-text-field hide-details outlined dense v-model="item.name"/> </td>
-            <td><v-text-field hide-details outlined dense v-model="item.dept"/></td>
-            <td>{{item.status}}</td>
-            <td><v-text-field hide-details outlined dense v-model="item.memo"/></td>
-            <td>
-              <v-btn @click="item.changeDivisionBySelect()">확인</v-btn>
-              <v-btn>설정</v-btn>
-            </td>
-          </tr>
+    <v-data-table dense height="755"
+                  :headers="headers" :items="items" class="caller-manager-table" show-select
+                  items-per-page="20"
+                  item-key="number">
+      <template v-slot:item="{item}">
+        <tr v-if="item.division === 'SELECT'">
+          <td>
+            <v-simple-checkbox></v-simple-checkbox>
+          </td>
+          <td>{{ item.number }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.dept }}</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.memo }}</td>
+          <td>
+            <v-btn @click="item.changeDivisionByUpdate()" icon>
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon>mdi-cog</v-icon>
+            </v-btn>
+          </td>
+        </tr>
+        <tr v-if="item.division === 'INSERT' || item.division === 'UPDATE' ">
+          <td>
+            <v-simple-checkbox></v-simple-checkbox>
+          </td>
+          <td>{{ item.number }}</td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="item.name"/>
+          </td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="item.dept"/>
+          </td>
+          <td>{{ item.status }}</td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="item.memo"/>
+          </td>
+          <td>
+            <v-btn @click="item.changeDivisionBySelect()" icon>
+              <v-icon>mdi-check</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon>mdi-cancel</v-icon>
+            </v-btn>
+          </td>
+        </tr>
       </template>
     </v-data-table>
     <div class="text-center pt-2">
@@ -51,12 +72,12 @@ export default {
   data() {
     return {
       headers: [
-        { value: "발신번호", align: "center", divider: true, text: "발신번호", width: "100px"},
-        { value: "담당자", align: "center", divider: true, text: "담당자", width: "200px",},
-        { value: "조직", align: "center", divider: true, text: "조직", width: "200px",},
-        { value: "상태", align: "center", divider: true, text: "상태", width: "200px",},
-        { value: "메모", align: "center", divider: true, text: "메모", width: "200px",},
-        { value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
+        {value: "발신번호", align: "center", divider: true, text: "발신번호", width: "100px"},
+        {value: "담당자", align: "center", divider: true, text: "담당자", width: "200px",},
+        {value: "조직", align: "center", divider: true, text: "조직", width: "400px",},
+        {value: "상태", align: "center", divider: true, text: "상태", width: "200px",},
+        {value: "메모", align: "center", divider: true, text: "메모", width: "200px",},
+        {value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
       ],
       items: []
     }
@@ -89,7 +110,6 @@ export default {
       color: $light-navy-blue !important;
       vertical-align: middle !important;
       font-size: $semi-bold;
-
       border-bottom: none !important;
       text-align: center;
       //color: $light-navy-blue-color !important;
@@ -104,9 +124,12 @@ export default {
 
   tbody {
     border-bottom: 1px solid $warm-grey;
-    tr{
-      max-height:35px !important;
+    height: 550px !important;
+
+    tr {
+      max-height: 35px !important;
     }
+
     tr:hover {
       background-color: $pale-lilac !important;
       cursor: pointer;
@@ -122,13 +145,14 @@ export default {
     vertical-align: middle !important;
     border-right: 2px dashed #d5d5d5;
     border-spacing: 5px;
+    border-collapse: collapse;
 
     &:last-child {
       border-right: none;
     }
   }
 
-  .v-text--field{
+  .v-text--field {
     min-height: 35px !important;
   }
 }
