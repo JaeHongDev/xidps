@@ -8,11 +8,10 @@
         <v-btn @click="findRows">조회</v-btn>
       </edit-handler-group>
     </div>
-    <v-data-table dense :headers="headers" :items="items" class="caller-manager-table">
-      <template v-slot:body="{items}">
-        <tbody>
-        <template v-for="item in items">
+    <v-data-table dense :headers="headers" :items="items" class="caller-manager-table" show-select  item-key="number">
+        <template v-slot:item="{item}">
           <tr v-if="item.division === 'SELECT'">
+            <td><v-simple-checkbox></v-simple-checkbox></td>
             <td>{{ item.number }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.dept }}</td>
@@ -24,18 +23,17 @@
             </td>
           </tr>
           <tr v-if="item.division === 'INSERT' || item.division === 'UPDATE' ">
-            <td><v-text-field outlined dense v-model="item.number"/></td>
-            <td><v-text-field outlined dense v-model="item.name"/></td>
-            <td><v-text-field outlined dense v-model="item.dept"/></td>
-            <td><v-text-field outlined dense v-model="item.status"/></td>
-            <td><v-text-field outlined dense v-model="item.memo"/></td>
+            <td><v-simple-checkbox></v-simple-checkbox></td>
+            <td>{{item.number}}</td>
+            <td><v-text-field hide-details outlined dense v-model="item.name"/> </td>
+            <td><v-text-field hide-details outlined dense v-model="item.dept"/></td>
+            <td>{{item.status}}</td>
+            <td><v-text-field hide-details outlined dense v-model="item.memo"/></td>
             <td>
               <v-btn @click="item.changeDivisionBySelect()">확인</v-btn>
               <v-btn>설정</v-btn>
             </td>
           </tr>
-        </template>
-        </tbody>
       </template>
     </v-data-table>
     <div class="text-center pt-2">
@@ -53,12 +51,12 @@ export default {
   data() {
     return {
       headers: [
-        {value: "발신번호", align: "center", divider: true, text: "발신번호", width: "100px"},
-        {value: "담당자", align: "center", divider: true, text: "담당자", width: "200px",},
-        {value: "조직", align: "center", divider: true, text: "조직", width: "200px",},
-        {value: "상태", align: "center", divider: true, text: "상태", width: "200px",},
-        {value: "메모", align: "center", divider: true, text: "메모", width: "200px",},
-        {value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
+        { value: "발신번호", align: "center", divider: true, text: "발신번호", width: "100px"},
+        { value: "담당자", align: "center", divider: true, text: "담당자", width: "200px",},
+        { value: "조직", align: "center", divider: true, text: "조직", width: "200px",},
+        { value: "상태", align: "center", divider: true, text: "상태", width: "200px",},
+        { value: "메모", align: "center", divider: true, text: "메모", width: "200px",},
+        { value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
       ],
       items: []
     }
@@ -107,7 +105,7 @@ export default {
   tbody {
     border-bottom: 1px solid $warm-grey;
     tr{
-      padding:10px;
+      max-height:35px !important;
     }
     tr:hover {
       background-color: $pale-lilac !important;
@@ -130,7 +128,9 @@ export default {
     }
   }
 
-
+  .v-text--field{
+    min-height: 35px !important;
+  }
 }
 
 .xidps-edit-handler-group {
