@@ -8,6 +8,6 @@ export const state = () =>({
 
 export const mutations = {
   insertRow(state){
-    state.managers.push(callerManagerService.CreateOne());
+    state.managers.unshift(callerManagerService.CreateOne());
   }
 }
