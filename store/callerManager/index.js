@@ -25,29 +25,18 @@ const getDefaultCallerManagers = () => {
 
 
 export const mutations = {
-  insertRow(state, number) {
-    const entity = callerManagerService.CreateOne();
-    console.log(number);
-    entity.number = number;
-    state.managers.unshift(entity);
-  },
+
   insertCallerManager(state, number) {
     state.managers.unshift(createCallerManagerEntity(number));
   },
   removeCallerManager(state, index) {
     state.managers.remove(index);
   },
-  updateCallerManager(state, payload, index) {
-    state.managers[index] = {
-      ...payload
-    }
-  },
-  updateByIndex(state, index, updatedValue) {
-
-    state.managers[index] = {
+  updateByIndex(state, {index, payload}) {
+    state.managers.splice(index,1, state.managers[index] = {
       ...state.managers[index],
-      ...updatedValue
-    }
+      ...payload
+    })
   },
   removeByIndex(state, index) {
     state.managers.splice(index, 1);

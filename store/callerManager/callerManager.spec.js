@@ -31,7 +31,7 @@ describe('callerManager store file', () => {
       memo: "변경된 메모"
     };
     //when
-    mutations.updateByIndex(state, index, updatedValue);
+    mutations.updateByIndex(state, {index, payload:updatedValue});
     const targetCallerManager = state.managers[2];
     //then
     expect(targetCallerManager.name).toBe(updatedValue.name);

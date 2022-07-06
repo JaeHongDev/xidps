@@ -13,18 +13,44 @@
                   :headers="headers" :items="items" class="caller-manager-table" show-select
                   items-per-page="20"
                   item-key="number">
-      <template v-slot:item="{item}">
-        <tr v-if="item.division === 'SELECT'">
+      <template v-slot:item="{item,index}">
+
+        <tr v-if="item.editable">
+          <td>
+            <v-simple-checkbox></v-simple-checkbox>
+          </td>
+          <td>{{ item.number }}</td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="editItem.name"/>
+          </td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="editItem.department"/>
+          </td>
+          <td>{{ item.status }}</td>
+          <td>
+            <v-text-field hide-details outlined dense v-model="editItem.memo"/>
+          </td>
+          <td>
+            <v-btn @click="clickCheckBtn(index)" icon>
+              <v-icon>mdi-check</v-icon>
+            </v-btn>
+            <v-btn @click="$store.commit('callerManager/cancelEditState',index)" icon>
+              <v-icon>mdi-cancel</v-icon>
+            </v-btn>
+          </td>
+        </tr>
+
+        <tr v-else>
           <td>
             <v-simple-checkbox></v-simple-checkbox>
           </td>
           <td>{{ item.number }}</td>
           <td>{{ item.name }}</td>
-          <td>{{ item.dept }}</td>
+          <td>{{ item.department }}</td>
           <td>{{ item.status }}</td>
           <td>{{ item.memo }}</td>
           <td>
-            <v-btn @click="item.changeDivisionByUpdate()" icon>
+            <v-btn @click="clickEditBtn(index,item)" icon>
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
             <v-btn icon>
@@ -32,31 +58,8 @@
             </v-btn>
           </td>
         </tr>
-        <tr v-if="item.division === 'INSERT' || item.division === 'UPDATE' ">
-          <td>
-            <v-simple-checkbox></v-simple-checkbox>
-          </td>
-          <td>{{ item.number }}</td>
-          <td>
-            <v-text-field hide-details outlined dense v-model="item.name"/>
-          </td>
-          <td>
-            <v-text-field hide-details outlined dense v-model="item.dept"/>
-          </td>
-          <td>{{ item.status }}</td>
-          <td>
-            <v-text-field hide-details outlined dense v-model="item.memo"/>
-          </td>
-          <td>
-            <v-btn @click="item.changeDivisionBySelect()" icon>
-              <v-icon>mdi-check</v-icon>
-            </v-btn>
-            <v-btn icon>
-              <v-icon>mdi-cancel</v-icon>
-            </v-btn>
-          </td>
-        </tr>
       </template>
+
     </v-data-table>
     <div class="text-center pt-2">
       <v-pagination
@@ -81,7 +84,12 @@ export default {
         {value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
       ],
       items: [],
-      show:false
+      editItem: {
+        name: "",
+        department: "",
+        memo: ""
+      },
+      show: false
     }
   },
 
@@ -89,21 +97,45 @@ export default {
     clickAddBtn() {
       this.show = true;
     },
-    showModal(){
+    showModal() {
       this.show = true;
     },
-    closeModal(){
+    closeModal() {
       this.show = false;
     },
-    insertRow(callNumber){
-      this.$store.commit("callerManager/insertRow",callNumber);
-      this.show=false;
+    insertRow(callNumber) {
+      this.$store.commit("callerManager/insertCallerManager", callNumber);
+      this.show = false;
     }
     ,
     findRows() {
       this.items = this.$store.state.callerManager.managers
       console.log(this.items);
+    },
+
+    clickCheckBtn(index) {
+      console.log(this.editItem);
+
+      this.$store.commit('callerManager/updateByIndex', {index, payload: this.editItem});
+      this.$store.commit('callerManager/cancelEditState', index)
+
+      this.editItem.department = "";
+      this.editItem.name = "";
+      this.editItem.memo = "";
+    },
+
+    clickEditBtn(index,item){
+      this.editItem = {
+        department:  item.department,
+        name:item.name,
+        memo:item.memo
+      }
+      this.$store.commit('callerManager/editState',index)
     }
+  },
+
+  mounted() {
+    this.items = this.$store.state.callerManager.managers;
   }
 }
 </script>
