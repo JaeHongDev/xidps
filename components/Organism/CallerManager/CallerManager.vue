@@ -4,7 +4,8 @@
       <data-table-header>
       </data-table-header>
       <edit-handler-group class="xidps-edit-handler-group">
-        <v-btn @click="insertRow">테스트</v-btn>
+        <validate-caller-modal :dialog="show" @close-modal="closeModal" @insert-row="insertRow"></validate-caller-modal>
+        <v-btn @click="clickAddBtn">테스트</v-btn>
         <v-btn @click="findRows">조회</v-btn>
       </edit-handler-group>
     </div>
@@ -79,14 +80,26 @@ export default {
         {value: "메모", align: "center", divider: true, text: "메모", width: "200px",},
         {value: "관리", align: "center", divider: true, text: "관리", width: "200px",},
       ],
-      items: []
+      items: [],
+      show:false
     }
   },
 
   methods: {
-    insertRow() {
-      console.log(this.$store.commit("callerManager/insertRow"));
+    clickAddBtn() {
+      this.show = true;
     },
+    showModal(){
+      this.show = true;
+    },
+    closeModal(){
+      this.show = false;
+    },
+    insertRow(callNumber){
+      this.$store.commit("callerManager/insertRow",callNumber);
+      this.show=false;
+    }
+    ,
     findRows() {
       this.items = this.$store.state.callerManager.managers
       console.log(this.items);
