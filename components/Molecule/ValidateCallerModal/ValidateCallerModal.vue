@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog
-      v-model="dialog"
+      v-model="isShowCallerModal"
       width="900"
       persistent
     >
@@ -32,7 +32,7 @@
 export default {
   name: "ValidateCallerModal",
   props:{
-    dialog:{
+    isShowCallerModal:{
       type:Boolean,
       default:function(){
 
