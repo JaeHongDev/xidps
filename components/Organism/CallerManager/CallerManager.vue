@@ -1,6 +1,6 @@
 <template>
   <v-card class="pa-3">
-    <validate-caller-modal :dialog="show" @close-modal="closeModal" @insert-row="insertRow"></validate-caller-modal>
+    <validate-caller-modal :is-show-caller-modal="show" @close-modal="closeModal" @insert-row="insertRow"></validate-caller-modal>
     <v-row class="d-flex justify-space-between">
       <v-col><data-table-header title="발신자 관리" :count="items.length"></data-table-header></v-col>
       <v-col><edit-handler-group class="xidps-edit-handler-group"
@@ -13,7 +13,7 @@
     <v-data-table dense height="755"
                   :headers="headers"
                   :items="items"
-                  items-per-page="20"
+                  items-per-page=20
                   item-key="number"
                   class="caller-manager-table" show-select
     >
@@ -64,12 +64,6 @@
       </template>
 
     </v-data-table>
-    <div class="text-center pt-2">
-      <v-pagination
-        v-model="page"
-        :length="pageCount"
-      ></v-pagination>
-    </div>
   </v-card>
 </template>
 
@@ -153,6 +147,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
 .caller-manager-table {
   border-collapse: collapse;
 
