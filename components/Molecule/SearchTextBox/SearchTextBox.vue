@@ -2,6 +2,7 @@
   <v-text-field
     outlined
     clearable
+    @click:clear="clearText"
     dense
     type="text"
     hide-details
@@ -51,11 +52,15 @@ export default {
     }
   },
   methods: {
+    clearText(){
+      this.searchText = "";
+    },
     clickSearchBtn() {
       /*if(this.selectedKey === "") {
         alert("검색 조건이 선택되지 않았습니다.")
         return ;
       }*/
+      console.log(this.searchText);
       this.$emit("search",{
         searchColumnName:"number",
         searchText:this.searchText
