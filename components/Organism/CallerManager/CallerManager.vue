@@ -1,23 +1,26 @@
 <template>
   <v-card class="pa-3">
-    <div class="d-flex justify-space-between">
-      <data-table-header>
-      </data-table-header>
-      <edit-handler-group class="xidps-edit-handler-group">
-        <validate-caller-modal :dialog="show" @close-modal="closeModal" @insert-row="insertRow"></validate-caller-modal>
-        <v-btn @click="clickAddBtn">테스트</v-btn>
-        <v-btn @click="findRows">조회</v-btn>
-      </edit-handler-group>
-    </div>
+    <validate-caller-modal :dialog="show" @close-modal="closeModal" @insert-row="insertRow"></validate-caller-modal>
+    <v-row class="d-flex justify-space-between">
+      <v-col><data-table-header title="발신자 관리" :count="items.length"></data-table-header></v-col>
+      <v-col><edit-handler-group class="xidps-edit-handler-group"
+                                 @search="searchCallerManagers"
+                                 @click:add="showModal"
+                                 @click:remove="handleRemoveRow"
+                                 :search-headers="extractionHeaderKeyValue">
+      </edit-handler-group></v-col>
+    </v-row>
     <v-data-table dense height="755"
-                  :headers="headers" :items="items" class="caller-manager-table" show-select
+                  :headers="headers"
+                  :items="items"
                   items-per-page="20"
-                  item-key="number">
+                  item-key="number"
+                  class="caller-manager-table" show-select
+    >
       <template v-slot:item="{item,index}">
-
         <tr v-if="item.editable">
           <td>
-            <v-simple-checkbox></v-simple-checkbox>
+            <v-checkbox  v-model="selectedIndexes"  dense hide-details :value="index"></v-checkbox>
           </td>
           <td>{{ item.number }}</td>
           <td>
@@ -42,7 +45,7 @@
 
         <tr v-else>
           <td>
-            <v-simple-checkbox></v-simple-checkbox>
+            <v-checkbox v-model="selectedIndexes" hide-details :value="index"></v-checkbox>
           </td>
           <td>{{ item.number }}</td>
           <td>{{ item.name }}</td>
@@ -89,11 +92,22 @@ export default {
         department: "",
         memo: ""
       },
+      selectedIndexes:[],
       show: false
     }
   },
-
+  computed:{
+    extractionHeaderKeyValue(){
+      return this.headers.map((header)=>({
+        text:header.text,
+        value:header.value
+      }))
+    }
+  },
   methods: {
+    searchCallerManagers(payload){
+      this.items = this.$store.getters["callerManager/findByName"](payload);
+    },
     clickAddBtn() {
       this.show = true;
     },
@@ -106,16 +120,12 @@ export default {
     insertRow(callNumber) {
       this.$store.commit("callerManager/insertCallerManager", callNumber);
       this.show = false;
-    }
-    ,
+    },
     findRows() {
       this.items = this.$store.state.callerManager.managers
-      console.log(this.items);
     },
-
     clickCheckBtn(index) {
       console.log(this.editItem);
-
       this.$store.commit('callerManager/updateByIndex', {index, payload: this.editItem});
       this.$store.commit('callerManager/cancelEditState', index)
 
@@ -123,7 +133,6 @@ export default {
       this.editItem.name = "";
       this.editItem.memo = "";
     },
-
     clickEditBtn(index,item){
       this.editItem = {
         department:  item.department,
@@ -131,6 +140,10 @@ export default {
         memo:item.memo
       }
       this.$store.commit('callerManager/editState',index)
+    },
+    handleRemoveRow(){
+      this.$store.commit("callerManager/removeByIndexes",this.selectedIndexes);
+      this.selectedIndexes = [];
     }
   },
 
@@ -173,6 +186,10 @@ export default {
 
     tr {
       max-height: 35px !important;
+
+      ::v-deep .v-input{
+        margin:0 !important;
+      }
     }
 
     tr:hover {
@@ -195,10 +212,6 @@ export default {
     &:last-child {
       border-right: none;
     }
-  }
-
-  .v-text--field {
-    min-height: 35px !important;
   }
 }
 

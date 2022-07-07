@@ -1,7 +1,3 @@
-import CallerManagerService from "@/store/callerManager/CallerManager.serivce";
-
-const callerManagerService = new CallerManagerService();
-
 let id = 1;
 
 export const createCallerManagerEntity = (number,division="SELECT") => ({
@@ -25,7 +21,6 @@ const getDefaultCallerManagers = () => {
 
 
 export const mutations = {
-
   insertCallerManager(state, number) {
     state.managers.unshift(createCallerManagerEntity(number));
   },
@@ -42,10 +37,11 @@ export const mutations = {
     state.managers.splice(index, 1);
   },
   removeByIndexes(state, numbers) {
+
     numbers
       .sort()
       .reverse()
-      .forEach(number =>  this.removeByIndex(state, number))
+      .forEach(number =>  this.commit("callerManager/removeByIndex",number))
   },
   editState(state, index) {
     state.managers[index].editable = true;
@@ -59,9 +55,9 @@ export const getters = {
   getAll(state) {
     return state.managers;
   },
-  findByName(state, payload) {
+  findByName: (state) => payload => {
     return state.managers.filter((manager)=>{
-      return manager[payload.columName].includes(payload.searchWord)
+      return manager[payload.searchColumnName].includes(payload.searchText)
     });
   }
 }
