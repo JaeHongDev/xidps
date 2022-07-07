@@ -3,6 +3,7 @@
     <v-dialog
       v-model="dialog"
       width="900"
+      persistent
     >
       <v-card>
         <div class="pa-3 fs-3 fw-semi-bold light-navy-blue  ">
