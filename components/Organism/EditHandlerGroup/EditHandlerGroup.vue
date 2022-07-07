@@ -1,30 +1,55 @@
 <template>
   <div class="xidps-container">
-    <search-text-box></search-text-box>
-    <slot></slot>
-    <v-btn class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
-    <v-btn class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0">
-      <v-icon>mdi-plus</v-icon>
-      엑셀 추가
-    </v-btn>
-    <v-btn class="xidps-btn xidps-btn-add" elevation="0">
-      <v-icon>mdi-plus</v-icon>
-      추가
-    </v-btn>
-    <v-btn class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
+    <search-text-box v-show="useSearch"  :search-columns="searchHeaders"  @search="handleSearch"></search-text-box>
+    <v-btn v-show="useDelete" @click="$emit('click:remove')" class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
+    <v-btn v-show="usePersonalizedUser" class="xidps-btn xidps-btn-personalize" outlined elevation="0"><v-icon>mdi-users</v-icon>개인 사용자 모아보기</v-btn>
+    <v-btn v-show="useImportExcel" class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0"><v-icon>mdi-plus</v-icon>엑셀 추가</v-btn>
+    <v-btn v-show="useAdd" class="xidps-btn xidps-btn-add" elevation="0" @click="$emit('click:add')"><v-icon>mdi-plus</v-icon>추가</v-btn>
+    <v-btn v-show="useSave" class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
   </div>
 </template>
 
 <script>
+
+const buttonTypeTemplate = (defaultValue=true) =>({
+  type:Boolean,
+  default:function(){
+    return defaultValue;
+  }
+})
+
 export default {
-  name: "EditHandlerGroup"
+  name: "EditHandlerGroup",
+  props: {
+    useSearch: buttonTypeTemplate(),
+    usePersonalizedUser: buttonTypeTemplate(false),
+    useDelete: buttonTypeTemplate(),
+    useAdd: buttonTypeTemplate(),
+    useImportExcel: buttonTypeTemplate(false),
+    useSave: buttonTypeTemplate(),
+
+    searchHeaders:{
+      type:Array,
+      default:function(){
+        return [];
+      }
+    }
+  },
+
+  methods:{
+    handleSearch(payload){
+      this.$emit("search",payload);
+    }
+  },
+  mounted() {
+    console.log(this.searchHeaders);
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .xidps-container {
   display: flex;
-  justify-content: space-around;
   align-items:flex-start;
 
   * {
