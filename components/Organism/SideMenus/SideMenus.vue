@@ -20,12 +20,13 @@ export default {
       default: function () {
         return [
           {
-            title: "Empty", items: [
-              {id: 2, icon: "mdi-phone", name: "sample1" },
-              {id: 3, icon: "mdi-account-plus", name: "sample2" },
-              {id: 4, icon: "mdi-folder-account", name: "sample3" },
-              {id: 5, icon: "mdi-view-dashboard", name: "sample4" },
-              {id: 6, icon: "mdi-cog", name  : "sample5 "}
+            title: "관리자", items: [
+              {id: 1, icon: "mdi-home",name:"대시보드", to:"/admin/caller-manage"},
+              {id: 2, icon: "mdi-phone", name: "발신번호 관리" , to:"/admin/caller-manage"},
+              {id: 3, icon: "mdi-account-plus", name: "사용자관리" , to:"/admin/caller-manage"},
+              {id: 4, icon: "mdi-folder-account", name: "공통주소록관리" , to:"/admin/caller-manage"},
+              {id: 5, icon: "mdi-view-dashboard", name: "발송량 관리" , to:"/admin/caller-manage"},
+              {id: 6, icon: "mdi-cog", name  : "기능설정", to:"/admin/caller-manage"},
             ]
           }
         ]

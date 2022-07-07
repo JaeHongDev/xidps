@@ -16,7 +16,7 @@
     >
       <template v-slot:label="{item,open}">
         <menu-item class="xidps-menu" :menu-name="item.name" :has-child="item.children !== undefined"
-                   :icon="item.icon"></menu-item>
+                   :icon="item.icon" :to="item.to"></menu-item>
       </template>
       <template v-slot:append="{ item, open }">
         <v-icon class="white--text" v-if="item.children">

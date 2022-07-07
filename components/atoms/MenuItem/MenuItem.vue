@@ -3,7 +3,7 @@
     <v-icon size="6">{{ icon }}</v-icon>
     <span class="xidps-menu-content">{{ menuName }}</span>
   </div>
-  <nuxt-link v-else :class="[{'fs-6': IsChild}]" class="xidps-menu-item" to="/admin/user/manage">
+  <nuxt-link v-else :class="[{'fs-6': IsChild}]" class="xidps-menu-item" :to="to">
     <v-icon size="14">{{ icon }}</v-icon>
     <span class="xidps-menu-content">{{ menuName }}</span>
   </nuxt-link>
@@ -18,6 +18,12 @@ export default {
       type: String,
       default: function () {
         return ""
+      }
+    },
+    to:{
+      type:String,
+      default:function(){
+        return "/";
       }
     },
     menuName: {

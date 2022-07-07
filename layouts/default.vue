@@ -3,11 +3,11 @@
     <Header/>
     <v-main>
       <!-- Provides the application the proper gutter -->
-        <side-menus class="xidps-navigation"/>
-        <div class="xidps-main-container">
-          <NotificationProvider />
-          <Nuxt class="pt-3"/>
-        </div>
+      <side-menus class="xidps-navigation"/>
+      <div class="xidps-main-container">
+        <NotificationProvider/>
+        <Nuxt class="xidps-main--viewer"/>
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -19,18 +19,23 @@ export default {
 </script>
 
 <style lang="scss">
-.v-application{
+.v-application {
 }
-.xidps-navigation{
+
+.xidps-navigation {
   position: fixed;
   left: 0;
   top: 64px;
   bottom: 0;
   z-index: 100;
 }
-  .xidps-main-container{
-    margin-left:310px;
-    padding:20px 80px;
 
+.xidps-main-container {
+  margin-left: 310px;
+  padding: 20px 80px;
+
+  .xidps-main--viewer {
+    padding-top: 30px;
   }
+}
 </style>
