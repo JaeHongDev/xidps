@@ -61,7 +61,7 @@ export default {
         return ;
       }*/
       console.log(this.searchText);
-      this.$emit("search",{
+      this.$emit("click:search",{
         searchColumnName:"number",
         searchText:this.searchText
       })

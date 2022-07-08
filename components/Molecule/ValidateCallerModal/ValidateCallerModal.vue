@@ -47,7 +47,9 @@ export default {
   },
   methods:{
     authenticationCaller(){
-      this.$emit('insert-row',this.callNumber)
+      this.$emit('insert-row',{
+        number:this.callNumber
+      })
     }
   }
 }
