@@ -53,7 +53,7 @@ export const mutations = {
     numbers
       .sort()
       .reverse()
-      .forEach((number) => this.commit("callerManager/removeByIndex", number));
+      .forEach((number) => this.removeByIndex(state, number));
   },
   editState(state, index) {
     state.managers[index].editable = true;
@@ -74,6 +74,8 @@ export const getters = {
       return manager[payload.searchColumnName].includes(payload.searchText);
     });
   },
+  findIndexById: (state) => (payload) =>
+    state.managers.findIndex((manager) => manager.number === payload.number),
 };
 
 export const actions = {
