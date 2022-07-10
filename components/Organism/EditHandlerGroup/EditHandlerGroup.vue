@@ -38,6 +38,7 @@ export default {
 
   methods:{
     handleSearch(payload){
+      console.log(payload);
       this.$emit("click:search",payload);
     }
   },

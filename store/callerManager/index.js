@@ -1,5 +1,3 @@
-let id = 1;
-
 export const createCallerManagerEntity = (number, division = "SELECT") => ({
   editable: false,
   division,
@@ -12,11 +10,16 @@ export const createCallerManagerEntity = (number, division = "SELECT") => ({
 
 export const state = () => ({
   managers: [],
+  manager:{
+    editable: "",
+    division:"",
+    number:"",
+    name: "",
+    department: "",
+    status: "",
+    memo: "",
+  }
 });
-
-const getDefaultCallerManagers = () => {
-  return [];
-};
 
 export const mutations = {
   insertCallerManagerByNumber(state, number) {

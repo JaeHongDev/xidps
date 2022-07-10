@@ -23,10 +23,11 @@ export default {
             title: "관리자", items: [
               {id: 1, icon: "mdi-home",name:"대시보드", to:"/admin/caller-manage"},
               {id: 2, icon: "mdi-phone", name: "발신번호 관리" , to:"/admin/caller-manage"},
-              {id: 3, icon: "mdi-account-plus", name: "사용자관리" , to:"/admin/caller-manage"},
-              {id: 4, icon: "mdi-folder-account", name: "공통주소록관리" , to:"/admin/caller-manage"},
+              {id: 3, icon: "mdi-account-plus", name: "사용자관리" , to:"/admin/user-manager"},
+              {id: 4, icon: "mdi-folder-account", name: "공통주소록관리" , to:"/admin/user-manager"},
               {id: 5, icon: "mdi-view-dashboard", name: "발송량 관리" , to:"/admin/caller-manage"},
               {id: 6, icon: "mdi-cog", name  : "기능설정", to:"/admin/caller-manage"},
+              {id: 7, icon:"mdi-sample",name:"테스트기능", to:"/admin/datagridview"}
             ]
           }
         ]
