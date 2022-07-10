@@ -32,7 +32,8 @@ export default {
   name: "SearchTextBox",
   data() {
     return {
-      selectedKey: ""
+      selectedKey: "",
+      searchText:"",
     }
   },
   props: {
@@ -44,28 +45,23 @@ export default {
         ]
       }
     },
-    searchText: {
-      type: String,
-      default: function () {
-        return "";
-      }
-    }
   },
   methods: {
     clearText(){
       this.searchText = "";
     },
     clickSearchBtn() {
-      /*if(this.selectedKey === "") {
+      if(this.selectedKey === "") {
         alert("검색 조건이 선택되지 않았습니다.")
         return ;
-      }*/
+      }
       console.log(this.searchText);
       this.$emit("click:search",{
-        searchColumnName:"number",
+        searchColumnName:this.selectedKey,
         searchText:this.searchText
       })
-    }
+    },
+
   },
   mounted() {
     console.log(this.searchColumns)
