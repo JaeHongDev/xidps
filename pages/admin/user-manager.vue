@@ -5,7 +5,6 @@
       :search-headers='searchHeaders'
       :rows='rows'
       :editUser='editUser'
-
       @button:add:click='insertRow'
       @button:save:click='saveRows'
       @button:remove:click='removeRows'
@@ -15,6 +14,37 @@
       @table:edit:cancel='changeCancelEdit'
       @table:edit:end='changeEndEdit'
     >
+      <template v-slot:state-edit='{item,index}'>
+          <td>{{item.id}}</td>
+          <td>
+            <v-text-field hide-details outlined dense v-model='editUser.name'></v-text-field>
+          </td>
+          <td>
+            <v-text-field hide-details outlined dense v-model='editUser.number'></v-text-field>
+          </td>
+          <td>
+            <v-text-field hide-details outlined dense v-model='editUser.position'></v-text-field>
+          </td>
+          <td>
+            <v-btn @click='changeEndEdit(index)' icon>
+              <v-icon>mdi-check</v-icon>
+            </v-btn>
+            <v-btn @click='changeCancelEdit(index)' icon>
+              <v-icon>mdi-cancel</v-icon>
+            </v-btn>
+          </td>
+      </template>
+      <template v-slot:state-basic='{item,index}'>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.number}}</td>
+          <td>{{item.position}}</td>
+          <td>
+            <v-btn @click='changeStartEdit(index)' icon>
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+          </td>
+      </template>
     </data-grid-view>
   </div>
 </template>
@@ -26,16 +56,14 @@ export default {
   data() {
     return {
       headers: [
-        {divider:true,value: "editable", text: "editable", align: "center", width: "100px", changeAble: false},
-        {divider:true,value: "division", text: "division", align: "center", width: "100px", changeAble: false},
-        {divider:true,value: "id", text: "ID", align: "center", width: "20px", changeAble: false},
-        {divider:true,value: "name", text: "이름", align: "center", width: "50px", changeAble: true},
-        {divider:true,value: "number", text: "전화번호", align: "center", width: "50px", changeAble: true},
-        {divider:true,value: "position", text: "구분", align: "center", width: "50px", changeAble: true},
-        {divider:true,value: "edits", text: "관리", align: "center", width: "50px", changeAble: false},
+        {value: "id", text: "ID", align: "center", width: "100px", changeAble: false},
+        {value: "name", text: "이름", align: "center", width: "200px", changeAble: true},
+        {value: "number", text: "전화번호", align: "center", width: "150px", changeAble: true},
+        {value: "position", text: "구분", align: "center", width: "150px", changeAble: true},
+        {value: "edits", text: "관리", align: "center", width: "100px", changeAble: false},
       ],
       rows: [],
-      editUser: this.createDefaultEditUser()
+      editUser: this.createDefaultEditUser(),
     }
   },
   computed: {
@@ -48,6 +76,7 @@ export default {
     }
   },
   methods: {
+
     createDefaultEditUser() {
       return {
         name: "",
@@ -59,7 +88,7 @@ export default {
       return {
         editable: false,
         division: "INSERT",
-        id: `${i++}`,
+        id: (i++).toString(),
         name: "",
         number: "",
         position: ""
@@ -108,12 +137,12 @@ export default {
         return;
       }
       const selectedIndex = this.$store.getters["sample/findIndex"](this.rows[index].id);
-      if(selectedIndex === -1) return;
+      if (selectedIndex === -1) return;
       this.$store.commit("sample/changeEndEdit", {
         index: selectedIndex,
         editUser: this.editUser
       });
-      const data =this.$store.getters["sample/findByIndex"](selectedIndex);
+      const data = this.$store.getters["sample/findByIndex"](selectedIndex);
       this.rows.splice(index, 1,
         JSON.parse(JSON.stringify(data)))
       this.rows[index].division = "UPDATE";
@@ -145,7 +174,6 @@ export default {
           }
           return [...pre, this.$store.getters["sample/findIndex"](this.rows[cal].id)];
         }, [])
-      console.log(savedIndex)
       if (savedIndex.length) {
         this.$store.commit("sample/removeRows", {
           indexes: savedIndex
@@ -153,13 +181,11 @@ export default {
       }
     },
     searchRows(payload) {
-      this.rows = JSON.parse(JSON.stringify(this.$store.getters["sample/searchUser"](payload)))
+      this.rows =
+        JSON.parse(JSON.stringify(this.$store.getters["sample/searchUser"](payload)))
     },
 
   }
 }
 </script>
 
-<style scoped lang='scss'>
-
-</style>

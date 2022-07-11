@@ -1,5 +1,5 @@
 <template>
-  <v-card class='pa-3'>
+  <v-card class='container--wrap'>
     <v-row>
       <v-col>
         <data-table-header :count='rows.length' title='사용자 관리'></data-table-header>
@@ -17,55 +17,24 @@
     <v-data-table
       :headers='headers'
       :items='rows'
-      item-key='number'
+      item-key='id'
       height='755'
       class='data-grid-view'
-      :footer-props="{
-      'items-per-page-options': [20]
-    }"
+      :footer-props="{'items-per-page-options': [20]}"
       show-select
       dense>
-      <template v-slot:item='{item,index}' >
-        <tr v-if='item.editable' :class='{"updated": updatedRows(index)}'  >
+      <template v-slot:item='{item,index}'>
+        <tr v-if='item.editable' :class='updatedRows(index)'>
           <td>
-            <v-checkbox v-model='selectedIndexes' :value='index' dense></v-checkbox>
+            <v-checkbox v-model='selectedIndexes' :value='index' hide-details dense></v-checkbox>
           </td>
-          <td>{{item.editable}}</td>
-          <td>{{item.division}}</td>
-          <td>{{item.id}}</td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.name'></v-text-field>
-          </td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.number'></v-text-field>
-          </td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.position'></v-text-field>
-          </td>
-          <td>
-            <v-btn @click='$emit("table:edit:end",index)' icon>
-              <v-icon>mdi-check</v-icon>
-            </v-btn>
-            <v-btn @click='$emit("table:edit:cancel",index)' icon>
-              <v-icon>mdi-cancel</v-icon>
-            </v-btn>
-          </td>
+          <slot name='state-edit' v-bind='{item,index}'></slot>
         </tr>
-        <tr v-else  :class='{"updated": updatedRows(index)}'>
+        <tr v-else :class='updatedRows(index)'>
           <td>
-            <v-checkbox v-model='selectedIndexes' :value='index' dense></v-checkbox>
+            <v-checkbox v-model='selectedIndexes' :value='index' hide-details dense></v-checkbox>
           </td>
-          <td>{{item.editable}}</td>
-          <td>{{item.division}}</td>
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.number}}</td>
-          <td>{{item.position}}</td>
-          <td>
-            <v-btn @click='$emit("table:edit:start",index)' icon>
-              <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-          </td>
+          <slot name='state-basic' v-bind='{item,index}'></slot>
         </tr>
       </template>
     </v-data-table>
@@ -96,7 +65,8 @@ export default {
     },
     editUser: {
       type: Object
-    }
+    },
+
   },
   data() {
     return {
@@ -109,40 +79,31 @@ export default {
     },
     removeRows() {
       this.$emit("button:remove:click", this.selectedIndexes)
-      this.selectedIndexes = [];
     },
-    searchRows(payload){
-      console.log(payload);
-      this.$emit("button:search:click",payload);
+    searchRows(payload) {
+      this.$emit("button:search:click", payload);
     },
-    updatedRows(index){
-      return this.rows[index].division === "UPDATE";
-    }
-  }
+    updatedRows(index) {
+      return {"updated":this.rows[index].division === "UPDATE"};
+    },
+  },
+
 }
-
-const headers = [
-  {text: "id"},
-  {text: "name"},
-  {text: "number"},
-  {text: "division"},
-]
-const headerVariables = [
-  {text: "var1"},
-  {text: "var2"},
-]
-
 
 </script>
 
 <style scoped lang='scss'>
-.updated{
-  border-left:6px solid #8e9bff !important;
-  margin-left:6px !important;
-}
-.data-grid-view {
-  border-collapse: collapse;;
 
+.container--wrap{
+  padding: 30px 40px 27px 38px;
+}
+.updated {
+  border-left: 6px solid #8e9bff !important;
+  margin-left: 6px !important;
+}
+
+.data-grid-view {
+  border-collapse: collapse;
   ::v-deep .v-data-table-header {
     //border-top: 1px solid $warm-grey !important;
     //border-bottom: 1px solid $warm-grey !important;
@@ -158,7 +119,7 @@ const headerVariables = [
       border-bottom: none !important;
       text-align: center;
       //color: $light-navy-blue-color !important;
-      border-right: 2px dashed #d5d5d5;
+      border-right: 2px solid #d5d5d5;
       border-spacing: 5px;
 
       &:last-child {
@@ -173,6 +134,7 @@ const headerVariables = [
 
     tr {
       max-height: 35px !important;
+
       ::v-deep .v-input {
         margin: 0 !important;
       }
@@ -184,14 +146,26 @@ const headerVariables = [
     }
   }
 
-
-  td, th {
-    //border-right: 1px dashed  !important;
+  ::v-deep td, th{
     border-bottom: none !important;
     text-align: center;
     //color: $light-navy-blue-color !important;
     vertical-align: middle !important;
-    border-right: 2px dashed #d5d5d5;
+    border-right: 2px solid #d5d5d5;
+    border-spacing: 5px;
+    border-collapse: collapse;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+  td, th {
+    //border-right: 1px solid  !important;
+    border-bottom: none !important;
+    text-align: center;
+    //color: $light-navy-blue-color !important;
+    vertical-align: middle !important;
+    border-right: 2px solid #d5d5d5;
     border-spacing: 5px;
     border-collapse: collapse;
 
