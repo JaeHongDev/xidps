@@ -17,11 +17,14 @@
     <v-data-table
       :headers='headers'
       :items='rows'
+      :footer-props="{'items-per-page-options': [20]}"
+      :page.sync='page'
+      @page-count='pageCount = $event'
       item-key='id'
       height='755'
       class='data-grid-view'
-      :footer-props="{'items-per-page-options': [20]}"
       show-select
+      hide-default-footer
       dense>
       <template v-slot:item='{item,index}'>
         <tr v-if='item.editable' :class='updatedRows(index)'>
@@ -38,6 +41,11 @@
         </tr>
       </template>
     </v-data-table>
+    <v-pagination
+      v-model='page'
+      :length='pageCount'
+      :total-visible='7'
+    ></v-pagination>
   </v-card>
 </template>
 
@@ -70,7 +78,9 @@ export default {
   },
   data() {
     return {
-      selectedIndexes: []
+      selectedIndexes: [],
+      page: 1,
+      pageCount: 0,
     }
   },
   methods: {
@@ -84,7 +94,7 @@ export default {
       this.$emit("button:search:click", payload);
     },
     updatedRows(index) {
-      return {"updated":this.rows[index].division === "UPDATE"};
+      return {"updated": this.rows[index].division === "UPDATE"};
     },
   },
 
@@ -94,16 +104,18 @@ export default {
 
 <style scoped lang='scss'>
 
-.container--wrap{
+.container--wrap {
   padding: 30px 40px 27px 38px;
 }
-.updated {
+
+::v-deep .updated {
   border-left: 6px solid #8e9bff !important;
   margin-left: 6px !important;
 }
 
 .data-grid-view {
   border-collapse: collapse;
+
   ::v-deep .v-data-table-header {
     //border-top: 1px solid $warm-grey !important;
     //border-bottom: 1px solid $warm-grey !important;
@@ -129,7 +141,6 @@ export default {
   }
 
   tbody {
-    border-bottom: 1px solid $warm-grey;
     height: 550px !important;
 
     tr {
@@ -137,6 +148,17 @@ export default {
 
       ::v-deep .v-input {
         margin: 0 !important;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $warm-grey !important;
+      }
+    }
+
+    ::v-deep tr {
+      :hover {
+        background-color: $pale-lilac !important;
+        cursor: pointer;
       }
     }
 
@@ -146,7 +168,7 @@ export default {
     }
   }
 
-  ::v-deep td, th{
+  ::v-deep td, th {
     border-bottom: none !important;
     text-align: center;
     //color: $light-navy-blue-color !important;
@@ -159,6 +181,7 @@ export default {
       border-right: none;
     }
   }
+
   td, th {
     //border-right: 1px solid  !important;
     border-bottom: none !important;
