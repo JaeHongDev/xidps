@@ -145,7 +145,8 @@ export default {
           }
           return [...pre, this.$store.getters["sample/findIndex"](this.rows[cal].id)];
         }, [])
-      console.log(savedIndex)
+
+      console.log(savedIndex);
       if (savedIndex.length) {
         this.$store.commit("sample/removeRows", {
           indexes: savedIndex

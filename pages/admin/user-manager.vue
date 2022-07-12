@@ -15,35 +15,35 @@
       @table:edit:end='changeEndEdit'
     >
       <template v-slot:state-edit='{item,index}'>
-          <td>{{item.id}}</td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.name'></v-text-field>
-          </td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.number'></v-text-field>
-          </td>
-          <td>
-            <v-text-field hide-details outlined dense v-model='editUser.position'></v-text-field>
-          </td>
-          <td>
-            <v-btn @click='changeEndEdit(index)' icon>
-              <v-icon>mdi-check</v-icon>
-            </v-btn>
-            <v-btn @click='changeCancelEdit(index)' icon>
-              <v-icon>mdi-cancel</v-icon>
-            </v-btn>
-          </td>
+        <td>{{item.id}}</td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editUser.name'></v-text-field>
+        </td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editUser.number'></v-text-field>
+        </td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editUser.position'></v-text-field>
+        </td>
+        <td>
+          <v-btn @click='changeEndEdit(index)' icon>
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+          <v-btn @click='changeCancelEdit(index)' icon>
+            <v-icon>mdi-cancel</v-icon>
+          </v-btn>
+        </td>
       </template>
       <template v-slot:state-basic='{item,index}'>
-          <td>{{item.id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.number}}</td>
-          <td>{{item.position}}</td>
-          <td>
-            <v-btn @click='changeStartEdit(index)' icon>
-              <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-          </td>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.number}}</td>
+        <td>{{item.position}}</td>
+        <td>
+          <v-btn @click='changeStartEdit(index)' icon>
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+        </td>
       </template>
     </data-grid-view>
   </div>
@@ -164,15 +164,20 @@ export default {
       this.$store.dispatch("sample/saveRows", changedRows);
     },
     removeRows(indexes) {
+
       const savedIndex = indexes
-        .sort()
+        .sort((a,b)=>a-b)
         .reverse()
-        .reduce((pre, cal, index) => {
-          this.rows.splice(index, 1);
-          if (this.rows[index].division === "INSERT") {
+        .reduce((pre, cal) => {
+          console.log(pre,cal);
+          if (this.rows[cal].division === "INSERT") {
+            this.$delete(this.rows,cal);
+            this.rows.splice(cal, 1);
             return pre;
           }
-          return [...pre, this.$store.getters["sample/findIndex"](this.rows[cal].id)];
+          const storedIndex = this.$store.getters["sample/findIndex"](this.rows[cal].id);
+          this.rows.splice(cal, 1);
+          return [...pre, storedIndex];
         }, [])
       if (savedIndex.length) {
         this.$store.commit("sample/removeRows", {

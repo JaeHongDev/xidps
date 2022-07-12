@@ -14,8 +14,5 @@ export default {
   findByIndex: (context) => (index) => {
     return context.state.users[index]
   },
-  findIndex: (context) => (id) => {
-    console.log(context.state.users);
-    return context.state.users.findIndex((item) => item.id === id);
-  }
+  findIndex: (context) => (id) => context.state.users.findIndex((item) => item.id === id)
 }

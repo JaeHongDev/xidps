@@ -31,12 +31,14 @@
       dense>
       <template v-slot:item='{item,index,isSelected,select}'>
         <tr :class='{updated:rows[index].division === "UPDATE"}'>
-          <td><v-checkbox
-            :input-value="isSelected"
-            @click="select(item)"
-            dense hide-details ></v-checkbox></td>
-          <slot v-if='item.editable' name='state-edit' v-bind='{item,index}'></slot>
-          <slot v-else name='state-basic' v-bind='{item,index}'></slot>
+          <td>
+            <v-checkbox
+              :input-value='isSelected'
+              @click='select(item)'
+              dense hide-details></v-checkbox>
+          </td>
+          <slot v-if='item.editable' name='state-edit' v-bind='{item,index:calculatedIndex(item)}'></slot>
+          <slot v-else name='state-basic' v-bind='{item,index:calculatedIndex(item)}'></slot>
         </tr>
       </template>
     </v-data-table>
@@ -85,16 +87,20 @@ export default {
       this.$emit("button:add:click");
     },
     removeRows() {
-      this.$emit("button:remove:click", this.selectedIndexes)
+      const indexes = this.selectedIndexes.map((item) => {
+          return this.calculatedIndex(item)
+        }
+      );
+      this.$emit("button:remove:click", indexes)
+      this.selectedIndexes = [];
     },
     searchRows(payload) {
       this.$emit("button:search:click", payload);
     },
+    calculatedIndex(targetItem) {
+      return this.rows.findIndex((item) => item.id === targetItem.id);
+    }
   },
-
-  updated(){
-    console.log(this.selectedIndexes);
-  }
 }
 </script>
 <style scoped lang='scss'>
@@ -132,20 +138,25 @@ export default {
       }
     }
   }
+
   tbody {
     height: 550px !important;
+
     tr {
       max-height: 35px !important;
+
       ::v-deep .v-input {
         margin: 0 !important;
       }
     }
+
     ::v-deep tr {
       :hover {
         background-color: $pale-lilac !important;
         cursor: pointer;
       }
     }
+
     tr:hover {
       background-color: $pale-lilac !important;
       cursor: pointer;
