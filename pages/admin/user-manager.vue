@@ -5,6 +5,9 @@
       :search-headers='searchHeaders'
       :rows='rows'
       :editUser='editUser'
+      :edit-groups='{
+        useImportExcel:true
+      }'
       @button:add:click='insertRow'
       @button:save:click='saveRows'
       @button:remove:click='removeRows'

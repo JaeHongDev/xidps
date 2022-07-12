@@ -2,11 +2,12 @@
   <v-card class='container--wrap'>
     <v-row>
       <v-col>
-        <data-table-header :count='rows.length' title='사용자 관리'></data-table-header>
+        <data-table-header  :count='rows.length' title='사용자 관리'></data-table-header>
       </v-col>
-      <v-col>
+      <v-col cols='8'>
         <edit-handler-group
           :search-headers='searchHeaders'
+          v-bind='editGroups'
           @click:add='clickAddButton'
           @click:save='$emit("button:save:click")'
           @click:remove='removeRows'
@@ -71,9 +72,32 @@ export default {
       default: function () {
       }
     },
-    editUser: {
-      type: Object
-    },
+    editGroups:{
+      useSearch:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+      usePersonalizedUser:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+      useDelete:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+      useAdd:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+      useImportExcel:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+      useSave:{
+        type:Boolean,
+        default:function(){return false;}
+      },
+    }
   },
   data() {
     return {
