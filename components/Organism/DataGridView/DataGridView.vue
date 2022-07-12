@@ -20,17 +20,21 @@
       :footer-props="{'items-per-page-options': [20]}"
       :page.sync='page'
       @page-count='pageCount = $event'
-      item-key='id'
       height='755'
       class='data-grid-view'
       show-select
       hide-default-footer
+      v-model='selectedIndexes'
+      selectable-key='item.id'
+      item-key='id'
+
       dense>
-      <template v-slot:item='{item,index}'>
-        <tr :class='{updated:rows[index].division==="UPDATE"}'>
-          <td>
-            <v-checkbox v-model='selectedIndexes' :value='index' hide-details dense></v-checkbox>
-          </td>
+      <template v-slot:item='{item,index,isSelected,select}'>
+        <tr :class='{updated:rows[index].division === "UPDATE"}'>
+          <td><v-checkbox
+            :input-value="isSelected"
+            @click="select(item)"
+            dense hide-details ></v-checkbox></td>
           <slot v-if='item.editable' name='state-edit' v-bind='{item,index}'></slot>
           <slot v-else name='state-basic' v-bind='{item,index}'></slot>
         </tr>
@@ -86,10 +90,11 @@ export default {
     searchRows(payload) {
       this.$emit("button:search:click", payload);
     },
-    updatedRows(index) {
-      return {"updated": this.rows[index].division === "UPDATE"};
-    },
   },
+
+  updated(){
+    console.log(this.selectedIndexes);
+  }
 }
 </script>
 <style scoped lang='scss'>
@@ -97,7 +102,7 @@ export default {
   padding: 30px 40px 27px 38px;
 }
 
-::v-deep .updated {
+.updated {
   border-left: 6px solid #8e9bff !important;
   margin-left: 6px !important;
 }
@@ -127,26 +132,20 @@ export default {
       }
     }
   }
-
   tbody {
     height: 550px !important;
-
     tr {
       max-height: 35px !important;
-
       ::v-deep .v-input {
         margin: 0 !important;
       }
-
     }
-
     ::v-deep tr {
       :hover {
         background-color: $pale-lilac !important;
         cursor: pointer;
       }
     }
-
     tr:hover {
       background-color: $pale-lilac !important;
       cursor: pointer;
