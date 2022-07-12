@@ -27,17 +27,12 @@
       hide-default-footer
       dense>
       <template v-slot:item='{item,index}'>
-        <tr v-if='item.editable' :class='updatedRows(index)'>
+        <tr :class='{updated:rows[index].division==="UPDATE"}'>
           <td>
             <v-checkbox v-model='selectedIndexes' :value='index' hide-details dense></v-checkbox>
           </td>
-          <slot name='state-edit' v-bind='{item,index}'></slot>
-        </tr>
-        <tr v-else :class='updatedRows(index)'>
-          <td>
-            <v-checkbox v-model='selectedIndexes' :value='index' hide-details dense></v-checkbox>
-          </td>
-          <slot name='state-basic' v-bind='{item,index}'></slot>
+          <slot v-if='item.editable' name='state-edit' v-bind='{item,index}'></slot>
+          <slot v-else name='state-basic' v-bind='{item,index}'></slot>
         </tr>
       </template>
     </v-data-table>
@@ -68,13 +63,11 @@ export default {
     searchHeaders: {
       type: Array,
       default: function () {
-
       }
     },
     editUser: {
       type: Object
     },
-
   },
   data() {
     return {
@@ -97,13 +90,9 @@ export default {
       return {"updated": this.rows[index].division === "UPDATE"};
     },
   },
-
 }
-
 </script>
-
 <style scoped lang='scss'>
-
 .container--wrap {
   padding: 30px 40px 27px 38px;
 }
@@ -115,12 +104,11 @@ export default {
 
 .data-grid-view {
   border-collapse: collapse;
+  border-bottom: 1px solid $warm-grey;
 
   ::v-deep .v-data-table-header {
-    //border-top: 1px solid $warm-grey !important;
-    //border-bottom: 1px solid $warm-grey !important;
-    border-top: 1px solid $warm-grey;
-    border-bottom: 1px solid $warm-grey;
+    border-top: 1px solid $warm-grey !important;
+    border-bottom: 1px solid $warm-grey !important;
     border-left: none;
     border-right: none;
 
@@ -150,9 +138,6 @@ export default {
         margin: 0 !important;
       }
 
-      &:last-child {
-        border-bottom: 1px solid $warm-grey !important;
-      }
     }
 
     ::v-deep tr {
