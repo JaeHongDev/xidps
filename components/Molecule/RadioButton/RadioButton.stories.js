@@ -10,7 +10,7 @@ const Template = (args,{argTypes})=>({
   components:{
     RadioButton:()=>import('~/components/Molecule/RadioButton/RadioButton')
   },
-  props: Object.keys(argTypes),
+  props: Object.keys(args),
   template: `<radio-button v-bind="$props"></radio-button>`
 })
 
