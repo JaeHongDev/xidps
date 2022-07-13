@@ -1,17 +1,20 @@
 <template>
   <v-card class='container--wrap'>
     <v-row>
-      <v-col>
-        <data-table-header  :count='rows.length' title='사용자 관리'></data-table-header>
+      <v-col v-show='useDefaultHeaders'>
+        <data-table-header :count='rows.length' title='사용자 관리'></data-table-header>
       </v-col>
       <v-col cols='8'>
         <edit-handler-group
+          v-show='useDefaultEditor'
           :search-headers='searchHeaders'
           v-bind='editGroups'
+
           @click:add='clickAddButton'
           @click:save='$emit("button:save:click")'
           @click:remove='removeRows'
           @click:search='searchRows'
+
         ></edit-handler-group>
       </v-col>
     </v-row>
@@ -19,31 +22,35 @@
       :headers='headers'
       :items='rows'
       :footer-props="{'items-per-page-options': [20]}"
+      :disable-pagination='!usePageable'
       :page.sync='page'
+
       @page-count='pageCount = $event'
+
       height='755'
       class='data-grid-view'
-      show-select
       hide-default-footer
       v-model='selectedIndexes'
-      selectable-key='item.id'
       item-key='id'
-
+      :show-select='useSelector'
+      selectable-key='item.id'
       dense>
+
       <template v-slot:item='{item,index,isSelected,select}'>
         <tr :class='{updated:rows[index].division === "UPDATE"}'>
-          <td>
+          <td v-if='useSelector'>
             <v-checkbox
               :input-value='isSelected'
               @click='select(item)'
               dense hide-details></v-checkbox>
           </td>
-          <slot v-if='item.editable' name='state-edit' v-bind='{item,index:calculatedIndex(item)}'></slot>
-          <slot v-else name='state-basic' v-bind='{item,index:calculatedIndex(item)}'></slot>
+          <slot v-if='item.editable' name='state-edit' v-bind='{item:item,index:calculatedIndex(item)}'></slot>
+          <slot v-else name='state-basic' v-bind='{item:item,index:calculatedIndex(item)}'></slot>
         </tr>
       </template>
     </v-data-table>
     <v-pagination
+      v-show='usePageable'
       v-model='page'
       :length='pageCount'
       :total-visible='7'
@@ -55,6 +62,30 @@
 export default {
   name: "DataGridView",
   props: {
+    useDefaultHeaders: {
+      type: Boolean,
+      default: function () {
+        return true;
+      }
+    },
+    useDefaultEditor: {
+      type: Boolean,
+      default: function () {
+        return true;
+      }
+    },
+    useSelector: {
+      type: Boolean,
+      default: function () {
+        return true;
+      }
+    },
+    usePageable: {
+      type: Boolean,
+      default: function () {
+        return true;
+      },
+    },
     headers: {
       type: Array,
       default: function () {
@@ -72,30 +103,42 @@ export default {
       default: function () {
       }
     },
-    editGroups:{
-      useSearch:{
-        type:Boolean,
-        default:function(){return false;}
+    editGroups: {
+      useSearch: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
-      usePersonalizedUser:{
-        type:Boolean,
-        default:function(){return false;}
+      usePersonalizedUser: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
-      useDelete:{
-        type:Boolean,
-        default:function(){return false;}
+      useDelete: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
-      useAdd:{
-        type:Boolean,
-        default:function(){return false;}
+      useAdd: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
-      useImportExcel:{
-        type:Boolean,
-        default:function(){return false;}
+      useImportExcel: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
-      useSave:{
-        type:Boolean,
-        default:function(){return false;}
+      useSave: {
+        type: Boolean,
+        default: function () {
+          return false;
+        }
       },
     }
   },
