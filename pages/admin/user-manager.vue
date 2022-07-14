@@ -108,7 +108,7 @@ export default {
       }
     },
     insertRow() {
-      this.rows.unshift(this.createDefaultUser());
+      this.rows.unshift(this.createDefaultUser({}));
     },
 
     changeStartEdit(index) {
