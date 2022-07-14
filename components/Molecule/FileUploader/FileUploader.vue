@@ -2,15 +2,39 @@
   <div class='xidps-file-container'>
     <div class='xidps-file-result'>
       <div class='xidps-file-list'>
-        <v-chip>hi</v-chip>
+        <v-chip
+          v-for='(file,index) in showFiles'
+          :key='index'
+          class='ma-2'
+          close
+          color='orange'
+          label
+          outlined
+          @click:close='selectedFile.splice(file.index,1)'
+        >
+          {{file.name}}
+        </v-chip>
       </div>
       <div class='xidps-file-type'>
         <span class='fs-7 fw-regular'>0KB/0KB</span>
       </div>
     </div>
-    <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
-      <v-icon>mdi-file</v-icon>
-      <span>파일 업로드</span></v-btn>
+
+    <div v-if='useExcel'>
+      <v-btn outlined class='xidps-file-btn' @click='findFile'>
+        <v-icon class='grassh-green'>mdi-microsoft-excel</v-icon>
+        <span> 엑셀 업로드</span>
+      </v-btn>
+      <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
+        <v-icon class='grassh-green'>mdi-file</v-icon>
+        <span>파일 업로드</span></v-btn>
+    </div>
+    <div v-else>
+      <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
+        <v-icon class='grassh-green'>mdi-file</v-icon>
+        <span>파일 업로드</span></v-btn>
+    </div>
+
     <input
       ref='uploader'
       class='d-none'
@@ -23,41 +47,58 @@
 <script>
 export default {
   name: "FileUploader",
-  data(){
-    return{
-      selectedFile: null,
+  props: {
+    selectedFile: {
+      type: Array,
+      default: function () {
+        return [];
+      }
+    },
+    useExcel: {
+      type: Boolean,
+      default: function () {
+        return false;
+      }
+    }
+  },
+  data() {
+    return {
       isSelecting: false
     }
   },
   methods: {
     findFile() {
       this.isSelecting = true;
-
-      // After obtaining the focus when closing the FilePicker, return the button state to normal
       window.addEventListener('focus', () => {
         this.isSelecting = false
-      }, { once: true });
+      }, {once: true});
       this.$refs.uploader.click()
+
     },
     onFileChanged(e) {
-      this.selectedFile = e.target.files[0]
+      this.selectedFile.push(e.target.files[0])
+      this.$emit("button:load:excel")
+    }
+  },
 
-      const fileReader = new FileReader();
-      fileReader.onload = (e) => {
-        console.log(e);
-        console.log(e.target
-        );
-        let data = e.target.result;
-        console.log(data);
-      };
-      // do something
-      fileReader.readAsArrayBuffer(this.selectedFile);
+  computed: {
+    showFiles() {
+      return this.selectedFile.map((file, index) => ({
+        name: file.name,
+        index
+      }))
     }
   }
 }
 </script>
 
 <style scoped lang='scss'>
+
+$grassh-green: #2c9700;
+.grassh-green {
+  color: $grassh-green !important;
+}
+
 .xidps-file-container {
   width: 703px;
   display: flex;
@@ -69,27 +110,27 @@ export default {
     background-color: $white;
 
     .xidps-file-list {
-      height: 45px;
+      overflow: scroll;
+      height:60px;
     }
+  }
 
-    .xidps-file-type {
-      width: 100%;
-      height: 15px;
-      padding: 0 6px;
-      background-color: #eeeeee;
-      font-size: $fs7;
-      color: $warm-grey !important;
+  .xidps-file-type {
+    width: 100%;
+    height: 15px;
+    padding: 0 6px;
+    background-color: #eeeeee;
+    font-size: $fs7;
+    color: $warm-grey !important;
 
-      span {
-        float: right;
-      }
+    span {
+      float: right;
     }
   }
 
   .xidps-file-btn {
     border: 1px solid #cbcbcb !important;
     width: 111px !important;
-    height: 58px !important;
     font-size: $fs7;
     font-weight: $semi-bold;
     color: $warm-grey !important;
