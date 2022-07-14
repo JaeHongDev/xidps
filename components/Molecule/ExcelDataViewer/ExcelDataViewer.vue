@@ -12,7 +12,6 @@
     >
     </v-data-table>
   -->
-
   <v-data-table
     :headers='headers'
     :items='rows'
@@ -80,3 +79,4 @@ export default {
   }
 }
 </style>
+

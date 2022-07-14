@@ -1,5 +1,13 @@
 <template>
   <div class='pt-5'>
+    <custom-modal
+      :is-show='visibleExcelModal'
+      @button:click:close='visibleExcelModal=false'
+      width='900' title='엑셀 업로드'>
+      <user-excel-loader
+        @button:click:save='importExcel'
+      ></user-excel-loader>
+    </custom-modal>
     <data-grid-view
       :headers='headers'
       :search-headers='searchHeaders'
@@ -12,6 +20,7 @@
       @button:save:click='saveRows'
       @button:remove:click='removeRows'
       @button:search:click='searchRows'
+      @button:import:click='visibleExcelModal=true'
 
       @table:edit:start='changeStartEdit'
       @table:edit:cancel='changeCancelEdit'
@@ -58,6 +67,7 @@ export default {
   name: "user-manager",
   data() {
     return {
+      visibleExcelModal: false,
       headers: [
         {value: "id", text: "ID", align: "center", width: "100px", changeAble: false},
         {value: "name", text: "이름", align: "center", width: "200px", changeAble: true},
@@ -87,14 +97,14 @@ export default {
         position: "",
       }
     },
-    createDefaultUser() {
+    createDefaultUser({name, number, position}) {
       return {
         editable: false,
         division: "INSERT",
         id: (i++).toString(),
-        name: "",
-        number: "",
-        position: ""
+        name: name ?? "",
+        number: number ?? "",
+        position: position ?? ""
       }
     },
     insertRow() {
@@ -169,12 +179,12 @@ export default {
     removeRows(indexes) {
 
       const savedIndex = indexes
-        .sort((a,b)=>a-b)
+        .sort((a, b) => a - b)
         .reverse()
         .reduce((pre, cal) => {
-          console.log(pre,cal);
+          console.log(pre, cal);
           if (this.rows[cal].division === "INSERT") {
-            this.$delete(this.rows,cal);
+            this.$delete(this.rows, cal);
             this.rows.splice(cal, 1);
             return pre;
           }
@@ -192,7 +202,10 @@ export default {
       this.rows =
         JSON.parse(JSON.stringify(this.$store.getters["sample/searchUser"](payload)))
     },
-
+    importExcel(payload) {
+      this.rows.unshift(...payload.rows.map(row => this.createDefaultUser(row)));
+      this.visibleExcelModal = false;
+    }
   }
 }
 </script>

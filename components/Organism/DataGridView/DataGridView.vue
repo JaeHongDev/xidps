@@ -14,7 +14,7 @@
           @click:save='$emit("button:save:click")'
           @click:remove='removeRows'
           @click:search='searchRows'
-
+          @click:import='$emit("button:import:click")'
         ></edit-handler-group>
       </v-col>
     </v-row>
