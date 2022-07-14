@@ -2,6 +2,7 @@
   <v-dialog
     v-model='isShow'
     :width='width'
+    persistent
     class='rounded'>
     <v-card>
       <v-row>
@@ -12,7 +13,7 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols='1'>
-          <v-btn @click='closeModal' icon>
+          <v-btn @click='$emit("button:click:close")' icon>
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-col>
@@ -39,7 +40,7 @@ export default {
       }
     },
     width: {
-      type: Number,
+      type: Number | String,
       default: function () {
         return 700;
       }
