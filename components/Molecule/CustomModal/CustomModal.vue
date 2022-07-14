@@ -13,7 +13,7 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols='1'>
-          <v-btn @click='$emit("button:click:close")' icon>
+          <v-btn @click='isShow=false; $emit("button:click:close")' icon>
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-col>

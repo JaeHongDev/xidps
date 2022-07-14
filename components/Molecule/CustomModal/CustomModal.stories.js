@@ -1,6 +1,7 @@
 import CustomModal from "@/components/Molecule/CustomModal/CustomModal";
 import {VApp} from "vuetify/lib/components";
 import UserExcelLoader from "@/components/Organism/UserExcelLoader/UserExcelLoader";
+import CallerNumberForm from "@/components/Organism/CallerNumberForm/CallerNumberForm";
 
 export default {
   title: "Molecule/CustomModal",
@@ -10,7 +11,9 @@ export default {
 const Template = (args, {argTypes}) => ({
   components: {
     CustomModal,
-    VApp
+    VApp,
+    UserExcelLoader,
+    CallerNumberForm
   },
   props: Object.keys(args),
   template: `
@@ -34,3 +37,11 @@ userUploadModal.args = {
   title:"엑셀 업로드"
 }
 
+export const callerNumberModal = Template.bind({});
+callerNumberModal.args = {
+  content:`<caller-number-form></caller-number-form>`,
+  isShow:false,
+  width:750,
+  title:"발신번호 추가"
+
+}

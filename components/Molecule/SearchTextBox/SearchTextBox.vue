@@ -7,6 +7,7 @@
     type="text"
     hide-details
     v-model="searchText"
+    class='search-text-btn'
   >
     <template v-slot:prepend-inner>
       <v-select v-model="selectedKey"
@@ -16,6 +17,7 @@
                 height="20px"
                 style="margin-top:2px"
                 hide-details
+                class='column-selector'
                 dense>
       </v-select>
     </template>
@@ -70,11 +72,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.xidps-search-bar {
-  font-size: $fs8 !important;
-}
-
 ::v-deep .v-input__icon--clear {
   padding-bottom: 6px !important;
 }
 </style>
+
+
