@@ -1,3 +1,3 @@
-export const state = () =>({
-  callerNumbers:[]
-})
+export const state = {
+  callerNumbers: []
+}

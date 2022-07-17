@@ -2,7 +2,7 @@
   <v-card class='container--wrap'>
     <v-row>
       <v-col v-show='useDefaultHeaders'>
-        <data-table-header :count='rows.length' title='사용자 관리'></data-table-header>
+        <data-table-header :count='rows.length' :title='title'></data-table-header>
       </v-col>
       <v-col cols='8'>
         <edit-handler-group
@@ -31,7 +31,7 @@
       class='data-grid-view'
       hide-default-footer
       v-model='selectedIndexes'
-      item-key='id'
+      :item-key='selectedKey'
       :show-select='useSelector'
       selectable-key='item.id'
       dense>
@@ -140,6 +140,19 @@ export default {
           return false;
         }
       },
+    },
+
+    selectedKey:{
+      type:String,
+      default:function(){
+        return "id"
+      }
+    },
+    title: {
+      type: String,
+      default: function () {
+        return ""
+      }
     }
   },
   data() {
@@ -165,7 +178,14 @@ export default {
       this.$emit("button:search:click", payload);
     },
     calculatedIndex(targetItem) {
-      return this.rows.findIndex((item) => item.id === targetItem.id);
+      return this.rows.findIndex((item) => {
+        if (item.v_index) {
+          return item.v_index === targetItem.v_index
+        }
+        if (item.id) {
+          return item.id === targetItem.id;
+        }
+      });
     }
   },
 }

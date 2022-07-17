@@ -1,6 +1,49 @@
 <template>
-  <data-grid-view>
+  <data-grid-view
+    :headers='headers'
+    :rows='rows'
 
+    title='발신번호 관리'
+    selected-key='v_index'
+    @button:add:click='insertNewRow'
+    @button:remove:click='handleRemoveRows'
+    @button:save:click='handleSaveRows'
+  >
+    <template v-slot:state-edit='{item,index}'>
+      <td>{{item.number}}</td>
+      <td>
+        <v-text-field hide-details outlined dense v-model='editCallerNumber.manager'></v-text-field>
+      </td>
+      <td>
+        <v-text-field hide-details outlined dense v-model='editCallerNumber.department'></v-text-field>
+      </td>
+      <td>{{item.status}}</td>
+      <td>
+        <v-text-field hide-details outlined dense v-model='editCallerNumber.memo'></v-text-field>
+      </td>
+      <td>
+        <v-btn @click='handleEditEnd(item)' icon>
+          <v-icon>mdi-check</v-icon>
+        </v-btn>
+        <v-btn @click='handleEditCancel(item)' icon>
+          <v-icon>mdi-cancel</v-icon>
+        </v-btn>
+      </td>
+    </template>
+
+
+    <template v-slot:state-basic='{item,index}'>
+      <td>{{item.number}}</td>
+      <td>{{item.manager}}</td>
+      <td>{{item.department}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.memo}}</td>
+      <td>
+        <v-btn @click='handleEditStart(item)' icon>
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+      </td>
+    </template>
   </data-grid-view>
 </template>
 
@@ -9,11 +52,56 @@
 
 export default {
   name: "CallerManage",
-
   data() {
     return {
       rows: [],
-      headers: [],
+      headers: [
+        {
+          "value": "number",
+          "text": "발신번호",
+          "align": "center",
+          "width": "100px",
+          "changeAble": false
+        },
+        {
+          "value": "manager",
+          "text": "담당자",
+          "align": "center",
+          "width": "200px",
+          "changeAble": true
+        },
+        {
+          "value": "department",
+          "text": "조직",
+          "align": "center",
+          "width": "150px",
+          "changeAble": true
+        },
+        {
+          "value": "status",
+          "text": "상태",
+          "align": "center",
+          "width": "150px",
+          "changeAble": true
+        },
+        {
+          "value": "memo",
+          "text": "메모",
+          "align": "center",
+          "width": "150px",
+          "changeAble": true
+        },
+        {
+          "value": "",
+          "text": "관리",
+          "align": "center",
+          "width": "150px",
+          "changeAble": false
+        }
+      ],
+      editCallerNumber: this.createEditDefault({}),
+
+      v_index: 0
     }
   },
   methods: {
@@ -21,6 +109,7 @@ export default {
       return {
         editable: false,
         division: "INSERT",
+        v_index: this.v_index++,
         callerNumber: callerNumber ?? "",
         manager: manager ?? "",
         department: department ?? "",
@@ -28,14 +117,96 @@ export default {
         memo: memo ?? "",
       }
     },
-    createEditDefault({manager, departmentmmemo}) { // 편집 할 대상의 초기 값
+    createEditDefault({manager, department, memo}) { // 편집 할 대상의 초기 값
       return {
         manager: manager ?? "",
         department: department ?? "",
         memo: memo ?? "",
       }
     },
+    findByIndex(row) {
+      return this.rows.findIndex(({v_index}) => row.v_index === v_index);
+    },
+    handleEditStart(row) {
+      if (this.validateEditingRow()) return;
+      const index = this.findByIndex(row);
+      this.rows.splice(index, 1, {
+        ...row,
+        editable: true,
+      })
+      this.editCallerNumber = this.createEditDefault({
+        manager: row.manager,
+        department: row.department,
+        memo: row.memo
+      })
+    },
+    handleEditEnd(row) {
+      const index = this.findByIndex(row);
 
+      this.rows.splice(index, 1, {
+        ...row,
+        editable: false,
+        division: row.division === "INSERT" ? "INSERT" : "UPDATE",
+        ...this.editCallerNumber
+      });
+      this.editCallerNumber = this.createEditDefault({});
+    },
+    handleEditCancel(row) {
+      const index = this.findByIndex(row);
+      this.rows.splice(index, 1, {
+        ...row,
+        editable: false,
+      })
+      this.editCallerNumber = this.createEditDefault({});
+    },
+
+
+    handleRemoveRows(indexes) {
+
+      //const rows = indexes.reduce(index=>  this.rows[index]);
+
+      console.log(indexes);
+      if (indexes[0] === -1) indexes.shift();
+      const rows = indexes.reduce((pre, cur) => {
+        console.log(pre, cur);
+        if (this.rows[cur].division !== "INSERT") return [...pre, this.$store.getters["callerNumberManage/findByIndex"](this.rows[cur])];
+        return pre
+      }, [])
+      this.$store.dispatch("callerNumberManage/removeRows", {
+        indexes
+      })
+
+      indexes.sort().reverse().forEach(index => {
+        this.rows.splice(index, 1);
+      })
+
+    },
+    handleSaveRows() {
+      if (this.validateEditingRow()) return;
+      const changedRows = this.rows.filter(row => row.division !== "SELECT");
+      this.$store.dispatch("callerNumberManage/saveRows", {
+        rows: changedRows
+      })
+
+      changedRows.forEach(row => {
+        console.log(row);
+        this.rows.splice(this.findByIndex(row), 1, {
+          ...row,
+          division: "SELECT"
+        });
+      })
+    },
+    insertNewRow() {
+      this.rows.unshift(this.createDefault({}))
+    },
+    validateEditingRow() {
+      return this.rows.some(row => {
+        if (row.editable) {
+          alert(`${index + 1}행이 편집중입니다.`);
+          return false;
+        }
+      })
+    }
   }
 }
 </script>
