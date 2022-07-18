@@ -2,12 +2,13 @@
   <data-grid-view
     :headers='headers'
     :rows='rows'
-
+    :search-headers='searchHeaders'
     title='발신번호 관리'
     selected-key='v_index'
     @button:add:click='insertNewRow'
     @button:remove:click='handleRemoveRows'
     @button:save:click='handleSaveRows'
+    @button:search:click='handleSearchRow'
   >
     <template v-slot:state-edit='{item,index}'>
       <td>{{item.number}}</td>
@@ -61,21 +62,21 @@ export default {
           "text": "발신번호",
           "align": "center",
           "width": "100px",
-          "changeAble": false
+          "searchAble": true
         },
         {
           "value": "manager",
           "text": "담당자",
           "align": "center",
           "width": "200px",
-          "changeAble": true
+          "searchAble": true
         },
         {
           "value": "department",
           "text": "조직",
           "align": "center",
           "width": "150px",
-          "changeAble": true
+          "searchAble": true
         },
         {
           "value": "status",
@@ -89,14 +90,14 @@ export default {
           "text": "메모",
           "align": "center",
           "width": "150px",
-          "changeAble": true
+          "searchAble": true
         },
         {
           "value": "",
           "text": "관리",
           "align": "center",
           "width": "150px",
-          "changeAble": false
+          "searchAble": false
         }
       ],
       editCallerNumber: this.createEditDefault({}),
@@ -159,13 +160,8 @@ export default {
       })
       this.editCallerNumber = this.createEditDefault({});
     },
-
-
     handleRemoveRows(indexes) {
-
       //const rows = indexes.reduce(index=>  this.rows[index]);
-
-      console.log(indexes);
       if (indexes[0] === -1) indexes.shift();
       const rows = indexes.reduce((pre, cur) => {
         console.log(pre, cur);
@@ -206,6 +202,16 @@ export default {
           return false;
         }
       })
+    },
+    handleSearchRow(payload) {
+      const result = this.$store.getters["callerNumberManage/findByHeaderName"](payload);
+
+      this.rows = Object.assign(result, {});
+    }
+  },
+  computed: {
+    searchHeaders() {
+      return this.headers.filter(header => header.searchAble)
     }
   }
 }

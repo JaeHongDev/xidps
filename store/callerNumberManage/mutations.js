@@ -2,9 +2,10 @@ export default {
   insertNew: ({state}, callerManager) => {
     state.callerNumbers.unshift(callerManager);
   },
-  removeRow: ({state, commit, getters}, index) => {
+  removeRow: ({state}, index) => {
     state.callerNumbers.splice(index, 1);
   },
-  updateRow({state}, {callerNumber, updatedRow}) {
+  updateRow(context, payload) {
+    context.state.callerNumbers.splice(payload.index, 1, payload.updatedRow);
   }
 }
