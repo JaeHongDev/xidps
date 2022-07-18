@@ -1,17 +1,4 @@
 <template>
-  <!--
-    <v-data-table
-      :headers='headers'
-      :items='rows'
-
-      disable-sort
-      disable-pagination
-      hide-default-footer
-      dense
-      class='excel-data-viewer'
-    >
-    </v-data-table>
-  -->
   <v-data-table
     :headers='headers'
     :items='rows'
@@ -20,8 +7,11 @@
     hide-default-footer
     dense
     height='158'
+    :style='{width: width+"px"}'
     class='excel-data-viewer'
   >
+    <template v-slot:item.index>
+    </template>
   </v-data-table>
 
 </template>
@@ -42,6 +32,12 @@ export default {
       default: function () {
         return []
       }
+    },
+    width:{
+      type:Number | String,
+      default:function(){
+        return "";
+      }
     }
   }
 }
@@ -51,23 +47,24 @@ export default {
 .excel-data-viewer {
   border: 1px solid #d6d6d6 !important;
   border-collapse: collapse;
-  width: 750px !important;
 
   ::v-deep table {
+    tr{
+      white-space: nowrap;
+    }
     td, th {
       border: 1px solid #d6d6d6 !important;
       vertical-align: middle !important;
       text-align: center;
-
     }
-
     td {
       font-size: $fs5;
       color: $warm-grey;
+      max-width: 100px !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
     }
-
     th {
-
       color: $light-navy-blue !important;
       font-size: $semi-bold;
       border-spacing: 5px;

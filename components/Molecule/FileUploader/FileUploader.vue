@@ -24,9 +24,9 @@
         <v-icon class='grassh-green'>mdi-microsoft-excel</v-icon>
         <span>엑셀 업로드</span>
       </v-btn>
-      <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
+      <v-btn outlined class='xidps-file-btn' @click='$emit("button:download:excel")' type='file'>
         <v-icon class='grassh-green'>mdi-file</v-icon>
-        <span>파일 업로드</span></v-btn>
+        <span>샘플 다운로드</span></v-btn>
     </div>
     <div class='file-upload-buttons' v-else>
       <v-btn outlined class='xidps-file-btn xidps-file' @click='findFile' type='file'>
@@ -77,7 +77,7 @@ export default {
     onFileChanged(e) {
       this.selectedFile.push(e.target.files[0])
       this.$emit("button:load:excel")
-    }
+    },
   },
 
   computed: {
@@ -108,6 +108,7 @@ $grassh-green: #2c9700;
 }
 .xidps-file-result {
   width: 80%;
+  height:77px;
   border: 1px solid #cbcbcb;
   background-color: $white;
 

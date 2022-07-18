@@ -5,7 +5,7 @@
     persistent
     class='rounded'>
     <v-card>
-      <v-row dense align-content='right' class='flex-row-reverse'>
+      <v-row dense class='flex-row-reverse'>
         <v-btn @click='isShow=false; $emit("button:click:close")' icon>
           <v-icon>mdi-close</v-icon>
         </v-btn>
