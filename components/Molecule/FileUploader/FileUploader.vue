@@ -1,5 +1,5 @@
 <template>
-  <div class='xidps-file-container'>
+  <div class='d-flex justify-space-between'>
     <div class='xidps-file-result'>
       <div class='xidps-file-list'>
         <v-chip
@@ -19,22 +19,20 @@
         <span class='fs-7 fw-regular'>0KB/0KB</span>
       </div>
     </div>
-
-    <div v-if='useExcel'>
+    <div class='file-upload-buttons' v-if='useExcel'>
       <v-btn outlined class='xidps-file-btn' @click='findFile'>
         <v-icon class='grassh-green'>mdi-microsoft-excel</v-icon>
-        <span> 엑셀 업로드</span>
+        <span>엑셀 업로드</span>
       </v-btn>
       <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
         <v-icon class='grassh-green'>mdi-file</v-icon>
         <span>파일 업로드</span></v-btn>
     </div>
-    <div v-else>
-      <v-btn outlined class='xidps-file-btn' @click='findFile' type='file'>
+    <div class='file-upload-buttons' v-else>
+      <v-btn outlined class='xidps-file-btn xidps-file' @click='findFile' type='file'>
         <v-icon class='grassh-green'>mdi-file</v-icon>
         <span>파일 업로드</span></v-btn>
     </div>
-
     <input
       ref='uploader'
       class='d-none'
@@ -42,6 +40,7 @@
       @change='onFileChanged'
     />
   </div>
+
 </template>
 
 <script>
@@ -89,6 +88,7 @@ export default {
       }))
     }
   }
+
 }
 </script>
 
@@ -99,43 +99,47 @@ $grassh-green: #2c9700;
   color: $grassh-green !important;
 }
 
-.xidps-file-container {
-  width: 703px;
-  display: flex;
-  justify-content: space-between;
-
-  .xidps-file-result {
-    width: 576px;
-    border: 1px solid #cbcbcb;
-    background-color: $white;
-
-    .xidps-file-list {
-      overflow: scroll;
-      height:60px;
-    }
-  }
-
-  .xidps-file-type {
-    width: 100%;
-    height: 15px;
-    padding: 0 6px;
-    background-color: #eeeeee;
-    font-size: $fs7;
-    color: $warm-grey !important;
-
-    span {
-      float: right;
-    }
-  }
-
+.file-upload-buttons{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
   .xidps-file-btn {
-    border: 1px solid #cbcbcb !important;
-    width: 111px !important;
-    font-size: $fs7;
-    font-weight: $semi-bold;
-    color: $warm-grey !important;
-
   }
+}
+.xidps-file-result {
+  width: 80%;
+  border: 1px solid #cbcbcb;
+  background-color: $white;
+
+  .xidps-file-list {
+    overflow: scroll;
+    height: 60px;
+  }
+}
+
+.xidps-file-type {
+  float: bottom;
+  height: 15px;
+  padding: 0 6px;
+  background-color: #eeeeee;
+  font-size: $fs7;
+  color: $warm-grey !important;
+
+  span {
+    float: right;
+  }
+}
+
+.xidps-file-btn {
+  border: 1px solid #cbcbcb !important;
+  width: 111px !important;
+  font-size: $fs7;
+  font-weight: $semi-bold;
+  color: $warm-grey !important;
+}
+.xidps-file{
+  height:100% !important;
+
 }
 
 </style>
