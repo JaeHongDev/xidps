@@ -17,12 +17,8 @@ export class ExcelProvider {
     return this;
   }
 
-  downloadUserExcel() {
-    const rows = [
-      {"id": "11", "password": "22"},
-      {"id": "11", "password": "22"},
-      {"id": "11", "password": "22"},
-    ];
+  downloadUserExcel(rows) {
+
     const worksheet = this.XLSX.utils.json_to_sheet(rows);
     const workbook = this.XLSX.utils.book_new();
 

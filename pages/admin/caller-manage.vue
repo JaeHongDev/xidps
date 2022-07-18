@@ -161,6 +161,7 @@ export default {
       this.editCallerNumber = this.createEditDefault({});
     },
     handleRemoveRows(indexes) {
+      console.log(indexes);
       //const rows = indexes.reduce(index=>  this.rows[index]);
       if (indexes[0] === -1) indexes.shift();
       const rows = indexes.reduce((pre, cur) => {

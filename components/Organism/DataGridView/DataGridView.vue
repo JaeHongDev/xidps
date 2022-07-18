@@ -167,9 +167,10 @@ export default {
     },
     removeRows() {
       const indexes = this.selectedIndexes.map((item) => {
-          return this.calculatedIndex(item)
+        return this.calculatedIndex(item);
         }
       );
+
       this.$emit("button:remove:click", indexes)
       this.selectedIndexes = [];
     },
@@ -178,12 +179,7 @@ export default {
     },
     calculatedIndex(targetItem) {
       return this.rows.findIndex((item) => {
-        if (item.v_index) {
           return item.v_index === targetItem.v_index
-        }
-        if (item.id) {
-          return item.id === targetItem.id;
-        }
       });
     },
     updatedRow(item){
