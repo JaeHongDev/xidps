@@ -5,29 +5,42 @@
     </v-card-text>
 
     <v-card-text>
-      <v-row>
-        <v-col cols='1'>
+      <div class='d-flex align-center justify-space-between'>
+        <div style='width: 300px'>
           <v-select
             :items='extractMessages'
-            @select='changeSelect'
+            @change='changeSelect'
             data-test='division-select'
+            dense
+            hide-details
             solo></v-select>
-        </v-col>
-        <v-spacer></v-spacer>
-        <v-col cols='10'>
-          <v-row align='center'>
-            <v-checkbox label='PUSH'></v-checkbox>
-            <v-text-field suffix='건' data-test='message-input' v-model='messageCount.PUSH'/>
-            <v-checkbox></v-checkbox>
-            <v-text-field data-test='message-input' v-model='messageCount.PUSH'/>
-            <v-checkbox></v-checkbox>
-            <v-text-field data-test='message-input' v-model='messageCount.PUSH'/>
-            <v-checkbox></v-checkbox>
-            <v-text-field data-test='message-input' v-model='messageCount.PUSH'/>
-            <v-btn>저장</v-btn>
-          </v-row>
-        </v-col>
-      </v-row>
+        </div>
+
+        <div class='d-flex justify-space-around align-center'>
+          <div class='d-flex px-10'>
+            <v-checkbox label='PUSH' @change='disables.PUSH = !disables.PUSH'></v-checkbox>
+            <v-text-field class='message-input' suffix='건' data-test='message-input' v-model='messageCount.PUSH'
+                          :disabled='disables.PUSH'/>
+          </div>
+          <div class='d-flex px-10'>
+            <v-checkbox label='SMS' @change='disables.SMS = !disables.SMS'></v-checkbox>
+            <v-text-field class='message-input' suffix='건' data-test='message-input' v-model='messageCount.SMS'
+                          :disabled='disables.SMS'/>
+          </div>
+          <div class='d-flex px-10'>
+            <v-checkbox label='LMS' @change='disables.LMS = !disables.LMS'></v-checkbox>
+            <v-text-field class='message-input' suffix='건' data-test='message-input' v-model='messageCount.LMS'
+                          :disabled='disables.LMS'/>
+          </div>
+          <div class='d-flex px-10'>
+            <v-checkbox label='MMS' @change='disables.MMS = !disables.MMS'></v-checkbox>
+            <v-text-field class='message-input' suffix='건' data-test='message-input' v-model='messageCount.MMS'
+                          :disabled='disables.MMS'/>
+          </div>
+          <v-btn>저장</v-btn>
+        </div>
+
+      </div>
     </v-card-text>
 
   </v-card>
@@ -57,18 +70,28 @@ export default {
 
   data() {
     return {
+      disables:this.createDefaultDisablesSetting(),
       messageCount: {
-        PUSH: 1,
+        PUSH: 0,
         SMS: 0,
-        LMS: 1,
+        LMS: 0,
         MMS: 0,
       }
     }
   },
 
   methods: {
-    changeSelect(index) {
-      this.messageCount.PUSH = this.settings[index].PUSH;
+    createDefaultDisablesSetting() {
+      return {
+        PUSH: true,
+        SMS: true,
+        LMS: true,
+        MMS: true,
+      }
+    },
+    changeSelect(division) {
+      this.messageCount = Object.assign(this.settings.find(setting => setting.division === division).message, {});
+
     }
   },
   computed: {
@@ -83,7 +106,11 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-::v-deep .v-text--field{
-  width:40px !important;
+.message-input {
+  width: 100px !important;
+
+  ::v-deep input {
+    text-align: right;
+  }
 }
 </style>

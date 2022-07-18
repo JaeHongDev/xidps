@@ -8,7 +8,10 @@
         @button:click:save='importExcel'
       ></user-excel-loader>
     </custom-modal>
+
+    <setting-division-value></setting-division-value>
     <data-grid-view
+      class='mt-7'
       :headers='headers'
       :search-headers='searchHeaders'
       :rows='rows'

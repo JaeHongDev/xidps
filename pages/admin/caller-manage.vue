@@ -1,51 +1,53 @@
 <template>
-  <data-grid-view
-    :headers='headers'
-    :rows='rows'
-    :search-headers='searchHeaders'
-    title='발신번호 관리'
-    selected-key='v_index'
-    @button:add:click='insertNewRow'
-    @button:remove:click='handleRemoveRows'
-    @button:save:click='handleSaveRows'
-    @button:search:click='handleSearchRow'
-  >
-    <template v-slot:state-edit='{item,index}'>
-      <td>{{item.number}}</td>
-      <td>
-        <v-text-field hide-details outlined dense v-model='editCallerNumber.manager'></v-text-field>
-      </td>
-      <td>
-        <v-text-field hide-details outlined dense v-model='editCallerNumber.department'></v-text-field>
-      </td>
-      <td>{{item.status}}</td>
-      <td>
-        <v-text-field hide-details outlined dense v-model='editCallerNumber.memo'></v-text-field>
-      </td>
-      <td>
-        <v-btn @click='handleEditEnd(item)' icon>
-          <v-icon>mdi-check</v-icon>
-        </v-btn>
-        <v-btn @click='handleEditCancel(item)' icon>
-          <v-icon>mdi-cancel</v-icon>
-        </v-btn>
-      </td>
-    </template>
+    <data-grid-view
+      class='mt-7'
+      :headers='headers'
+      :rows='rows'
+      :search-headers='searchHeaders'
+      title='발신번호 관리'
+      selected-key='v_index'
+      @button:add:click='insertNewRow'
+      @button:remove:click='handleRemoveRows'
+      @button:save:click='handleSaveRows'
+      @button:search:click='handleSearchRow'
+    >
+      <template v-slot:state-edit='{item,index}'>
+        <td>{{item.number}}</td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editCallerNumber.manager'></v-text-field>
+        </td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editCallerNumber.department'></v-text-field>
+        </td>
+        <td>{{item.status}}</td>
+        <td>
+          <v-text-field hide-details outlined dense v-model='editCallerNumber.memo'></v-text-field>
+        </td>
+        <td>
+          <v-btn @click='handleEditEnd(item)' icon>
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+          <v-btn @click='handleEditCancel(item)' icon>
+            <v-icon>mdi-cancel</v-icon>
+          </v-btn>
+        </td>
+      </template>
 
 
-    <template v-slot:state-basic='{item,index}'>
-      <td>{{item.number}}</td>
-      <td>{{item.manager}}</td>
-      <td>{{item.department}}</td>
-      <td>{{item.status}}</td>
-      <td>{{item.memo}}</td>
-      <td>
-        <v-btn @click='handleEditStart(item)' icon>
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
-      </td>
-    </template>
-  </data-grid-view>
+      <template v-slot:state-basic='{item,index}'>
+        <td>{{item.number}}</td>
+        <td>{{item.manager}}</td>
+        <td>{{item.department}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.memo}}</td>
+        <td>
+          <v-btn @click='handleEditStart(item)' icon>
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+        </td>
+      </template>
+    </data-grid-view>
+
 </template>
 
 <script>
