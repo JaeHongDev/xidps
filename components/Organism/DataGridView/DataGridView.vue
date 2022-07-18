@@ -33,11 +33,10 @@
       v-model='selectedIndexes'
       :item-key='selectedKey'
       :show-select='useSelector'
-      selectable-key='item.id'
       dense>
 
       <template v-slot:item='{item,index,isSelected,select}'>
-        <tr :class='{updated:rows[index].division === "UPDATE"}'>
+        <tr :key='index' :class='updatedRow(item)'>
           <td v-if='useSelector'>
             <v-checkbox
               :input-value='isSelected'
@@ -186,8 +185,11 @@ export default {
           return item.id === targetItem.id;
         }
       });
+    },
+    updatedRow(item){
+        return {updated:item.division === "UPDATE"}
     }
-  },
+  }
 }
 </script>
 <style scoped lang='scss'>
