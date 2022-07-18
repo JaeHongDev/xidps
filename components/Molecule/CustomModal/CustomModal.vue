@@ -5,19 +5,14 @@
     persistent
     class='rounded'>
     <v-card>
-      <v-row>
-        <v-col cols='7'>
-          <v-card-title class='light-navy-blue fs-4'>
-            {{title}}
-          </v-card-title>
-        </v-col>
-        <v-spacer></v-spacer>
-        <v-col cols='1'>
-          <v-btn @click='isShow=false; $emit("button:click:close")' icon>
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </v-col>
+      <v-row dense align-content='right' class='flex-row-reverse'>
+        <v-btn @click='isShow=false; $emit("button:click:close")' icon>
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
       </v-row>
+      <v-card-subtitle class='light-navy-blue fs-4'>
+        {{title}}
+      </v-card-subtitle>
       <v-card-subtitle>
         <v-divider class='warm-grey'></v-divider>
       </v-card-subtitle>
