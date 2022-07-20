@@ -60,7 +60,7 @@ export default {
       rows: [],
       headers: [
         {
-          "value": "number",
+          "value": "callerNumber",
           "text": "발신번호",
           "align": "center",
           "width": "100px",
