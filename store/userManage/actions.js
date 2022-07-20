@@ -27,6 +27,6 @@ export default {
     });
 
     context.commit("insertNew", inserts);
-    //context.commit("updateRow", updates);
+    context.commit("updateRow", updates);
   },
 };

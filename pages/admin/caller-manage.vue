@@ -164,7 +164,6 @@ export default {
     },
     handleRemoveRows(indexes) {
       //const rows = indexes.reduce(index=>  this.rows[index]);
-      if (indexes[0] === -1) indexes.shift();
       const rows = indexes.reduce((pre, cur) => {
         if (this.rows[cur].division !== "INSERT") return [...pre, this.$store.getters["callerNumberManage/findByIndex"](this.rows[cur])];
         return pre
@@ -173,7 +172,7 @@ export default {
         indexes
       })
 
-      indexes.sort().reverse().forEach(index => {
+      indexes.reverse().forEach(index => {
         this.rows.splice(index, 1);
       })
 
