@@ -59,6 +59,7 @@
           </template>
         </v-treeview>
       </v-flex>
+    </div>
   </v-card>
 
 </template>
