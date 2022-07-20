@@ -142,7 +142,6 @@ export default {
         }
       });
       this.$store.dispatch("callerManager/callerManagerRowsSave", this.rows.filter(row => row.division !== "SELECT"))
-      console.log(this.rows);
     },
     handleEndEditStateByRowIndex(index) {
       this.rows.splice(index, 1, {

@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: "test"
-}
+  name: "LargeCapacityTable"
+};
 </script>
 
 <style scoped>
