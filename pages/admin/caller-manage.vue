@@ -131,7 +131,7 @@ export default {
       return this.rows.findIndex(({v_index}) => row.v_index === v_index);
     },
     handleEditStart(row) {
-      if (this.validateEditingRow()) return;
+      if (!this.validateEditingRow()) return;
       const index = this.findByIndex(row);
       this.rows.splice(index, 1, {
         ...row,
@@ -178,7 +178,7 @@ export default {
 
     },
     handleSaveRows() {
-      if (this.validateEditingRow()) return;
+      if (!this.validateEditingRow()) return;
       const changedRows = this.rows.filter(row => row.division !== "SELECT");
       this.$store.dispatch("callerNumberManage/saveRows", {
         rows: changedRows

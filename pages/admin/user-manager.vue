@@ -159,6 +159,7 @@ export default {
       this.rows.unshift(this.createDefault({}));
     },
     handleEditStart(item) {
+      if(!this.validateEditingRow()) return ;
       item.editable = true;
       this.editUser = this.createEditDefault(Object.assign(item, {}));
     },
@@ -190,7 +191,7 @@ export default {
       this.rows = Object.assign(this.$store.getters["userManage/findByHeaderName"](payload), {});
     },
     handleSaveRows() {
-      if (this.validateEditingRow()) return;
+      if (!this.validateEditingRow()) return;
       const changedRows = this.rows.filter(row => row.division !== "SELECT");
       this.$store.dispatch("userManage/saveRows", {
         rows: changedRows
@@ -207,6 +208,7 @@ export default {
       return this.rows.some((row, index) => {
         if (row.editable) {
           alert(`${index + 1}행이 편집중입니다`);
+          return false;
         }
       });
     },
