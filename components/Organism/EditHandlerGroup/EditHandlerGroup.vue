@@ -1,11 +1,11 @@
 <template>
   <div class="xidps-container">
     <search-text-box v-show="useSearch"  :search-columns="searchHeaders"  @click:search="handleSearch"></search-text-box>
-    <v-btn v-show="useDelete" @click="$emit('click:remove')" class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
+    <v-btn v-show="useDelete" @click="handleRemove" class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
     <v-btn v-show="usePersonalizedUser" class="xidps-btn xidps-btn-personalize" outlined elevation="0"><v-icon>mdi-users</v-icon>개인 사용자 모아보기</v-btn>
     <v-btn v-show="useImportExcel" class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0" @click='$emit("click:import")'><v-icon>mdi-plus</v-icon>엑셀 추가</v-btn>
     <v-btn v-show="useAdd" class="xidps-btn xidps-btn-add" elevation="0" @click="$emit('click:add')"><v-icon>mdi-plus</v-icon>추가</v-btn>
-    <v-btn v-show="useSave" @click="$emit('click:save')" class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
+    <v-btn v-show="useSave" @click="handleSave" class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
   </div>
 </template>
 
@@ -40,6 +40,16 @@ export default {
     handleSearch(payload){
       console.log(payload);
       this.$emit("click:search",payload);
+    },
+    handleSave(){
+      if(window.confirm("저장하시겠습니까? ")){
+        this.$emit('click:save')
+      }
+    },
+    handleRemove(){
+      if(window.confirm("삭제하시겠습니까?")){
+        this.$emit('click:remove')
+      }
     }
   },
   mounted() {
