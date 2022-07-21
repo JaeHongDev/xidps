@@ -1,53 +1,62 @@
 <template>
-    <data-grid-view
-      class='mt-7'
-      :headers='headers'
-      :rows='rows'
-      :search-headers='searchHeaders'
-      title='발신번호 관리'
-      selected-key='v_index'
-      @button:add:click='insertNewRow'
-      @button:remove:click='handleRemoveRows'
-      @button:save:click='handleSaveRows'
-      @button:search:click='handleSearchRow'
+  <div>
+    <custom-modal
+      :isShow="isShow"
+      :width="750"
+      title="발신번호 추가"
+      @button:click:close="isShow = false"
     >
-      <template v-slot:state-edit='{item,index}'>
-        <td>{{item.number}}</td>
+      <caller-number-form @click:save="insertNewRow"></caller-number-form>
+    </custom-modal>
+    <data-grid-view
+      class="mt-7"
+      :headers="headers"
+      :rows="rows"
+      :search-headers="searchHeaders"
+      title="발신번호 관리"
+      selected-key="v_index"
+      @button:add:click="isShow = true"
+      @button:remove:click="handleRemoveRows"
+      @button:save:click="handleSaveRows"
+      @button:search:click="handleSearchRow"
+    >
+      <template v-slot:state-edit="{item,index}">
+        <td>{{ item.callerNumber }}</td>
         <td>
-          <v-text-field hide-details outlined dense v-model='editCallerNumber.manager'></v-text-field>
+          <v-text-field hide-details outlined dense v-model="editCallerNumber.manager"></v-text-field>
         </td>
         <td>
-          <v-text-field hide-details outlined dense v-model='editCallerNumber.department'></v-text-field>
+          <v-text-field hide-details outlined dense v-model="editCallerNumber.department"></v-text-field>
         </td>
-        <td>{{item.status}}</td>
+        <td>{{ item.status }}</td>
         <td>
-          <v-text-field hide-details outlined dense v-model='editCallerNumber.memo'></v-text-field>
+          <v-text-field hide-details outlined dense v-model="editCallerNumber.memo"></v-text-field>
         </td>
         <td>
-          <v-btn @click='handleEditEnd(item)' icon>
+          <v-btn @click="handleEditEnd(item)" icon>
             <v-icon>mdi-check</v-icon>
           </v-btn>
-          <v-btn @click='handleEditCancel(item)' icon>
+          <v-btn @click="handleEditCancel(item)" icon>
             <v-icon>mdi-cancel</v-icon>
           </v-btn>
         </td>
       </template>
 
 
-      <template v-slot:state-basic='{item,index}'>
-        <td>{{item.number}}</td>
-        <td>{{item.manager}}</td>
-        <td>{{item.department}}</td>
-        <td>{{item.status}}</td>
-        <td>{{item.memo}}</td>
+      <template v-slot:state-basic="{item,index}">
+        <td>{{ item.callerNumber }}</td>
+        <td>{{ item.manager }}</td>
+        <td>{{ item.department }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.memo }}</td>
         <td>
-          <v-btn @click='handleEditStart(item)' icon>
+          <v-btn @click="handleEditStart(item)" icon>
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
         </td>
       </template>
     </data-grid-view>
-
+  </div>
 </template>
 
 <script>
@@ -103,12 +112,12 @@ export default {
         }
       ],
       editCallerNumber: this.createEditDefault({}),
-
+      isShow: false,
       v_index: 0
-    }
+    };
   },
   methods: {
-    createDefault({callerNumber, manager, department, status, memo,}) { // 초기 값
+    createDefault({ callerNumber, manager, department, status, memo }) { // 초기 값
       return {
         editable: false,
         division: "INSERT",
@@ -117,31 +126,31 @@ export default {
         manager: manager ?? "",
         department: department ?? "",
         status: status ?? "",
-        memo: memo ?? "",
-      }
+        memo: memo ?? ""
+      };
     },
-    createEditDefault({manager, department, memo}) { // 편집 할 대상의 초기 값
+    createEditDefault({ manager, department, memo }) { // 편집 할 대상의 초기 값
       return {
         manager: manager ?? "",
         department: department ?? "",
-        memo: memo ?? "",
-      }
+        memo: memo ?? ""
+      };
     },
     findByIndex(row) {
-      return this.rows.findIndex(({v_index}) => row.v_index === v_index);
+      return this.rows.findIndex(({ v_index }) => row.v_index === v_index);
     },
     handleEditStart(row) {
       if (this.validateEditingRow()) return;
       const index = this.findByIndex(row);
       this.rows.splice(index, 1, {
         ...row,
-        editable: true,
-      })
+        editable: true
+      });
       this.editCallerNumber = this.createEditDefault({
         manager: row.manager,
         department: row.department,
         memo: row.memo
-      })
+      });
     },
     handleEditEnd(row) {
       const index = this.findByIndex(row);
@@ -158,8 +167,8 @@ export default {
       const index = this.findByIndex(row);
       this.rows.splice(index, 1, {
         ...row,
-        editable: false,
-      })
+        editable: false
+      });
       this.editCallerNumber = this.createEditDefault({});
     },
     handleRemoveRows(indexes) {
@@ -167,15 +176,15 @@ export default {
       //const rows = indexes.reduce(index=>  this.rows[index]);
       const rows = indexes.reduce((pre, cur) => {
         if (this.rows[cur].division !== "INSERT") return [...pre, this.$store.getters["callerNumberManage/findByIndex"](this.rows[cur])];
-        return pre
-      }, [])
+        return pre;
+      }, []);
       this.$store.dispatch("callerNumberManage/removeRows", {
         indexes
-      })
+      });
 
       indexes.forEach(index => {
         this.rows.splice(index, 1);
-      })
+      });
 
     },
     handleSaveRows() {
@@ -184,25 +193,27 @@ export default {
       const changedRows = this.rows.filter(row => row.division !== "SELECT");
       this.$store.dispatch("callerNumberManage/saveRows", {
         rows: changedRows
-      })
+      });
 
       changedRows.forEach(row => {
         this.rows.splice(this.findByIndex(row), 1, {
           ...row,
           division: "SELECT"
         });
-      })
+      });
     },
-    insertNewRow() {
-      this.rows.unshift(this.createDefault({}))
+    insertNewRow(payload) {
+      console.log(payload);
+      this.rows.unshift(this.createDefault({ callerNumber: payload.number }));
+      this.isShow = false;
     },
     validateEditingRow() {
-      return this.rows.some((row,index) => {
+      return this.rows.some((row, index) => {
         if (row.editable) {
           alert(`${index + 1}행이 편집중입니다.`);
           return true;
         }
-      })
+      });
     },
     handleSearchRow(payload) {
       const result = this.$store.getters["callerNumberManage/findByHeaderName"](payload);
@@ -212,10 +223,10 @@ export default {
   },
   computed: {
     searchHeaders() {
-      return this.headers.filter(header => header.searchAble)
+      return this.headers.filter(header => header.searchAble);
     }
   }
-}
+};
 </script>
 
 <style scoped>
