@@ -28,14 +28,15 @@
           transition
         >
           <template v-slot:prepend="{ item, open , leaf,active}" class="align-center">
-            <div @click="toggleTreeViewItem({item,leaf,open,active,$event})">
+            <v-btn icon @click="toggleTreeViewItem({item,leaf,open,active,$event})">
               <v-icon class="lavender">
                 {{ open ? "mdi-folder-open" : "mdi-folder" }}
               </v-icon>
-            </div>
+            </v-btn>
+
           </template>
           <template v-slot:label="{item,leaf,open,active}">
-            <div @click="toggleTreeViewItem({item,leaf,active,open,$event})" style="min-width:240px">
+            <div style="min-width:240px">
               <div class="d-flex align-center" v-if="item.editable">
                 <div style="width:100px;margin-bottom:10px">
                   <v-text-field outline dense hide-details v-model="editText"></v-text-field>
@@ -47,11 +48,12 @@
                   <v-icon>mdi-cancel</v-icon>
                 </v-btn>
               </div>
-              <div v-else>{{ item.name }}
-                <v-btn icon @click.stop="handleStartEdit(item)" class="light-navy-blue">
+              <div v-else>
+                <span style="margin-top:5px">{{ item.name }}</span>
+                <v-btn v-show="active" icon @click.stop="handleStartEdit(item)" class="light-navy-blue">
                   <v-icon>mdi-pencil</v-icon>
                 </v-btn>
-                <v-btn icon @click.stop="handleDelete(item)" class="light-navy-blue">
+                <v-btn v-show="active" icon @click.stop="handleDelete(item)" class="light-navy-blue">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
@@ -71,7 +73,7 @@ export default {
     return {
       id: 0,
       selectedId: -1,
-      search:"",
+      search: "",
       opens: [],
       tree: [],
       editText: "",
@@ -79,9 +81,9 @@ export default {
     };
   },
   computed: {
-    filter () {
-      return (item, search, textKey) => item[textKey].indexOf(search) > -1
-    },
+    filter() {
+      return (item, search, textKey) => item[textKey].indexOf(search) > -1;
+    }
   },
   methods: {
     createDefaultTreeNode({ name, bookmark = false }) {
@@ -93,10 +95,7 @@ export default {
         editable: false
       };
     },
-    toggleTreeViewItem({ item, active, leaf, open, $event }) {
-      if (active) {
-        $event.stopPropagation();
-      }
+    toggleTreeViewItem({ item, leaf, open }) {
       if (open) {
         this.$delete(this.opens, this.opens.indexOf(item.id));
         return;
@@ -129,8 +128,11 @@ export default {
     },
     handleDelete(item) {
       console.log(item);
+      if (!window.confirm("삭제하시겠습니까?")) {
+        return;
+      }
       if (item.children.length) {
-        window.alert("삭제할 수 없습니다.");
+        window.alert("하위 주소록이 존재하여 삭제할 수 없습니다.");
         return;
       }
       const recursiveObj = (arr, id) => {
@@ -183,7 +185,7 @@ export default {
 
 
 .v-treeview {
-  width:max-content;
+  width: max-content;
 }
 
 .address-book {
@@ -198,8 +200,8 @@ export default {
     .v-treeview-node__content {
       margin-left: -24px !important;
     }
-
   }
+
   ::v-deep .v-treeview-node__toggle {
   }
 }
