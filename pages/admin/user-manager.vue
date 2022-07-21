@@ -113,18 +113,6 @@ export default {
   },
   methods: {
 
-    // editable
-    // division
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-
     createDefault({id, name, number, position, var1, var2, var3, var4}) {
       return {
         editable: false,
@@ -177,7 +165,6 @@ export default {
       this.editUser = this.createEditDefault({});
     },
     handleRemoveRows(indexes) {
-      console.log(indexes) ;
       const selectedIndexes = indexes.reduce((pre, cur) => {
         if (this.rows[cur].division !== "INSERT") return [...pre, this.$store.getters["userManage/findByIndex"]({user:this.rows[cur]})]
         return pre;
@@ -208,7 +195,7 @@ export default {
       return this.rows.some((row, index) => {
         if (row.editable) {
           alert(`${index + 1}행이 편집중입니다`);
-          return false;
+          return true;
         }
       });
     },

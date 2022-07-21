@@ -35,7 +35,7 @@
       :show-select='useSelector'
       dense>
 
-      <template v-slot:item='{item,index,isSelected,select}'>
+      <template v-slot:item='{item,index,isSelected,select,active}'>
         <tr :key='index' :class='updatedRow(item)'>
           <td v-if='useSelector'>
             <v-checkbox
@@ -43,8 +43,8 @@
               @click='select(item)'
               dense hide-details></v-checkbox>
           </td>
-          <slot v-if='item.editable' name='state-edit' v-bind='{item:item,index:calculatedIndex(item)}'></slot>
-          <slot v-else name='state-basic' v-bind='{item:item,index:calculatedIndex(item)}'></slot>
+          <slot v-if='item.editable' name='state-edit' v-bind='{item:item,index:calculatedIndex(item),active}'></slot>
+          <slot v-else name='state-basic' v-bind='{item:item,index:calculatedIndex(item), active}'></slot>
         </tr>
       </template>
     </v-data-table>
@@ -58,8 +58,7 @@
 </template>
 
 <script>
-export default {
-  name: "DataGridView",
+export default { name: "DataGridView",
   props: {
     useDefaultHeaders: {
       type: Boolean,
@@ -171,7 +170,7 @@ export default {
         }
       );
 
-      this.$emit("button:remove:click", indexes)
+      this.$emit("button:remove:click", indexes.sort((a,b)=> b-a))
       this.selectedIndexes = [];
     },
     searchRows(payload) {

@@ -163,6 +163,7 @@ export default {
       this.editCallerNumber = this.createEditDefault({});
     },
     handleRemoveRows(indexes) {
+      console.log(indexes);
       //const rows = indexes.reduce(index=>  this.rows[index]);
       const rows = indexes.reduce((pre, cur) => {
         if (this.rows[cur].division !== "INSERT") return [...pre, this.$store.getters["callerNumberManage/findByIndex"](this.rows[cur])];
@@ -172,7 +173,7 @@ export default {
         indexes
       })
 
-      indexes.reverse().forEach(index => {
+      indexes.forEach(index => {
         this.rows.splice(index, 1);
       })
 
@@ -198,7 +199,7 @@ export default {
       return this.rows.some((row,index) => {
         if (row.editable) {
           alert(`${index + 1}행이 편집중입니다.`);
-          return false;
+          return true;
         }
       })
     },

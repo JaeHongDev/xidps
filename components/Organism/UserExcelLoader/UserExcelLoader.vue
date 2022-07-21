@@ -14,7 +14,7 @@
       :width='900'>
     </excel-data-viewer>
     <div>
-      <v-btn>취소</v-btn>
+      <v-btn @click='cancelExcelData'>취소</v-btn>
       <v-btn @click='saveExcelData'> 저장</v-btn>
     </div>
   </div>
@@ -220,8 +220,6 @@ export default {
       if (!arrayBuffer) return;
 
       this.uploadedRow = this.$excel.readUserExcel(arrayBuffer).map((user, index) => ({
-        index: index + 1,
-        id: user[0] ?? "",
         name: user[1] ?? "",
         number: user[2] ?? "",
         position: user[3] ?? "",
@@ -233,11 +231,15 @@ export default {
     },
     saveExcelData() {
       this.$emit("button:click:save", {
-          rows: this.rows
+          rows: this.uploadedRow,
         }
-      )
+      );
+      this.uploadedRow = [];
+      this.uploading = false;
     },
-
+    cancelExcelData(){
+      this.uploading = false;
+    },
     downloadSampleData() {
       this.$excel.downloadUserExcel(
         this.rows.map(row => {
