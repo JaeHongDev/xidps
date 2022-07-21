@@ -138,14 +138,13 @@ export default {
       const recursiveObj = (arr, id) => {
         let index = arr.findIndex(item => item.id === id);
         if (index !== -1) {
-          console.log(index);
           this.$delete(arr, index);
           return;
         }
         arr.forEach(item => item.children ? recursiveObj(item.children, id) : "");
       };
       recursiveObj(this.items, item.id);
-      console.log(this.items);
+      this.selectedId = -1;
     },
     handleCreateNewFolder() {
       console.log(this.selectedId);
