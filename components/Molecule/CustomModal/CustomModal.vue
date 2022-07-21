@@ -6,7 +6,7 @@
     class='rounded'>
     <v-card>
       <v-row dense class='flex-row-reverse'>
-        <v-btn @click='isShow=false; $emit("button:click:close")' icon>
+        <v-btn @click='closeModal' icon>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-row>
@@ -50,7 +50,7 @@ export default {
 
   methods: {
     closeModal() {
-      this.isShow = false;
+      this.$emit("button:click:close")
     }
   }
 }
