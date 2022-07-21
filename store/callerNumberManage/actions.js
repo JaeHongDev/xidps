@@ -17,13 +17,13 @@ export default {
       }
       if (row.division === "UPDATE") {
         updates.push({
-          updatedRow: row,
+          updatedRow: copyRow,
           index: context.getters.findByIndex({ callerNumber: row }),
         });
       }
     });
     context.commit("insertNew", inserts);
-
+    context.commit("updateRow", updates);
     /*payload.rows.forEach((row) => {
       const copyRow = Object.assign({}, row);
 

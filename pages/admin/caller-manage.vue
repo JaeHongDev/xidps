@@ -180,6 +180,7 @@ export default {
     },
     handleSaveRows() {
       if (this.validateEditingRow()) return;
+
       const changedRows = this.rows.filter(row => row.division !== "SELECT");
       this.$store.dispatch("callerNumberManage/saveRows", {
         rows: changedRows
