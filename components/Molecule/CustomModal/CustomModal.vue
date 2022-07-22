@@ -25,9 +25,16 @@
 </template>
 
 <script>
+/**
+ - 커스텀 모달 컴포넌트입니다.
+ - The user's name should always be present when using Avatar – either printed beside the avatar or in a tooltip.
+ **/
 export default {
   name: "customModal",
   props: {
+    /**
+     * 문서테스트
+     */
     isShow: {
       type: Boolean,
       default: function () {
