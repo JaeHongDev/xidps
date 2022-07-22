@@ -11,7 +11,7 @@ describe("DataTableHeader", () => {
     expect(DataTableHeaderWrap.exists()).toBeTruthy();
   });
   it("DataTableHeader 컴포넌트의 props로 title과 count가 전달될 경우 정상적으로 화면에 표시된다.", async () => {
-    await DataTableHeaderWrap.setProps({ title: "테스트제목", count: "1000" });
+    await DataTableHeaderWrap.setProps({ title: "테스트제목", count: 1000 });
 
     const dataTableTitle = DataTableHeaderWrap.find("[data-test='title']");
     const dataTableCount = DataTableHeaderWrap.find("[data-test='count']");
