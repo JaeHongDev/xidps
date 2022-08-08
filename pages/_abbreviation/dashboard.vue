@@ -1,13 +1,15 @@
 <template>
   <div>
-    dashboard
+    {{name}}
   </div>
 </template>
 
 <script>
-export default {
-  name: "dashboard"
-};
+import Vue from "vue";
+
+export default class extends Vue{
+ name = "11";
+}
 </script>
 
 <style scoped>

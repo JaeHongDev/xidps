@@ -100,9 +100,7 @@ export default {
         this.$delete(this.opens, this.opens.indexOf(item.id));
         return;
       }
-
       this.selectedId = item.id;
-
       if (!leaf) {
         this.opens.push(item.id);
       }
@@ -146,7 +144,7 @@ export default {
       recursiveObj(this.items, item.id);
       this.selectedId = -1;
     },
-    handleCreateNewFolder() {
+    handleCreateNewFolder: function() {
       console.log(this.selectedId);
       if (this.selectedId === -1) {
         this.items.push(this.createDefaultTreeNode({}));
@@ -166,7 +164,27 @@ export default {
         });
         return arr;
       };
-      recursiveObj(this.items, this.selectedId);
+      //recursiveObj(this.items, this.selectedId);
+
+
+      const findNode = (item, id) => {
+        const index = item.findIndex(node => node.id === id);
+        if (index !== -1) {
+          return item[index].children;
+        }
+        for (const node of item) {
+          if(node.children){
+             const result = findNode(node.children, id);
+             if(result) return result;
+          }
+        }
+        return null;
+      };
+
+      const item = findNode(this.items,this.selectedId);
+      if(item){
+        item.push(this.createDefaultTreeNode({}));
+      }
     }
   }
 };

@@ -12,7 +12,15 @@
 
 <script>
 export default {
-  name: "common-addressbook"
+  name: "common-addressbook",
+
+  data(){
+    return{
+      addressBook:[],
+      headers:[],
+      rows:[],
+    }
+  }
 };
 </script>
 
