@@ -19,6 +19,20 @@ export default {
       addressBook:[],
       headers:[],
       rows:[],
+
+      id:0
+    }
+  },
+  methods:{
+    createDefaultTreeNode({name,bookmark=false}){
+      return {
+        id: this.id++,
+        name:name ?? "(제목없음)",
+        bookmark,
+        children:[],
+        editable: false,
+        
+      }
     }
   }
 };
