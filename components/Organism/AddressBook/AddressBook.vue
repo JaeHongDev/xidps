@@ -3,29 +3,29 @@
     <span class="fs-2 light-navy-blue">공통 주소록 그룹 관리</span>
 
     <div class="address-book-wrap">
-      <v-text-field dense solo hide-details v-model="search">
+      <v-text-field v-model="search" dense hide-details solo>
         <template v-slot:append>
-          <v-btn icon @click="handleCreateNewFolder">
+          <v-btn icon @click="handleClickAddButton">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
         </template>
       </v-text-field>
 
-      <v-flex xs12 style="  overflow-x: auto;">
+      <v-flex style="  overflow-x: auto;" xs12>
         <v-treeview
-          class="address-book"
           v-model="tree"
-          :items="items"
           :filter="filter"
+          :items="addressItems"
           :open="opens"
           :search="search"
           activatable
-          item-key="id"
-
-          @update:active="handleChangeActive"
-          expand-icon=""
+          class="address-book"
           dense
+
+          expand-icon=""
+          item-key="id"
           transition
+          @update:active="handleChangeActive"
         >
           <template v-slot:prepend="{ item, open , leaf,active}" class="align-center">
             <v-btn icon @click="toggleTreeViewItem({item,leaf,open,active,$event})">
@@ -37,23 +37,23 @@
           </template>
           <template v-slot:label="{item,leaf,open,active}">
             <div style="min-width:240px">
-              <div class="d-flex align-center" v-if="item.editable">
+              <div v-if="item.editable" class="d-flex align-center">
                 <div style="width:100px;margin-bottom:10px">
-                  <v-text-field outline dense hide-details v-model="editText"></v-text-field>
+                  <v-text-field v-model="editText" dense hide-details outline></v-text-field>
                 </div>
-                <v-btn icon @click.stop="handleEndEdit(item)" class="light-navy-blue">
+                <v-btn class="light-navy-blue" icon @click.stop="handleEndEdit(item)">
                   <v-icon>mdi-check</v-icon>
                 </v-btn>
-                <v-btn icon @click.stop="handleCancelEdit(item)" class="light-navy-blue">
+                <v-btn class="light-navy-blue" icon @click.stop="handleCancelEdit(item)">
                   <v-icon>mdi-cancel</v-icon>
                 </v-btn>
               </div>
               <div v-else>
                 <span style="margin-top:5px">{{ item.name }}</span>
-                <v-btn v-show="active" icon @click.stop="handleStartEdit(item)" class="light-navy-blue">
+                <v-btn v-show="active" class="light-navy-blue" icon @click.stop="handleStartEdit(item)">
                   <v-icon>mdi-pencil</v-icon>
                 </v-btn>
-                <v-btn v-show="active" icon @click.stop="handleDelete(item)" class="light-navy-blue">
+                <v-btn v-show="active" class="light-navy-blue" icon @click.stop="handleDelete(item)">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
@@ -77,8 +77,15 @@ export default {
       opens: [],
       tree: [],
       editText: "",
-      items: []
+      items: [],
+      selectedNode: null
     };
+  },
+  props: {
+    addressItems: {
+      type: Array,
+      default: () => []
+    }
   },
   computed: {
     filter() {
@@ -86,111 +93,60 @@ export default {
     }
   },
   methods: {
-    createDefaultTreeNode({ name, bookmark = false }) {
-      return {
-        id: ++this.id,
-        name: name ?? "(제목없음)",
-        bookmark,
-        children: [],
-        editable: false
-      };
+    handleClickAddButton() {
+      console.log(this.selectedNode);
+      this.$emit("create:new-treenode", {
+        selectedNode: this.selectedNode
+      });
+
     },
-    toggleTreeViewItem({ item, leaf, open }) {
-      if (open) {
-        this.$delete(this.opens, this.opens.indexOf(item.id));
-        return;
-      }
-      this.selectedId = item.id;
-      if (!leaf) {
-        this.opens.push(item.id);
-      }
+    handleChangeActive(selectedNodes) {
+      this.$emit("click:tree-node", {
+        selectedNode: selectedNodes[0] === undefined ? this.findNodeById(selectedNodes[0]) : selectedNodes[0]
+      });
+
     },
-    handleStartEdit(item) {
-      this.editText = item.name;
-      item.editable = true;
-    },
-    handleEndEdit(item) {
-      item.name = this.editText;
-      item.editable = false;
-    },
-    handleCancelEdit(item) {
-      this.editText = "";
-      item.editable = false;
-    },
-    handleChangeActive(props) {
-      if (props.length) {
-        this.selectedId = props[0];
-        return;
-      }
-      this.selectedId = -1;
-    },
-    handleDelete(item) {
-      console.log(item);
-      if (!window.confirm("삭제하시겠습니까?")) {
-        return;
-      }
-      if (item.children.length) {
-        window.alert("하위 주소록이 존재하여 삭제할 수 없습니다.");
-        return;
-      }
-      const recursiveObj = (arr, id) => {
-        let index = arr.findIndex(item => item.id === id);
-        if (index !== -1) {
-          this.$delete(arr, index);
-          return;
-        }
-        arr.forEach(item => item.children ? recursiveObj(item.children, id) : "");
-      };
-      recursiveObj(this.items, item.id);
-      this.selectedId = -1;
-    },
-    handleCreateNewFolder: function() {
-      console.log(this.selectedId);
-      if (this.selectedId === -1) {
-        this.items.push(this.createDefaultTreeNode({}));
-        return;
-      }
-      const recursiveObj = (arr, id) => {
-        let index = arr.findIndex(item => item.id === id);
-        if (index !== -1) {
-          arr[index].children.push(this.createDefaultTreeNode({}));
-          this.opens.push(arr[index].children[arr[index].children.length - 1].id);
-          return arr;
-        }
-        arr.forEach((item) => {
-          if (item.children) {
-            recursiveObj(item.children, id);
-          }
-        });
-        return arr;
-      };
-      //recursiveObj(this.items, this.selectedId);
 
 
-      const findNode = (item, id) => {
-        const index = item.findIndex(node => node.id === id);
+    findNodeById(id) {
+      const findNode = (tree = [], id) => {
+        const index = tree.findIndex(node => node.id === id);
         if (index !== -1) {
-          return item[index].children;
+          return tree[index].children;
         }
-        for (const node of item) {
-          if(node.children){
-             const result = findNode(node.children, id);
-             if(result) return result;
+        for (const node of tree) {
+          if (node.children) {
+            const result = findNode(node.children, id);
+            if (result) return result;
           }
         }
         return null;
       };
+      return findNode(this.tree, id);
+    },
 
-      const item = findNode(this.items,this.selectedId);
-      if(item){
-        item.push(this.createDefaultTreeNode({}));
-      }
+    findNodeParentById(id) {
+      const findNode = (tree = [], id) => {
+        const index = tree.findIndex(node => node.id === id);
+        if (index !== -1) {
+          return tree;
+        }
+
+        for (const node of tree) {
+          if (node.children) {
+            const result = findNode(node.children, id);
+            if (result) return result;
+          }
+        }
+        return null;
+      };
+      return findNode(this.tree, id);
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .address-book-wrap {
   border: 1px solid $light-gray;
 }

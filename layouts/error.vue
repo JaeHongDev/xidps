@@ -37,14 +37,14 @@ export default {
     }
   },
   mounted() {
-    const id = this.$store.state.user.companyId;
+    /*const id = this.$store.state.user.companyId;
     if(id){
       if(this.$store.state.user.loggedIn){
         this.$router.push({path:`/${id}/dashboard`})
         return;
       }
       this.$router.push({path:`/${id}`})
-    }
+    }*/
   }
 }
 </script>
