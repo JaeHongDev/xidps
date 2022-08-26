@@ -1,0 +1,53 @@
+Index: components/Molecule/RadioButton/RadioButton.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <div class=\"radio-button-wrap\">\r\n    <v-btn v-for=\"(item,index) in lists \" :key=\"index\" :class=\"checkedStyle(index)\"\r\n           @click=\"select(index)\"> {{ item.text }}\r\n    </v-btn>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: \"RadioButton\",\r\n  props:{\r\n    lists: {\r\n      type:{\r\n        text:String\r\n      },\r\n      required:true,\r\n    },\r\n    selectedIndex:{\r\n      type:Number,\r\n      required: false,\r\n      default:-1\r\n    }\r\n  },\r\n  methods: {\r\n    select(index) {\r\n      if (index === this.selectedIndex) return; // 현재 선택한 버튼과 동일한 버튼의 경우\r\n      this.selectedIndex = index;\r\n      this.$emit(\"callApi\",index);\r\n    },\r\n    checkedStyle(index){\r\n      return index === this.selectedIndex ? 'checked' : 'unchecked'\r\n\r\n    }\r\n  },\r\n  created() {\r\n    console.log(\"create\");\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped lang=\"scss\">\r\n.radio-button-wrap{\r\n  width:420px;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  .v-btn{\r\n    min-width:24px !important;\r\n    min-height:24px !important;\r\n    margin:5px;\r\n\r\n\r\n  }\r\n}\r\n.unchecked{\r\n  background-color:#e1e1e1 !important;\r\n  color:#707070 !important;\r\n}\r\n.checked {\r\n  background-color: indigo !important;\r\n  color: white !important;\r\n}\r\n</style>\r\n
+===================================================================
+diff --git a/components/Molecule/RadioButton/RadioButton.vue b/components/Molecule/RadioButton/RadioButton.vue
+--- a/components/Molecule/RadioButton/RadioButton.vue	
++++ b/components/Molecule/RadioButton/RadioButton.vue	
+@@ -1,7 +1,7 @@
+ <template>
+   <div class="radio-button-wrap">
+     <v-btn v-for="(item,index) in lists " :key="index" :class="checkedStyle(index)"
+-           @click="select(index)"> {{ item.text }}
++           @click="callApi(index)"> {{ item.text }}
+     </v-btn>
+   </div>
+ </template>
+@@ -23,7 +23,7 @@
+     }
+   },
+   methods: {
+-    select(index) {
++    callApi(index) {
+       if (index === this.selectedIndex) return; // 현재 선택한 버튼과 동일한 버튼의 경우
+       this.selectedIndex = index;
+       this.$emit("callApi",index);
+Index: components/Organism/Auth/Auth.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <v-card class=\"auth-container\">\r\n    <v-row>\r\n      <v-col class=\"auth-form-wrap\">\r\n        <form>\r\n          <v-card-text>\r\n            XID메시징 서비스\r\n          </v-card-text>\r\n          <radio-button :lists=\"lists\" :selected-index=\"selectedIndex\"  ></radio-button>\r\n          <div class=\"pa-3\">\r\n            <v-select outlined :items=\"items\"  label=\"대학선택\" dense :loading=\"loading\"></v-select>\r\n          </div>\r\n          <div>\r\n            <v-text-field label=\"ID\"></v-text-field>\r\n            <v-text-field label=\"PW\"></v-text-field>\r\n          </div>\r\n          <v-row>\r\n            <v-col cols=\"8\">\r\n              <span>서비스를 체험해보고 싶으신가요?</span>\r\n            </v-col >\r\n            <v-col cols=\"4\">\r\n              <a>체험하기</a>\r\n            </v-col>\r\n          </v-row>\r\n          <v-row>\r\n            <v-col>\r\n              <v-checkbox label='설정기억'></v-checkbox>\r\n            </v-col>\r\n            <v-col>\r\n              <v-checkbox label='아이디기억'></v-checkbox>\r\n            </v-col>\r\n          </v-row>\r\n          <div class=\"float-end\">\r\n            <v-btn @click=\"callApi\">로그인</v-btn>\r\n          </div>\r\n        </form>\r\n      </v-col>\r\n      <v-col>\r\n        <div></div>\r\n      </v-col>\r\n    </v-row>\r\n  </v-card>\r\n\r\n</template>\r\n\r\n<script>\r\nimport api from \"~/helper/api\";\r\nexport default {\r\n  name: \"Auth\",\r\n  data() {\r\n    return {\r\n      selectedIndex :-1,\r\n      loading:false,\r\n      lists: [\r\n        {text: \"ㄱ\"},\r\n        {text: \"ㄴ\"},\r\n        {text: \"ㄷ\"},\r\n        {text: \"ㄹ\"},\r\n        {text: \"ㅁ\"},\r\n        {text: \"ㅂ\"},\r\n        {text: \"ㅅ\"},\r\n        {text: \"ㅇ\"},\r\n        {text: \"ㅈ\"},\r\n        {text: \"ㅊ\"},\r\n        {text: \"ㅋ\"},\r\n        {text: \"ㅌ\"},\r\n        {text: \"ㅍ\"},\r\n        {text: \"ㅎ\"}\r\n      ],\r\n      items: ['가나다대학교','가대학교'],\r\n    }\r\n  },\r\n  methods:{\r\n    async callApi(index){\r\n      console.log(this.items[index].text);\r\n      const result = await api.get(\"http://localhost:4444/consonant\")\r\n      this.loading = true;\r\n      this.items = result.map(item=> item.text);\r\n      this.loading = false;\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style scoped lang=\"scss\">\r\n.auth-container {\r\n  width: 900px;\r\n  border-radius: 41px;\r\n}\r\n\r\n.auth-form-wrap {\r\n  padding-top: 70px;\r\n  padding-left: 100px;\r\n}\r\n</style>\r\n
+===================================================================
+diff --git a/components/Organism/Auth/Auth.vue b/components/Organism/Auth/Auth.vue
+--- a/components/Organism/Auth/Auth.vue	
++++ b/components/Organism/Auth/Auth.vue	
+@@ -6,7 +6,7 @@
+           <v-card-text>
+             XID메시징 서비스
+           </v-card-text>
+-          <radio-button :lists="lists" :selected-index="selectedIndex"  ></radio-button>
++          <radio-button :lists="lists" :selected-index="selectedIndex"  @callData="callApi"></radio-button>
+           <div class="pa-3">
+             <v-select outlined :items="items"  label="대학선택" dense :loading="loading"></v-select>
+           </div>
+@@ -72,7 +72,8 @@
+   },
+   methods:{
+     async callApi(index){
+-      console.log(this.items[index].text);
++      console.log(index);
++     // console.log(this.items[index].text);
+       const result = await api.get("http://localhost:4444/consonant")
+       this.loading = true;
+       this.items = result.map(item=> item.text);

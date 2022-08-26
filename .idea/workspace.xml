@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7e6665c9-5ac9-4e83-bc37-199ae630ecbc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Untitled Diagram.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Header.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/colorVariable.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/component/buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/reset.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/CustomModal/CustomModal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/CustomModal/CustomModal.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/CustomModal/CustomModal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/DataTableHeader/DataTableHeader.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/DataTableHeader/DataTableHeader.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/DataTableHeader/DataTableHeader.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ExcelDataViewer/ExcelDataViewer.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ExcelDataViewer/ExcelDataViewer.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ExcelDataViewer/ExcelDataViewer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/FileUploader/FileUploader.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/FileUploader/FileUploader.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/FileUploader/FileUploader.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ItemSelector/ItemSelector.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ItemSelector/ItemSelector.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/MessgeCountIndicator/MessageCountIndicator.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/MessgeCountIndicator/MessageCountIndicator.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/RadioButton/RadioButton.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/RadioButton/RadioButton.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/RadioButton/RadioButtons.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/RadioButton/RadipButton.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ScrollBox/ScrollBox.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ScrollBox/ScrollBox.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/SearchTextBox/SearchTextBox.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/SearchTextBox/SearchTextBox.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/SettingDivisionValue/SettingDivisionValue.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/SettingDivisionValue/SettingDivisionValue.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/SettingDivisionValue/SettingDivisionValue.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/UserProfile/UserProfile.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/UserProfile/UserProfile.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/UserProfile/UserProfile.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ValidateCallerModal/ValidateCallerModal.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Molecule/ValidateCallerModal/ValidateCallerModal.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NuxtLogo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/AddressBook/AddressBook.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/AddressBook/AddressBook.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/Auth/Auth.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/Auth/Auth.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/CallerManager/CallerManager.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/CallerManager/CallerManager.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/CallerNumberForm/CallerNumberForm.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/CallerNumberForm/CallerNumberForm.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/DataGridView/DataGridView.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/DataGridView/DataGridView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/EditHandlerGroup/EditHandlerGroup.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/Header/Header.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/Header/Header.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/LoadUserForm/LoadUser.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/LoadUserForm/LoadUserForm.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/NotificationProvider/NotificationProvider.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/NotificationProvider/NotificationProvider.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/SideBar/SideBar.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/SideBar/SideBar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/SideMenus/SideMenus.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/SideMenus/SideMenus.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/TreeView/TreeView.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/TreeView/TreeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/UserExcelLoader/UserExcelLoader.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/UserExcelLoader/UserExcelLoader.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/UserImporter/UserImporter.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Organism/UserImporter/UserImporter.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/CallerManager.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/LargeCapacityTable.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/LargeCapacityTable.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pages/MainPage.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Test/MenuContainer/MenuContainer.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Test/MenuContainer/MenuContainer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Tutorial.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VuetifyLogo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/Colors/Color.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/Colors/Colors.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/MenuItem/MenuItem.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/MenuItem/MenuItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/ToolTip/ToolTip.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/ToolTip/ToolTip.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/Typography/Typography.stories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/atoms/Typography/Typography.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/Array/Array.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/Array/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/api/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/default.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/error.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_abbreviation/admin/send-message.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_abbreviation/dashboard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_abbreviation/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/caller-manage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/common-addressbook.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/datagridview.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/shipment-manage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/test.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/user-manager.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/inspire.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/excel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/services/excel/ExcelProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/services/excel/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/services/excel/test/ExcelProvider.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/vuetify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bookmark-false.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bookmark-true.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/login_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/v.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/vuetify-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/addressBook/__test__/addressBook.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/addressBook/mutation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/addressBook/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/auth/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerManager/callerManager.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerManager/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerNumberManage/__test__/CallerNumberManage.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerNumberManage/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerNumberManage/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerNumberManage/mutations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/callerNumberManage/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/companys/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/sample/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/sample/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/sample/mutations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/sample/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/user/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/userManage/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/userManage/getters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/userManage/mutations.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/userManage/state.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/NuxtLogo.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/setup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.spec.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="storybook" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="storybook" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="color" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AbLnPyORl17UoQ5U8Lf8RaFP2q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;NewWatcherDialog.advanced.open&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ghddl/WebstormProjects/vue/xidps/package.json&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/ghddl/WebstormProjects/vue/vite-nuxt/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\ghddl\\WebstormProjects\\vue\\vite-nuxt\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ghddl\\AppData\\Local\\JetBrains\\Toolbox\\apps\\WebStorm\\ch-0\\221.5787.30\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;vuejs.nuxt.types-notification-shown&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ghddl\WebstormProjects\vue\vite-nuxt\pages\_abbreviation\admin" />
+      <recent name="C:\Users\ghddl\WebstormProjects\vue\vite-nuxt\pages\_companyName" />
+      <recent name="C:\Users\ghddl\WebstormProjects\vue\vite-nuxt\pages" />
+      <recent name="C:\Users\ghddl\WebstormProjects\vue\vite-nuxt\store" />
+      <recent name="C:\Users\ghddl\WebstormProjects\vue\vite-nuxt\helper\api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="DataTableHeader" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--watch" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/components/Molecule/DataTableHeader/DataTableHeader.spec.js" />
+      <test-names>
+        <test-name value="DataTableHeader" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="callerManager.spec.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--watchAll" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/store/callerManager/callerManager.spec.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:style" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/xidps/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:style" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lintfix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lintfix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.callerManager.spec.js" />
+      <item itemvalue="Jest.DataTableHeader" />
+      <item itemvalue="npm.dev" />
+      <item itemvalue="npm.lint:style" />
+      <item itemvalue="npm.lint" />
+      <item itemvalue="npm.lintfix" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.lint:style" />
+        <item itemvalue="Jest.DataTableHeader" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.lintfix" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e6665c9-5ac9-4e83-bc37-199ae630ecbc" name="Changes" comment="" />
+      <created>1655273504225</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655273504225</updated>
+      <workItem from="1655273505530" duration="8107000" />
+      <workItem from="1655336051247" duration="15860000" />
+      <workItem from="1655360297613" duration="2684000" />
+      <workItem from="1655684024703" duration="17043000" />
+      <workItem from="1655705433092" duration="6922000" />
+      <workItem from="1655768048305" duration="14000" />
+      <workItem from="1655772929093" duration="12842000" />
+      <workItem from="1655787374433" duration="7355000" />
+      <workItem from="1655854559524" duration="18000" />
+      <workItem from="1655960025039" duration="11410000" />
+      <workItem from="1655974289543" duration="10000" />
+      <workItem from="1656027854811" duration="25328000" />
+      <workItem from="1656287217446" duration="22623000" />
+      <workItem from="1656373074321" duration="26098000" />
+      <workItem from="1656459844691" duration="7535000" />
+      <workItem from="1656467692056" duration="6888000" />
+      <workItem from="1656545710122" duration="19781000" />
+      <workItem from="1656632439995" duration="13680000" />
+      <workItem from="1656892631604" duration="12565000" />
+      <workItem from="1656909210294" duration="4462000" />
+      <workItem from="1656977917505" duration="20864000" />
+      <workItem from="1657064071635" duration="24018000" />
+      <workItem from="1657150694156" duration="21990000" />
+      <workItem from="1657238429794" duration="25677000" />
+      <workItem from="1658274675019" duration="362000" />
+      <workItem from="1658275059204" duration="24166000" />
+      <workItem from="1658360395219" duration="13229000" />
+      <workItem from="1658448131979" duration="2401000" />
+      <workItem from="1658455504417" duration="3211000" />
+      <workItem from="1659311111066" duration="1554000" />
+      <workItem from="1659317039376" duration="6599000" />
+      <workItem from="1659328120563" duration="7738000" />
+      <workItem from="1659397397054" duration="12206000" />
+      <workItem from="1659483667390" duration="5395000" />
+      <workItem from="1659578236314" duration="1448000" />
+      <workItem from="1659657932528" duration="3065000" />
+      <workItem from="1659921501927" duration="6326000" />
+      <workItem from="1660005057592" duration="2086000" />
+      <workItem from="1660091976641" duration="9726000" />
+      <workItem from="1660638858511" duration="7000" />
+      <workItem from="1660693659355" duration="8733000" />
+      <workItem from="1660780943501" duration="17810000" />
+      <workItem from="1660872167185" duration="4668000" />
+      <workItem from="1661241736740" duration="595000" />
+      <workItem from="1661477286143" duration="314000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/store/callerManager/callerManager.spec.js</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/admin/caller-manage.vue</url>
+          <line>221</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/Organism/LoadUserForm/LoadUserForm.vue</url>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
