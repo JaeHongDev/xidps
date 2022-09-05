@@ -2,7 +2,7 @@
   <v-card class='message-editor'>
 
     <v-text-field placeholder='(주의: 제목입력시 장문문자로 발송됩니다)'></v-text-field>
-    <v-textarea ></v-textarea>
+    <v-textarea height="234"></v-textarea>
     <div>
       <span class='fs-6 light-navy-blue fw-light'>0/4000byte</span>
       <div class='float-right fs-6 fw-regular light-navy-blue'>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "MessageEditor"
+  name: "MessageEditorBody"
 }
 </script>
 
