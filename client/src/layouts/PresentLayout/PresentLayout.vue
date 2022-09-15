@@ -15,43 +15,42 @@
 
       </div>
     <v-list>
-      <v-list-item link to="/1234">
+      <v-list-item link to="/admin/send-message">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
           </v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Profile</v-list-item-title>
+          <v-list-item-title class='white--text'>메시지 발송</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-
     </v-list>
     </v-navigation-drawer>
-    <v-main>
+    <v-main class='mt-10 ml-10'>
       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue, { reactive } from 'vue';
+import Vue, { reactive, ref } from 'vue';
 
 export default Vue.extend({
   name: 'PresentLayout',
   setup: () => {
-    const item = reactive([{ id: 2, icon: 'mdi-phone', name: '발신번호 관리' },
+    const item = ref([{ id: 2, icon: 'mdi-phone', name: '발신번호 관리' },
       { id: 3, icon: 'mdi-account-plus', name: '사용자 관리' },
       { id: 4, icon: 'mdi-folder-account', name: '공통 주소록 관리' },
       { id: 5, icon: 'mdi-view-dashboard', name: '발송량 관리' },
       { id: 6, icon: 'mdi-cog', name: '기능 설정' }]);
-    const tree = reactive([]);
+    const tree = ref([]);
     return { item, tree };
   },
 });
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/scss/variables.scss";
+@import "~@/assets/scss/variables.scss";
 
 .v-application {
   .v-app-bar {

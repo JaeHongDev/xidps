@@ -6,15 +6,22 @@
 </template>
 
 <script lang="ts">
-import Vue, { ref } from 'vue';
+import Vue, { ref, watch } from 'vue';
 import PresentLayout from '@/layouts/PresentLayout/PresentLayout.vue';
 import LoginLayout from '@/layouts/LoginLayout/LoginLayout.vue';
+import { useAuthStore } from '@/store/auth';
 
 export default Vue.extend({
   name: 'App',
   components: { PresentLayout, LoginLayout },
   setup: () => {
-    const isLoggedIn = ref(true);
+    const authStore = useAuthStore();
+    const isLoggedIn = ref(authStore.isLoggedIn());
+
+    watch(() => authStore.$state.user, () => {
+      isLoggedIn.value = authStore.isLoggedIn();
+    });
+
     return { isLoggedIn };
   },
 });

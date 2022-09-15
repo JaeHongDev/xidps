@@ -16,12 +16,12 @@ export interface IShipmentQuantity{
 export interface ICompany {
   id:string;
   name: string;
-  shipmentQuantity: IShipmentQuantity;
+  shipmentQuantity?: IShipmentQuantity;
 }
 export interface IUser{
   id:string;
   name:string;
   company: ICompany;
-  unReadNotificationQuantity: IUnReadNotificationQuantity;
-  shipmentQuntity: IShipmentQuantity;
+  unReadNotificationQuantity?: IUnReadNotificationQuantity;
+  shipmentQuantity?: IShipmentQuantity;
 }
