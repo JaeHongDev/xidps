@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 
+// eslint-disable-next-line import/prefer-default-export
 export const useCounterStore = defineStore('counter', {
   state: () => ({ count: 0 }),
   getters: {
@@ -7,7 +8,7 @@ export const useCounterStore = defineStore('counter', {
   },
   actions: {
     increment() {
-      this.count++;
+      this.count += 1;
     },
   },
 });

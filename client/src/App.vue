@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-app >
     <login-layout></login-layout>
     <!--<present-layout></present-layout> -->
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -18,3 +18,9 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<style lang="scss" scoped>
+.v-application {
+  font-family: SUIT, serif;
+}
+</style>

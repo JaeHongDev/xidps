@@ -1,8 +1,7 @@
 <template>
-  <v-app>
-    <v-card>
-    </v-card>
-  </v-app>
+  <div class="auth_wrapper">
+      <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -11,6 +10,10 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.auth_wrapper{
+  background-image: url("@/assets/login_bg.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 </style>

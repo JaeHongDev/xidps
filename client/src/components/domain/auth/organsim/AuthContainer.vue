@@ -5,7 +5,7 @@
       radio buttons
     </v-card-text>
     <v-card-text>
-      <v-select></v-select>
+      <v-select dense></v-select>
       <v-text-field dense label="ID"></v-text-field>
       <v-text-field dense label="PW" type="password"></v-text-field>
     </v-card-text>
@@ -16,12 +16,12 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'AuthContainer',
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+@import "@/assets/scss/variables.scss";
 </style>
