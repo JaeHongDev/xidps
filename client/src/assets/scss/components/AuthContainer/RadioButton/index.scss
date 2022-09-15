@@ -1,0 +1,16 @@
+
+.radio-button__wrap{
+  display: flex;
+  width:15rem;
+  flex-wrap: wrap;
+  .v-btn{
+    max-width: 24px !important;
+    min-width:24px !important;
+    padding:0 !important;
+    max-height:24px;
+    min-height:24px;
+    margin-right:10px;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+}

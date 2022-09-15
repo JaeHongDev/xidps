@@ -1,11 +1,13 @@
 <template>
-$END$
+  <div>
+    login-page
+  </div>
 </template>
 
 <script>
 export default {
-name: "LoginPage"
-}
+  name: 'LoginPage',
+};
 </script>
 
 <style scoped>

@@ -1,11 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83d1ae85-3428-426e-a3f1-3c366b044301" name="Changes" comment="" />
+    <list default="true" id="83d1ae85-3428-426e-a3f1-3c366b044301" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/LoginLayout/LoginLayout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-06-20__3_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-06-20__3_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/cypress.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lint-staged.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/shims-tsx.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/shims-vue.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/e2e/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/e2e/plugins/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/e2e/specs/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/e2e/support/commands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/e2e/support/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tests/unit/example.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -28,11 +74,22 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\ghddl\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "C:\\Users\\MTPC4-12\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MTPC4-12\WebstormProjects\xidps\client\src\assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

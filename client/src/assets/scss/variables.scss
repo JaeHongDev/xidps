@@ -1,0 +1,23 @@
+@import "~@/assets/scss/variables/color.scss";
+@import "~@/assets/scss/variables/font.scss";
+
+@import "~@/assets/scss/commons/button/color.scss";
+
+@font-face {
+  font-family: "SUIT";
+}
+
+.login_btn {
+  background-color: $light-navy-blue;
+}
+.v-application {
+  font-family: 'SUIT', sans-serif !important;
+}
+.icon-size{
+  width:32px;
+  height:32px;
+}
+
+
+$text-field-filled-full-width-outlined-single-line-slot-min-height: 30px !default;
+$text-field-solo-dense-control-min-height: 40px !default;
