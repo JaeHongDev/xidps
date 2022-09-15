@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83d1ae85-3428-426e-a3f1-3c366b044301" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/login_bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/store/auth/IUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/store/auth/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xidps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xidps.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/LoginLayout/LoginLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/LoginLayout/LoginLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/plugins/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/shims-vuetify.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/shims-vuetify.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tests/unit/example.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
+        <option value="TypeScript File" />
         <option value="Vue Single File Component" />
       </list>
     </option>

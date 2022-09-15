@@ -1,21 +1,22 @@
 <template>
   <v-app >
-    <login-layout></login-layout>
-    <!--<present-layout></present-layout> -->
+    <present-layout v-if="isLoggedIn"></present-layout>
+    <login-layout v-else></login-layout>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { ref } from 'vue';
 import PresentLayout from '@/layouts/PresentLayout/PresentLayout.vue';
 import LoginLayout from '@/layouts/LoginLayout/LoginLayout.vue';
 
 export default Vue.extend({
   name: 'App',
-  components: { LoginLayout },
-  data: () => ({
-    //
-  }),
+  components: { PresentLayout, LoginLayout },
+  setup: () => {
+    const isLoggedIn = ref(true);
+    return { isLoggedIn };
+  },
 });
 </script>
 
