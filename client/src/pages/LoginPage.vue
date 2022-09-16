@@ -9,8 +9,9 @@
 <script lang="ts">
 import AuthContainer from '@/components/domain/auth/organsim/AuthContainer.vue';
 import { LoginPageComposable } from '@/pages/LoginPageCompsable';
+import Vue from 'vue';
 
-export default {
+export default Vue.extend({
   name: 'LoginPage',
   components: { AuthContainer },
   setup: () => {
@@ -19,7 +20,7 @@ export default {
       authInformation, login,
     };
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

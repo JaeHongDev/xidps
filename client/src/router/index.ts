@@ -2,21 +2,22 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import LoginPage from '@/pages/LoginPage.vue';
 import SendMessagePage from '@/pages/SendMessagePage.vue';
 import { useAuthenticationUserGuard, useOnlyUnAuthenticationUserGuard } from '@/router/auth';
+import { ERouter } from '@/router/ERouter';
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: ERouter.HOME,
     name: 'home',
     beforeEnter: useAuthenticationUserGuard,
   },
   {
-    path: '/auth',
+    path: ERouter.AUTH,
     name: 'auth',
     beforeEnter: useOnlyUnAuthenticationUserGuard,
     component: LoginPage,
   },
   {
-    path: '/admin/send-message',
+    path: ERouter.SEND_MESSAGE,
     name: 'send-message',
     beforeEnter: useAuthenticationUserGuard,
     component: SendMessagePage,

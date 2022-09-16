@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83d1ae85-3428-426e-a3f1-3c366b044301" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/store/auth/IUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/store/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenuGroup.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/auth/IUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/auth/IUser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/auth/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/MTPC4-12/WebstormProjects/xidps/client/src/assets",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "C:\\Users\\MTPC4-12\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MTPC4-12/WebstormProjects/xidps/client/src/assets&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\MTPC4-12\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\MTPC4-12\WebstormProjects\xidps\client\src\assets" />
@@ -73,6 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661477811745</updated>
       <workItem from="1661477813736" duration="379000" />
+      <workItem from="1663283583923" duration="7709000" />
     </task>
     <servers />
   </component>
