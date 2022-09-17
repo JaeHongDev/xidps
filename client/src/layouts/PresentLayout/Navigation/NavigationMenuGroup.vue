@@ -14,18 +14,17 @@
   </v-list-group>
 </template>
 
-<script>
+<script lang='ts'>
+import {PropType} from "vue";
+import {INavMenuLink} from "@/layouts/PresentLayout/Navigation/NavMenuLink.vue";
+
 export default {
   name: 'NavigationMenuGroup',
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    icon: {
-      type: String,
-      required: true,
-    },
+    menu: {
+      type: Object as PropType<INavMenuLink>;
+      required: true
+    }
   },
 };
 </script>

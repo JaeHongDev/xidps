@@ -2,6 +2,7 @@
   <v-card class="auth-card">
     <v-card-title>title</v-card-title>
     <v-card-text>
+      <!-- radio buttons -->
       radio buttons
     </v-card-text>
     <v-card-text v-bind='user'>
