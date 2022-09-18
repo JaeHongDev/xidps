@@ -43,8 +43,8 @@ _axios.interceptors.response.use(
   ,
 );
 
-// eslint-disable-next-line no-shadow,@typescript-eslint/no-unused-vars
-Plugin.install = function (Vue, options) {
+// eslint-disable-next-line func-names,no-shadow
+Plugin.install = function (Vue) {
   // eslint-disable-next-line no-param-reassign
   Vue.axios = _axios;
   window.axios = _axios;

@@ -23,6 +23,11 @@ export default {
       title: '대시보드',
     },
     {
+      to: '/admin/caller-manage',
+      icon: 'mdi-phone',
+      title: '발신번호 관리',
+    },
+    {
       to: '/admin/send-message',
       icon: 'mdi-send',
       title: '메시지발송 ',

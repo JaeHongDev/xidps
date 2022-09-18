@@ -2,5 +2,6 @@
 export enum ERouter {
   HOME = '/',
   AUTH = '/auth',
-  SEND_MESSAGE='/admin/send-message'
+  SEND_MESSAGE='/admin/send-message',
+  CALLER_MANAGE='/admin/caller-manage',
 }

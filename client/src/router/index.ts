@@ -3,6 +3,7 @@ import LoginPage from '@/pages/LoginPage.vue';
 import SendMessagePage from '@/pages/SendMessagePage.vue';
 import { useAuthenticationUserGuard, useOnlyUnAuthenticationUserGuard } from '@/router/auth';
 import { ERouter } from '@/router/ERouter';
+import CallerManagePage from '@/pages/CallerManagePage.vue';
 
 const routes: Array<RouteConfig> = [
   {
@@ -21,6 +22,12 @@ const routes: Array<RouteConfig> = [
     name: 'send-message',
     beforeEnter: useAuthenticationUserGuard,
     component: SendMessagePage,
+  },
+  {
+    path: ERouter.CALLER_MANAGE,
+    name: 'caller-manage',
+    beforeEnter: useAuthenticationUserGuard,
+    component: CallerManagePage,
   },
 ];
 
