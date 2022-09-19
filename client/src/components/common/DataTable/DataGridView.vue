@@ -4,6 +4,7 @@
     height='750'
     hide-default-footer
 
+    dense
     :footer-props='{"items-per-page-options": [20]}'
     :items='rows'
     :headers='headers'
@@ -24,10 +25,11 @@
 </template>
 
 <script lang='ts'>
-import { PropType } from 'vue';
+import {
+  defineComponent, PropType, reactive, ref,
+} from 'vue';
 
-export default {
-  name: 'DataGridView',
+export default defineComponent({
   props: {
     rows: {
       type: Array as PropType<Array<any>>,
@@ -35,8 +37,27 @@ export default {
     headers: {
       type: Array as PropType<Array<any>>,
     },
+    useSelector: {
+      type: Boolean as PropType<boolean>,
+      default() {
+        return true;
+      },
+    },
+    usePageable: {
+      type: Boolean as PropType<boolean>,
+      default() {
+        return true;
+      },
+    },
   },
-};
+  setup() {
+    const selectedIndex = ref([]);
+    const page = reactive({
+      pageCount: 0,
+      nowPage: 1,
+    });
+  },
+});
 </script>
 
 <style scoped lang='scss'>

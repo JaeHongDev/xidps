@@ -3,19 +3,18 @@
   border-collapse: collapse;
   border-bottom: 1px solid $warm-grey;
   ::v-deep .v-data-table-header {
-    border-top: 1px solid $warm-grey !important;
-    border-bottom: 1px solid $warm-grey !important;
-    border-left: none;
-    border-right: none;
+    border-left: none !important;
+    border-right: none !important;
     th {
+      border-top: 1px solid $warm-grey !important;
+      border-bottom: 1px solid $warm-grey !important;
       color: $light-navy-blue !important;
       vertical-align: middle !important;
       font-size: $semi-bold;
-      border-bottom: none !important;
       text-align: center;
-      //color: $light-navy-blue-color !important;
       border-right: 2px solid #d5d5d5;
       border-spacing: 5px;
+      margin-right:5px !important;
       &:last-child {
         border-right: none;
       }

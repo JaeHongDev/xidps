@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/CallerManageComposable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/SenMessageComposable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xidps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xidps.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/client/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/plugins/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +56,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -78,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663382048444</updated>
       <workItem from="1663382051286" duration="3239000" />
-      <workItem from="1663499702524" duration="11811000" />
+      <workItem from="1663499702524" duration="20464000" />
     </task>
     <servers />
   </component>

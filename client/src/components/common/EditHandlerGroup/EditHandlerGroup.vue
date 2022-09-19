@@ -24,6 +24,7 @@ interface Events {
 interface SetupContextExtended<Event extends Record<string, any>> extends SetupContext {
   emit: <Key extends keyof Event>(event: Key, payload?: Event[Key]) => void;
 }
+
 export default defineComponent({
   props: {
     useButtons: {
@@ -55,6 +56,42 @@ export default defineComponent({
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "~@/assets/scss/variables.scss";
+.xidps-container {
+  display: flex;
+  align-items:flex-start;
 
+  * {
+    margin-right: 10px;
+  }
+}
+
+.v-text-field {
+  height: 30px !important;
+}
+
+.xidps-search-bar {
+  width: 210px;
+  height: 30px !important;
+}
+
+.xidps-btn-delete {
+  color: $salmon !important;
+  border: 1px solid $salmon;
+}
+
+.xidps-btn-import {
+  width: 143px;
+}
+
+.xidps-btn-add {
+  color: $light-navy-blue;
+  border: 1px solid $light-navy-blue;
+}
+
+.xidps-btn-save {
+  background-color: $dark-blue-grey !important;
+  color: $white !important;
+}
 </style>
