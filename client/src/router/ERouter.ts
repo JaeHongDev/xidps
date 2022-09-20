@@ -4,4 +4,5 @@ export enum ERouter {
   AUTH = '/auth',
   SEND_MESSAGE='/admin/send-message',
   CALLER_MANAGE='/admin/caller-manage',
+  MANAGE_USER='/admin/manage-user',
 }

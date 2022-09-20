@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +24,8 @@
       <list>
         <option value="CSS File" />
         <option value="SCSS File" />
-        <option value="Vue Single File Component" />
         <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -69,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663382048444</updated>
       <workItem from="1663382051286" duration="3239000" />
-      <workItem from="1663499702524" duration="20464000" />
+      <workItem from="1663499702524" duration="26992000" />
     </task>
     <servers />
   </component>

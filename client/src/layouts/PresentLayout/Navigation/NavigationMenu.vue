@@ -12,6 +12,7 @@
 
 <script lang='ts'>
 import NavMenuLink, { INavMenuLink } from '@/layouts/PresentLayout/Navigation/NavMenuLink.vue';
+import { ERouter } from '@/router/ERouter';
 
 export default {
   name: 'NavigationMenu',
@@ -26,6 +27,11 @@ export default {
       to: '/admin/caller-manage',
       icon: 'mdi-phone',
       title: '발신번호 관리',
+    },
+    {
+      to: ERouter.MANAGE_USER,
+      icon: 'mdi-account-plus',
+      title: '사용자관리',
     },
     {
       to: '/admin/send-message',

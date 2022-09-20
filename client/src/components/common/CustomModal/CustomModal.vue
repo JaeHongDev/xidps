@@ -1,22 +1,19 @@
 <template>
-  <v-dialog class='rounded' v-show='showModal' width='500'>
+  <v-dialog class='rounded'
+            persistent
+            :value='isShow' width='900'>
     <v-card>
       <v-card-actions>
         <span>title</span>
         <v-spacer></v-spacer>
         <v-btn icon @click='handleCloseModal'><v-icon>mdi-close</v-icon></v-btn>
-
       </v-card-actions>
       <v-card-text>
         <v-divider></v-divider>
       </v-card-text>
       <v-card-text>
-        content
+        <slot></slot>
       </v-card-text>
-      <v-card-actions>
-        <v-btn>previous</v-btn>
-        <v-btn>next</v-btn>
-      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
@@ -38,7 +35,7 @@ export default defineComponent({
   setup(props: ICustomModal, { emit }) {
     const showModal = ref(props.isShow);
     const handleCloseModal = () => {
-      showModal.value = emit('close');
+      emit('close');
     };
     return {
       handleCloseModal,

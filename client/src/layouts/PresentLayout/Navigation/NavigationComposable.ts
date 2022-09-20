@@ -20,6 +20,11 @@ export const NavigationComposable = () => {
       icon: 'mdi-send',
       to: ERouter.SEND_MESSAGE,
     },
+    {
+      name: '발신번호 관리',
+      icon: 'mdi-send',
+      to: ERouter.MANAGE_USER,
+    },
   ]);
   return { listItems };
 };
