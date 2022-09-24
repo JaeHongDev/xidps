@@ -5,7 +5,8 @@
       <v-card class='mt-3'>
         <v-card-text class='light-navy-blue fw-bold'>
           <span>발신번호</span> |
-          <span>정보통신공학부 박상민 051-123-4567</span>
+          <span>
+            정보통신공학부 박상민 051-123-4567</span>
         </v-card-text>
       </v-card>
       <v-card class='mt-3'>
@@ -74,7 +75,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-@import '@/assets/scss/variables.scss';
 
 .message-editor{
   border-top:5px solid $light-navy-blue;

@@ -2,17 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/MessageDialog/MessageDialog.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/styles/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenuGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenuGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManageComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManageComposable.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +33,7 @@
         <option value="SCSS File" />
         <option value="TypeScript File" />
         <option value="Vue Single File Component" />
+        <option value="VueTs" />
       </list>
     </option>
   </component>
@@ -53,15 +61,33 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/styles" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/client/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/styles" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="serve" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,12 +98,49 @@
       <option name="presentableId" value="Default" />
       <updated>1663382048444</updated>
       <workItem from="1663382051286" duration="3239000" />
-      <workItem from="1663499702524" duration="26992000" />
+      <workItem from="1663499702524" duration="50402000" />
+      <workItem from="1663952366352" duration="3525000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/client/src/store/index.js" />
+        <option value="$PROJECT_DIR$/client/src/store/index.js.map" />
+        <option value="$PROJECT_DIR$/client/src/store/auth/index.js" />
+        <option value="$PROJECT_DIR$/client/src/store/auth/index.js.map" />
+        <option value="$PROJECT_DIR$/client/src/store/auth/IUser.js" />
+        <option value="$PROJECT_DIR$/client/src/store/auth/IUser.js.map" />
+        <option value="$PROJECT_DIR$/client/src/router/index.js" />
+        <option value="$PROJECT_DIR$/client/src/router/ERouter.js" />
+        <option value="$PROJECT_DIR$/client/src/router/ERouter.js.map" />
+        <option value="$PROJECT_DIR$/client/src/router/index.js.map" />
+        <option value="$PROJECT_DIR$/client/src/router/auth/index.js" />
+        <option value="$PROJECT_DIR$/client/src/router/auth/index.js.map" />
+        <option value="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer/index.js.map" />
+        <option value="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/main.js" />
+        <option value="$PROJECT_DIR$/client/src/main.js.map" />
+        <option value="$PROJECT_DIR$/client/src/pages/CallerManageComposable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/pages/SenMessageComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/CallerManageComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/pages/SenMessageComposable.js.map" />
+        <option value="$PROJECT_DIR$/client/src/plugins/vuetify.js" />
+        <option value="$PROJECT_DIR$/client/src/plugins/vuetify.js.map" />
+        <option value="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.js" />
+        <option value="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.js.map" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

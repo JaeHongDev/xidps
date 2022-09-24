@@ -15,16 +15,16 @@
 </template>
 
 <script lang='ts'>
-import {PropType} from "vue";
-import {INavMenuLink} from "@/layouts/PresentLayout/Navigation/NavMenuLink.vue";
+import { PropType } from 'vue';
+import { INavMenuLink } from '@/layouts/PresentLayout/Navigation/NavMenuLink.vue';
 
 export default {
   name: 'NavigationMenuGroup',
   props: {
     menu: {
-      type: Object as PropType<INavMenuLink>;
-      required: true
-    }
+      type: Object as PropType<INavMenuLink>,
+      required: true,
+    },
   },
 };
 </script>

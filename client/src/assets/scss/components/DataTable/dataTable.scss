@@ -1,4 +1,7 @@
-@import "~@/assets/scss/variables.scss";
+.updated {
+  border-left: 6px solid #8e9bff !important;
+  margin-left: 6px !important;
+}
 .data-grid-view {
   border-collapse: collapse;
   border-bottom: 1px solid $warm-grey;
