@@ -5,6 +5,7 @@ import { useAuthenticationUserGuard, useOnlyUnAuthenticationUserGuard } from '@/
 import { ERouter } from '@/router/ERouter';
 import CallerManagePage from '@/pages/CallerManagePage.vue';
 import ManageUserPage from '@/pages/ManageUser/ManageUserPage.vue';
+import ManageAddressPage from '@/pages/ManageAddress/ManageAddressPage.vue';
 
 const routes: Array<RouteConfig> = [
   {
@@ -35,6 +36,12 @@ const routes: Array<RouteConfig> = [
     name: 'user-manage',
     beforeEnter: useAuthenticationUserGuard,
     component: ManageUserPage,
+  },
+  {
+    path: ERouter.MANAGE_ADDRESS,
+    name: 'manage-address',
+    beforeEnter: useAuthenticationUserGuard,
+    component: ManageAddressPage,
   },
 ];
 

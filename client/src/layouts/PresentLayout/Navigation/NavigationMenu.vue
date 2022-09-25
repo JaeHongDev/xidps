@@ -34,6 +34,11 @@ export default {
       title: '사용자관리',
     },
     {
+      to: ERouter.MANAGE_ADDRESS,
+      icon: 'mdi-folder-account',
+      title: '주소록 관리',
+    },
+    {
       to: '/admin/send-message',
       icon: 'mdi-send',
       title: '메시지발송 ',

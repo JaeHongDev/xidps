@@ -15,7 +15,7 @@
       </div>
       <navigation-menu></navigation-menu>
     </v-navigation-drawer>
-    <v-main class='mt-10 ml-10'>
+    <v-main class='mt-10 ml-10 mr-10'>
       <router-view></router-view>
     </v-main>
   </v-app>

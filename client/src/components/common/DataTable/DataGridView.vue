@@ -5,7 +5,7 @@ import {
 import { DataTableHeader } from 'vuetify';
 import { EditStatus, EInputStatus, IBasicRows } from '@/pages/CallerManageComposable';
 
-export interface IDataGridViewHeader extends DataTableHeader {
+interface IDataGridViewHeader extends DataTableHeader {
   searchAble?: boolean;
 }
 
