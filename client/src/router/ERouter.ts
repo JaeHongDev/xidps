@@ -5,5 +5,6 @@ export enum ERouter {
   SEND_MESSAGE='/admin/send-message',
   CALLER_MANAGE='/admin/caller-manage',
   MANAGE_USER='/admin/manage-user',
-  MANAGE_ADDRESS='/admin/manage-address'
+  MANAGE_ADDRESS='/admin/manage-address',
+  MANAGE_TEMPLATE='/admin/manage-template'
 }

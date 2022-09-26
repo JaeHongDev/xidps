@@ -43,6 +43,11 @@ export default {
       icon: 'mdi-send',
       title: '메시지발송 ',
     },
+    {
+      to: ERouter.MANAGE_TEMPLATE,
+      icon: 'mdi-file',
+      title: '템플릿 관리',
+    },
     ];
     return { menus };
   },

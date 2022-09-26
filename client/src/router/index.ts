@@ -6,6 +6,7 @@ import { ERouter } from '@/router/ERouter';
 import CallerManagePage from '@/pages/CallerManagePage.vue';
 import ManageUserPage from '@/pages/ManageUser/ManageUserPage.vue';
 import ManageAddressPage from '@/pages/ManageAddress/ManageAddressPage.vue';
+import ManageTemplatePage from '@/pages/ManageTemplate/ManageTemplatePage.vue';
 
 const routes: Array<RouteConfig> = [
   {
@@ -42,6 +43,12 @@ const routes: Array<RouteConfig> = [
     name: 'manage-address',
     beforeEnter: useAuthenticationUserGuard,
     component: ManageAddressPage,
+  },
+  {
+    path: ERouter.MANAGE_TEMPLATE,
+    name: 'manage-template',
+    beforeEnter: useAuthenticationUserGuard,
+    component: ManageTemplatePage,
   },
 ];
 
