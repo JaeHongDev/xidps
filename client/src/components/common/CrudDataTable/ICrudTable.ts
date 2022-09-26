@@ -6,8 +6,8 @@ export interface IDataGridViewHeader extends DataTableHeader {
   searchAble?: boolean;
 }
 
-export type ICrudDataTable = {
-  tableTitle: string
+export interface ICrudDataTable {
+  tableTitle?: string
   rows: Array<IBasicRows>,
   headers: Array<IDataGridViewHeader>,
   selectedKey?: string

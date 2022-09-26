@@ -1,23 +1,21 @@
-import { ref } from 'vue';
+import { reactive, ref, toRefs } from 'vue';
 
 export interface ICustomModal {
   isShow: boolean;
   title?: string;
 }
 
-export const customModalComposable = ({ isShowProp = false, titleProp = '' }) => {
-  const isShow = ref(isShowProp);
-  const title = ref(titleProp);
+export const customModalComposable = ({ isShow = false, title = '' }) => {
+  const data = reactive<ICustomModal>({ isShow, title });
 
   const openModal = () => {
-    isShow.value = true;
+    data.isShow = true;
   };
   const closeModal = () => {
-    isShow.value = false;
+    data.isShow = false;
   };
   return {
-    isShow,
-    title,
+    ...toRefs(data),
     openModal,
     closeModal,
   };

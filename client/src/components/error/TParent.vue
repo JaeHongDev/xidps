@@ -4,6 +4,7 @@ import TChild from '@/components/error/TChild.vue';
 </script>
 
 <template>
+  <t-child start='1'></t-child>
 </template>
 
 <style lang='scss' scoped>

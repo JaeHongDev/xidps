@@ -1,16 +1,15 @@
 <script lang='ts' setup>
 import {
-  defineProps, reactive, withDefaults, defineEmits,
+  defineEmits, defineProps, reactive, withDefaults,
 } from 'vue';
-import type { IAddressBook, IAddressBookProps, IAddressInsertPayload } from '@/components/domain/AddressBook/IAddressBook';
+import type { IAddressBook, IAddressInsertPayload, IClickItemPayload } from '@/components/domain/AddressBook/IAddressBook';
 
-interface Props{
+interface Props {
   addressItems?: IAddressBook[]
 }
-const prop = withDefaults(defineProps<Props>(), {
-  addressItems: () => [{ id: 1, name: '22', children: [] }],
-});
-const emit = defineEmits<{(e: 'click:add', payload:IAddressInsertPayload): void }>();
+
+const prop = withDefaults(defineProps<Props>(), {});
+const emit = defineEmits<{(e: 'click:add', payload: IAddressInsertPayload): void, (e: 'click:item', payload: IClickItemPayload | null): void }>();
 
 const data = reactive({
   id: 0,
@@ -26,13 +25,15 @@ const data = reactive({
 const handleClickAdd = () => {
   emit('click:add', { id: data.selectedId });
 };
-const handleChangeActive = (item:number[]) => {
+const handleChangeActive = (item: IAddressBook[]) => {
   if (item.length === 0) {
     data.selectedId = -1;
+    emit('click:item', null);
     return;
   }
-  const selectedId = item[0];
-  data.selectedId = selectedId;
+  // eslint-disable-next-line prefer-destructuring
+  data.selectedId = item[0].id;
+  emit('click:item', { item: item[0] });
 };
 </script>
 
@@ -54,10 +55,11 @@ const handleChangeActive = (item:number[]) => {
           :open='data.opens'
           :search='data.search'
           activatable
+          return-object
           dense
           class='address-book'
           transition
-          @update:active="handleChangeActive"
+          @update:active='handleChangeActive'
         >
           <template v-slot:prepend='{open}'>
             <v-btn icon>

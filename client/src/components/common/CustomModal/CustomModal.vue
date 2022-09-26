@@ -4,10 +4,12 @@ import { withDefaults, defineProps, defineEmits } from 'vue';
 interface ICustomModal {
   isShow: boolean;
   title?: string;
+  width?: number | string;
 }
-const { isShow, title } = withDefaults(defineProps<ICustomModal>(), {
+const props = withDefaults(defineProps<ICustomModal>(), {
   isShow: false,
   title: '',
+  width: 900,
 });
 
 const emits = defineEmits<{(e:'close'):void}>();
@@ -19,10 +21,10 @@ const handleCloseModal = () => {
 <template>
   <v-dialog class='rounded'
             persistent
-            :value='isShow' width='900'>
+            :value='props.isShow' :width='props.width'>
     <v-card>
       <v-card-actions>
-        <span>{{title}}</span>
+        <span>{{props.title}}</span>
         <v-spacer></v-spacer>
         <v-btn icon @click='handleCloseModal'><v-icon>mdi-close</v-icon></v-btn>
       </v-card-actions>

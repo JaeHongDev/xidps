@@ -13,7 +13,7 @@ export interface IUserRow extends IBasicRows {
 }
 export const ManageUserComposable = () => {
   let key = 0;
-  const rows = ref<Array<IUserRow>>([]);
+  const rows = ref<IUserRow[]>([]);
   const editUser = reactive({
     name: '',
     phoneNumber: '',

@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/IAddressBook.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/error/TChild.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/error/TChild1.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/error/TParent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserComposable.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTableComposable.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xidps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xidps.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/IAddressBook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/IAddressBook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/error/TParent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/error/TParent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserComposable.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,18 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/jaehong/Documents/nuxt/xidps/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jaehong/Documents/nuxt/xidps/client/src/components/common/CrudDataTable",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/jaehong/Documents/nuxt/xidps/client",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Users/jaehong/Documents/nuxt/xidps/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/common/CrudDataTable" />
       <recent name="$PROJECT_DIR$/client/src/styles" />
     </key>
   </component>
@@ -95,7 +97,8 @@
       <workItem from="1663499702524" duration="50402000" />
       <workItem from="1663952366352" duration="16713000" />
       <workItem from="1664079994851" duration="859000" />
-      <workItem from="1664081393226" duration="8750000" />
+      <workItem from="1664081393226" duration="13699000" />
+      <workItem from="1664115188598" duration="6538000" />
     </task>
     <servers />
   </component>

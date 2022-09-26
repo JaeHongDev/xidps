@@ -1,8 +1,9 @@
 <script lang='ts' setup>
 import CrudDataTable from '@/components/common/CrudDataTable/CrudDataTable.vue';
 import { ManageUserComposable } from '@/pages/ManageUser/ManageUserComposable';
+import { IDataGridViewHeader } from '@/components/common/CrudDataTable/ICrudTable';
 
-const headers = [
+const headers: IDataGridViewHeader[] = [
   {
     text: 'ID', value: 'id', width: '100px', align: 'center', searchAble: true,
   },

@@ -25,13 +25,13 @@ const props = defineProps({
 const emit = defineEmits<{(e: 'click:remove'): void,
   (e: 'click:add') : void
   (e: 'click:add-personalize'): void
-  (e: 'click:import-excel'): void
+  (e: 'click:import'): void
   (e: 'click:save') :void
 }>();
 
 const handleAdd = () => emit('click:add');
 const handleAddPersonalize = () => emit('click:add-personalize');
-const handleImportExcel = () => emit('click:import-excel');
+const handleImportExcel = () => emit('click:import');
 const handleSave = () => {
   const showDialog = window.confirm('저장하시겠습니까?');
   if (showDialog) emit('click:save');

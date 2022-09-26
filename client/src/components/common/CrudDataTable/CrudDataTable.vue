@@ -4,58 +4,60 @@ import {
 } from 'vue';
 import { EditStatus, EInputStatus, IBasicRows } from '@/pages/CallerManageComposable';
 import EditHandlerGroup from '@/components/common/EditHandlerGroup/EditHandlerGroup.vue';
-import { ICrudDataTable } from '@/components/common/CrudDataTable/ICrudTable';
+import { IEditHandlerGroup } from '@/components/common/EditHandlerGroup/EditHandlerGroupComposable';
+import { IDataGridViewHeader } from '@/components/common/CrudDataTable/ICrudTable';
 
-type Props = Omit<ICrudDataTable, ''>
-
-interface ICrud {
-  id: string;
+interface ICrudDataTableProps {
+  tableTitle?: string
+  rows: Array<IBasicRows>,
+  headers: Array<IDataGridViewHeader>,
+  selectedKey?: string
+  useSelector?: boolean,
+  usePageable?: boolean,
+  useButtons?:IEditHandlerGroup
 }
 
-const {
-  props: {
-    rows, headers, useSelector, usePageable, tableTitle, useButtons, selectedKey,
-  },
-} = withDefaults(defineProps<{props:Props}>(), {
-});
-
+const props = withDefaults(defineProps<ICrudDataTableProps>(), {});
+console.log(props);
 const emit = defineEmits<{(e: 'select', key: number): void,
-  (e:'click:remove'):void,
-  (e:'click:save'):void
-  (e:'click:add'):void
+  (e: 'click:remove'): void,
+  (e: 'click:save'): void
+  (e: 'click:add'): void
+  (e: 'click:import'):void
 }>();
 const page = reactive({
   pageCount: 0,
   nowPage: 1,
 });
-const updatedRow = (item:IBasicRows) => ({ updated: item.inputStatus === EInputStatus.UPDATE });
+const updatedRow = (item: IBasicRows) => ({ updated: item.inputStatus === EInputStatus.UPDATE });
 </script>
 <template>
   <div>
     <v-card-actions>
       <div>
-        <span class='fw-semi-bold light-navy-blue fs-3 ' data-test='title'>{{tableTitle}}</span>
+        <span class='fw-semi-bold light-navy-blue fs-3 ' data-test='title'>{{props.tableTitle}}</span>
         <div class=''>
-          <span class='fs-5 warm-grey fw-regular' data-test='count'>TOTAL : {{rows.length}} 건</span>
+          <span class='fs-5 warm-grey fw-regular' data-test='count'>TOTAL : {{props.rows?.length}} 건</span>
         </div>
       </div>
       <v-spacer></v-spacer>
       <edit-handler-group
-        :use-buttons='useButtons'
+        :use-buttons='props.useButtons'
         @click:remove='emit("click:remove")'
         @click:save='emit("click:save")'
+        @click:import='emit("click:import")'
         @click:add='emit("click:add")'>
       </edit-handler-group>
     </v-card-actions>
     <div>
       <v-data-table
-        :disable-pagination='!usePageable'
+        :disable-pagination='!props.usePageable'
         :footer-props='{"items-per-page-options": [20]}'
-        :headers='headers'
-        :items='rows'
+        :headers='props.headers'
+        :items='props.rows'
         :page.sync='page.nowPage'
-        :selectable-key='selectedKey'
-        :show-select='useSelector'
+        :selectable-key='props.selectedKey'
+        :show-select='props.useSelector'
         class='data-grid-view'
         dense
         height='750'
@@ -76,7 +78,7 @@ const updatedRow = (item:IBasicRows) => ({ updated: item.inputStatus === EInputS
           </tr>
         </template>
       </v-data-table>
-      <v-pagination v-show='usePageable' v-model='page.nowPage' :length='page.pageCount' :total-visible='10'></v-pagination>
+      <v-pagination v-show='props.usePageable' v-model='page.nowPage' :length='page.pageCount' :total-visible='10'></v-pagination>
     </div>
   </div>
 

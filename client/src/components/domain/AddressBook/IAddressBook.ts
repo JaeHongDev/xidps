@@ -1,7 +1,10 @@
+import { IUserRow } from '@/pages/ManageUser/ManageUserComposable';
+
 export interface IAddressBook {
   id: number,
   name: string,
-  children: IAddressBook[]
+  children: IAddressBook[],
+  users: IUserRow[]
 }
 
 export interface IAddressBookProps {
@@ -10,4 +13,7 @@ export interface IAddressBookProps {
 
 export interface IAddressInsertPayload {
   id: number
+}
+export interface IClickItemPayload{
+  item: IAddressBook
 }
