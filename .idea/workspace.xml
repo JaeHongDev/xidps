@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/pages/ManageTemplate/ManageTemplatePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageTemplate/ManageTemplatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageTemplate/ManageTemplatePage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +89,7 @@
       <workItem from="1663952366352" duration="16713000" />
       <workItem from="1664079994851" duration="859000" />
       <workItem from="1664081393226" duration="13699000" />
-      <workItem from="1664115188598" duration="12731000" />
+      <workItem from="1664115188598" duration="15403000" />
     </task>
     <servers />
   </component>

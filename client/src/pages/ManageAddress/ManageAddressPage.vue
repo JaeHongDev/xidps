@@ -211,7 +211,7 @@ const updateTableName = (payload:IClickItemPayload | null) => {
 .table-wrap{
   border:1px solid #2c347a;
   .table-wrap-header{
-    border-bottom:1px solid $light-gray !important;
+    border-bottom:1px solid $light-gray;
   }
 }
 .search-result{

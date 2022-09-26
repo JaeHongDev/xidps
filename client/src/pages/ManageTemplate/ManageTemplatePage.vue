@@ -1,6 +1,7 @@
 <script lang='ts' setup>
 import SelectAddressBook from '@/components/domain/AddressBook/SelectAddressBook.vue';
 import { reactive } from 'vue';
+import FileUploader from '@/components/common/FileUploader/FileUploader.vue';
 
 const data = reactive({
   headers: [
@@ -24,19 +25,17 @@ const data = reactive({
   <v-card>
     <v-card-title class='pb-0'>
       <v-row dense>
-        <v-col md='1' >
-          <div class='right-border'>
-          <span class='fs-4 fw-bold light-navy-blue'>수신번호</span>
-          </div>
+        <v-col md='1'>
+          <div class='right-border fs-4 fw-bold light-navy-blue'><span>수신번호</span></div>
         </v-col>
         <v-col>
           <div>
-            <v-chip  class='cornflower'>
-              <v-avatar  class='cornflower'>문</v-avatar>
+            <v-chip class='cornflower'>
+              <v-avatar class='cornflower'>문</v-avatar>
               010-2222-2222
             </v-chip>
           </div>
-        </v-col >
+        </v-col>
         <v-col md='2'>
           <div class='message-counter'>
             <div class='message-counter-viewer d-flex justify-space-around'>
@@ -59,82 +58,113 @@ const data = reactive({
       <v-divider></v-divider>
     </v-card-title>
     <v-card-title>
-      <v-row >
+      <v-row>
         <v-col md='1'>
-          <div class='right-border'>
-            <span>텍스트 </span>
+          <div class='fs-4 right-border'>
+            <span class='dark-blue-grey'>텍스트 </span>
           </div>
         </v-col>
         <v-col>
-          <span>010-1234-5678</span>
-          <v-btn icon><v-icon>mdi-plus</v-icon></v-btn>
+          <span class='fs-5 brown--text'>010-1234-5678</span>
+          <v-btn icon>
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-card-title>
     <v-card-title class='pt-0 pb-0'>
       <v-divider></v-divider>
     </v-card-title>
-     <v-card-title>
-      <v-row >
+    <v-card-title>
+      <v-row>
         <v-col md='1'>
-          <div class='right-border'>
-          <span>주소록</span>
+          <div class='fs-4 right-border'>
+            <span class='dark-blue-grey'>주소록 </span>
           </div>
         </v-col>
         <v-col>
-          <v-text-field solo  hide-details></v-text-field>
+          <v-text-field outlined dense hide-details>
+            <template #append>
+              <v-btn :width='16' :height='16' icon>
+                <v-icon>mdi-magnify</v-icon>
+              </v-btn>
+            </template>
+          </v-text-field>
         </v-col>
         <v-col>
-          <v-text-field solo  hide-details></v-text-field>
+          <v-text-field outlined dense hide-details>
+            <template #append>
+              <v-btn :width='16' :height='16' icon>
+                <v-icon>mdi-magnify</v-icon>
+              </v-btn>
+            </template>
+          </v-text-field>
         </v-col>
       </v-row>
     </v-card-title>
-    <v-card-title class='user-select-wrap'>
-      <select-address-book></select-address-book>
-      <select-address-book></select-address-book>
-      <div class='user-select-table'>
-        <v-card-actions class='table-wrap-header'>
-          <span class='light-navy-blue fs-5 fw-bold'>동아리 공지</span>
-          <v-spacer></v-spacer>
-          <v-btn class='light-navy-button'>추가하기</v-btn>
-        </v-card-actions>
-        <v-data-table
-          :disable-pagination='true'
-          :hide-default-footer='true'
-          :height='310'
-          :show-select='true'
-          :headers='data.headers'
-          dense
-        ></v-data-table>
-      </div>
+    <v-card-title>
+      <v-row class='user-select-wrap' no-gutters>
+        <v-col md='3'>
+          <select-address-book></select-address-book>
+        </v-col>
+        <v-col md='3'>
+          <select-address-book></select-address-book>
+        </v-col>
+        <v-col md='6' class='user-select-table'>
+          <v-card-actions class='table-wrap-header'>
+            <span class='light-navy-blue fs-5 fw-bold'>동아리 공지</span>
+            <v-spacer></v-spacer>
+            <v-btn class='light-navy-button'>추가하기</v-btn>
+          </v-card-actions>
+          <v-data-table
+            :disable-pagination='true'
+            :hide-default-footer='true'
+            :height='310'
+            :show-select='true'
+            :headers='data.headers'
+            dense
+          ></v-data-table>
+        </v-col>
+      </v-row>
     </v-card-title>
+    <v-card-actions>
+      <file-uploader></file-uploader>
+      <v-btn class='light-navy-blue'>저장하기</v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
 <style lang='scss' scoped>
-.user-select-wrap{
-  height:400px;
-  .user-select-table{
-    border:1px solid $light-gray;
-    width:50%;
+.user-select-wrap {
+  height: 400px;
+
+  .user-select-table {
+    border: 1px solid $light-gray;
+    width: 50%;
   }
 }
-.right-border{
-  border-right:1px solid $light-navy-blue;
+.table-wrap-header{
+  border-bottom:1px solid $light-gray;
+  padding-bottom:4px !important;
+}
+.right-border {
+  border-right: 1px solid $light-navy-blue;
 }
 
-.message-counter{
-  .message-counter-viewer{
-    border:1px $light-gray solid;
+.message-counter {
+  .message-counter-viewer {
+    border: 1px $light-gray solid;
     padding: 11.3px 17.5px 11.8px;
     color: $cornflower;
-    font-weight:$semi-bold;
-    .divider{
-      border:1px solid $light-gray;
+    font-weight: $semi-bold;
+
+    .divider {
+      border: 1px solid $light-gray;
     }
   }
-  .message-counter-opener{
-    width:100%;
+
+  .message-counter-opener {
+    width: 100%;
   }
 }
 

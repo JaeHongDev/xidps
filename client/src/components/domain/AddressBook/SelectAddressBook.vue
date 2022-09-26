@@ -25,11 +25,11 @@ const data = reactive({
 
 <template>
   <div class='address-book-wrap'>
-    <v-text-field v-model='data.search' dense hide-details solo>
-      <template v-slot:append>
-        <v-checkbox dense hide-details v-model='data.items'></v-checkbox>
-      </template>
-    </v-text-field>
+    <v-card-actions class='address-book-title'>
+      <span class='light-navy-blue fs-5 fw-bold'>동아리 공지</span>
+      <v-spacer></v-spacer>
+      <v-checkbox dense hide-details></v-checkbox>
+    </v-card-actions>
     <div class='treeview-wrap'>
       <v-treeview
         :items='prop.addressItems'
@@ -39,6 +39,7 @@ const data = reactive({
         dense
         class='address-book'
         transition
+        expand-icon=''
       >
         <template v-slot:prepend='{open}'>
           <v-btn icon>
@@ -57,6 +58,9 @@ const data = reactive({
 .address-book-wrap {
   border: 1px solid $light-gray;
   height:100%;
+  .address-book-title{
+    border-bottom:1px solid $light-gray;
+  }
 }
 
 .treeview-wrap {
@@ -64,6 +68,6 @@ const data = reactive({
 }
 
 .address-book {
-  width: max-content;
+  max-width: max-content;
 }
 </style>
