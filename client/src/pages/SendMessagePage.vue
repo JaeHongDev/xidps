@@ -25,7 +25,6 @@
         <v-card-text >
           <v-text-field dense label='제목없음'></v-text-field>
           <v-textarea v-model='message'>
-
           </v-textarea>
         </v-card-text>
       </v-card>
