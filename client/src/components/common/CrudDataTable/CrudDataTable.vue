@@ -15,9 +15,12 @@ interface ICrudDataTableProps {
   useSelector?: boolean,
   usePageable?: boolean,
   useButtons?:IEditHandlerGroup
+  height?: number
 }
 
-const props = withDefaults(defineProps<ICrudDataTableProps>(), {});
+const props = withDefaults(defineProps<ICrudDataTableProps>(), {
+  height: 750,
+});
 console.log(props);
 const emit = defineEmits<{(e: 'select', key: number): void,
   (e: 'click:remove'): void,
@@ -60,7 +63,7 @@ const updatedRow = (item: IBasicRows) => ({ updated: item.inputStatus === EInput
         :show-select='props.useSelector'
         class='data-grid-view'
         dense
-        height='750'
+        :height="props.height"
         hide-default-footer
         item-key='key'
         @page-count='page.pageCount = $event'

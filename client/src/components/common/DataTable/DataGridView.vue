@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import {
-  defineProps, PropType, reactive, ref,
+  defineProps, PropType, reactive,
 } from 'vue';
 import { DataTableHeader } from 'vuetify';
 import { EditStatus, EInputStatus, IBasicRows } from '@/pages/CallerManageComposable';

@@ -8,8 +8,8 @@ export interface IDataGridViewHeader extends DataTableHeader {
 
 export interface ICrudDataTable {
   tableTitle?: string
-  rows: Array<IBasicRows>,
-  headers: Array<IDataGridViewHeader>,
+  rows?: IBasicRows [],
+  headers?: IDataGridViewHeader[],
   selectedKey?: string
   useSelector?: boolean,
   usePageable?: boolean,

@@ -2,10 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/commonType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/RecentSendNumberViewer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/xidps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xidps.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/DataTable/DataGridView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/common/MessageDialog/MessageDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/MessageDialog/MessageDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/IAddressBook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/IAddressBook.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/error/TChild.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/error/TChild.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/error/TChild1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/error/TChild1.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/error/TParent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/error/TParent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavMenuLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenuGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationMenuGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layouts/PresentLayout/PresentLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManageComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManageComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/ManageTemplate/ManageTemplatePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageTemplate/ManageTemplatePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/SenMessageComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SenMessageComposable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/plugins/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/plugins/vuetify.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/ERouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/ERouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +57,9 @@
       <list>
         <option value="CSS File" />
         <option value="SCSS File" />
-        <option value="Vue Single File Component" />
-        <option value="TypeScript File" />
         <option value="VueTs" />
+        <option value="TypeScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -54,7 +94,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/jaehong/Documents/nuxt/xidps/client",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/jaehong/Documents/nuxt/xidps/client/node_modules/typescript/lib",
+    "ts.external.directory.path": "C:\\Users\\MTPC4-12\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,42 +135,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/client/src/store/index.js" />
-        <option value="$PROJECT_DIR$/client/src/store/index.js.map" />
-        <option value="$PROJECT_DIR$/client/src/store/auth/index.js" />
-        <option value="$PROJECT_DIR$/client/src/store/auth/index.js.map" />
-        <option value="$PROJECT_DIR$/client/src/store/auth/IUser.js" />
-        <option value="$PROJECT_DIR$/client/src/store/auth/IUser.js.map" />
-        <option value="$PROJECT_DIR$/client/src/router/index.js" />
-        <option value="$PROJECT_DIR$/client/src/router/ERouter.js" />
-        <option value="$PROJECT_DIR$/client/src/router/ERouter.js.map" />
-        <option value="$PROJECT_DIR$/client/src/router/index.js.map" />
-        <option value="$PROJECT_DIR$/client/src/router/auth/index.js" />
-        <option value="$PROJECT_DIR$/client/src/router/auth/index.js.map" />
-        <option value="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/layouts/PresentLayout/Navigation/NavigationComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer/index.js" />
-        <option value="$PROJECT_DIR$/client/src/components/domain/auth/organsim/AuthContainer/index.js.map" />
-        <option value="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTableComposable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/main.js" />
-        <option value="$PROJECT_DIR$/client/src/main.js.map" />
-        <option value="$PROJECT_DIR$/client/src/pages/CallerManageComposable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/pages/SenMessageComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/CallerManageComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/LoginPageCompsable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/pages/SenMessageComposable.js.map" />
-        <option value="$PROJECT_DIR$/client/src/plugins/vuetify.js" />
-        <option value="$PROJECT_DIR$/client/src/plugins/vuetify.js.map" />
-        <option value="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.js" />
-        <option value="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.js.map" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
