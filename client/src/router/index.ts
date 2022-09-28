@@ -27,7 +27,7 @@ const routes: Array<RouteConfig> = [
     component: SendMessagePage,
   },
   {
-    path: ERouter.CALLER_MANAGE,
+    path: ERouter.MANAGE_CALLER,
     name: 'caller-manage',
     beforeEnter: useAuthenticationUserGuard,
     component: CallerManagePage,

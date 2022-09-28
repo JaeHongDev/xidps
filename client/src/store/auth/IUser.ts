@@ -3,6 +3,11 @@ export interface INotification {
   text: string;
   date: Date;
 }
+// eslint-disable-next-line no-shadow
+export enum EAuthority{
+  MANAGE,
+  ADMIN
+}
 export interface IUnReadNotificationQuantity{
   notification: Array<INotification>
 }
@@ -22,6 +27,7 @@ export interface IUser{
   id:string;
   name:string;
   company: ICompany;
+  authority: EAuthority
   unReadNotificationQuantity?: IUnReadNotificationQuantity;
   shipmentQuantity?: IShipmentQuantity;
 }

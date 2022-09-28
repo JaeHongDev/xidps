@@ -1,4 +1,5 @@
 import { reactive } from 'vue';
+// eslint-disable-next-line import/no-cycle
 import { useAuthStore } from '@/store/auth';
 
 export interface IAuthInformation {
@@ -15,7 +16,7 @@ export const LoginPageComposable = () => {
 
   const login = () => {
     const authStore = useAuthStore();
-    authStore.login();
+    authStore.login(authInformation);
   };
   return { authInformation, login };
 };

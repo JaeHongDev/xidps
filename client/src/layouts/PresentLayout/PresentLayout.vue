@@ -30,12 +30,6 @@ import NavigationMenu from '@/layouts/PresentLayout/Navigation/NavigationMenu.vu
 export default Vue.extend({
   name: 'PresentLayout',
   components: { NavigationMenu },
-  setup: () => {
-    const { listItems } = NavigationComposable();
-    return {
-      listItems,
-    };
-  },
 });
 </script>
 

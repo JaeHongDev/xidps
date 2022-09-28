@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
-import { IUser } from '@/store/auth/IUser';
+import { EAuthority, IUser } from '@/store/auth/IUser';
+// eslint-disable-next-line import/no-cycle
+import { IAuthInformation } from '@/pages/LoginPageCompsable';
 
 interface IAuthState {
   user: IUser | null;
@@ -13,7 +15,7 @@ export const useAuthStore = defineStore('auth', {
     isLoggedIn: (state) => () => state.user !== null,
   },
   actions: {
-    login() {
+    login(auth:IAuthInformation) {
       this.user = {
         id: '1',
         name: '2',
@@ -21,6 +23,7 @@ export const useAuthStore = defineStore('auth', {
           id: 'xid_c',
           name: '1234',
         },
+        authority: auth.id === 'admin' ? EAuthority.ADMIN : EAuthority.MANAGE,
       };
     },
   },
