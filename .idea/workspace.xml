@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/CrudDataTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CrudDataTable/ICrudTable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/CustomModal/CustomModalComposable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroup.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/EditHandlerGroup/EditHandlerGroupComposable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +90,7 @@
       <workItem from="1664079994851" duration="859000" />
       <workItem from="1664081393226" duration="13699000" />
       <workItem from="1664115188598" duration="15403000" />
-      <workItem from="1664321834167" duration="9915000" />
+      <workItem from="1664321834167" duration="15890000" />
     </task>
     <servers />
   </component>
