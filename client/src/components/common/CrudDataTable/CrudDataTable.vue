@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<ICrudDataTableProps>(), {
 });
 console.log(props);
 const emit = defineEmits<{(e: 'select', key: number): void,
-  (e: 'click:remove'): void,
+  (e: 'click:remove', keys:IBasicRows[]): void,
   (e: 'click:save'): void
   (e: 'click:add'): void
   (e: 'click:import'):void
@@ -31,8 +31,13 @@ const emit = defineEmits<{(e: 'select', key: number): void,
 const page = reactive({
   pageCount: 0,
   nowPage: 1,
+  keys: [],
 });
 const updatedRow = (item: IBasicRows) => ({ updated: item.inputStatus === EInputStatus.UPDATE });
+function handleRemove() {
+  emit('click:remove', page.keys);
+  page.keys = [];
+}
 </script>
 <template>
   <div>
@@ -46,7 +51,7 @@ const updatedRow = (item: IBasicRows) => ({ updated: item.inputStatus === EInput
       <v-spacer></v-spacer>
       <edit-handler-group
         :use-buttons='props.useButtons'
-        @click:remove='emit("click:remove")'
+        @click:remove='handleRemove'
         @click:save='emit("click:save")'
         @click:import='emit("click:import")'
         @click:add='emit("click:add")'>
@@ -54,6 +59,7 @@ const updatedRow = (item: IBasicRows) => ({ updated: item.inputStatus === EInput
     </v-card-actions>
     <div>
       <v-data-table
+        v-model="page.keys"
         :disable-pagination='!props.usePageable'
         :footer-props='{"items-per-page-options": [20]}'
         :headers='props.headers'

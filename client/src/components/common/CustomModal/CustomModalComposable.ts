@@ -15,7 +15,7 @@ export const customModalComposable = ({ isShow = false, title = '' }) => {
     data.isShow = false;
   };
   return {
-    ...toRefs(data),
+    modal: data,
     openModal,
     closeModal,
   };

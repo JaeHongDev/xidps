@@ -1,24 +1,13 @@
 <script setup lang ='ts'>
 import {
-  defineProps, PropType,
+  defineProps, withDefaults,
 } from 'vue';
 import { IEditHandlerGroup } from '@/components/common/EditHandlerGroup/EditHandlerGroupComposable';
 
-const props = defineProps({
-  useButtons: {
-    type: Object as PropType<IEditHandlerGroup>,
-    required: false,
-    default(): IEditHandlerGroup {
-      return {
-        useAdd: true,
-        useDelete: true,
-        useSave: true,
-        useSearch: true,
-        useImportExcel: true,
-        usePersonalizedUser: true,
-      };
-    },
-  },
+interface Props{
+  useButtons: IEditHandlerGroup
+}
+const props = withDefaults(defineProps<Props>(), {
 });
 
 // eslint-disable-next-line no-undef
@@ -41,11 +30,11 @@ const handleRemove = () => emit('click:remove');
 <template>
   <div class="xidps-container" >
     <!-- <search-text-box v-show="useSearch"  :search-columns="searchHeaders"  @click:search="handleSearch"></search-text-box> -->
-    <v-btn v-show="useButtons.useDelete" @click="handleRemove" class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
-    <v-btn v-show="useButtons.usePersonalizedUser" @click='handleAddPersonalize' class="xidps-btn xidps-btn-personalize" outlined elevation="0"><v-icon>mdi-users</v-icon>개인 사용자 모아보기</v-btn>
-    <v-btn v-show="useButtons.useImportExcel"  @click='handleImportExcel' class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0"><v-icon>mdi-plus</v-icon>엑셀 추가</v-btn>
-    <v-btn v-show="useButtons.useAdd" class="xidps-btn xidps-btn-add" @click='handleAdd' elevation="0"><v-icon>mdi-plus</v-icon>추가</v-btn>
-    <v-btn v-show="useButtons.useSave" @click='handleSave'  class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
+    <v-btn v-show="props.useButtons.useDelete" @click="handleRemove" class="xidps-btn xidps-btn-delete" outlined elevation="0">삭제</v-btn>
+    <v-btn v-show="props.useButtons.usePersonalizedUser" @click='handleAddPersonalize' class="xidps-btn xidps-btn-personalize" outlined elevation="0"><v-icon>mdi-users</v-icon>개인 사용자 모아보기</v-btn>
+    <v-btn v-show="props.useButtons.useImportExcel"  @click='handleImportExcel' class="xidps-btn xidps-btn-add xidps-btn-import" elevation="0"><v-icon>mdi-plus</v-icon>엑셀 추가</v-btn>
+    <v-btn v-show="props.useButtons.useAdd" class="xidps-btn xidps-btn-add" @click='handleAdd' elevation="0"><v-icon>mdi-plus</v-icon>추가</v-btn>
+    <v-btn v-show="props.useButtons.useSave" @click='handleSave'  class="xidps-btn xidps-btn-save" elevation="1">저장하기</v-btn>
   </div>
 </template>
 

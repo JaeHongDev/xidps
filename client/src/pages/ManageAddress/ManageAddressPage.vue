@@ -122,7 +122,7 @@ const updateTableName = (payload:IClickItemPayload | null) => {
 
 <template>
   <v-row>
-    <custom-modal :is-show='importModalSelect.isShow' :title='importModalSelect.title' :width='550' @close='importModalSelect.closeModal()'>
+    <custom-modal :is-show='importModalSelect.modal.isShow' :title='importModalSelect.modal.title' :width='550' @close='importModalSelect.closeModal()'>
       <v-row>
         <v-col>
           <v-btn class='import-select-btn light-navy-button' @click='importModalSelect.closeModal();userImportModal.openModal()'>

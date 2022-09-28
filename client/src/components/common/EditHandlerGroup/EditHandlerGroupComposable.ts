@@ -6,7 +6,3 @@ export interface IEditHandlerGroup{
   useImportExcel: boolean;
   useSave: boolean;
 }
-
-export const editHandlerGroupComposable = () => {
-
-};
