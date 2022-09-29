@@ -61,7 +61,7 @@ const data = reactive<IRecentSendNumberViewer>({
     :use-selector="data.table.useSelector"
     :rows="data.rows"
     :headers="data.headers"
-    :height="400"
+    :height="432"
     ></crud-data-table>
 </template>
 

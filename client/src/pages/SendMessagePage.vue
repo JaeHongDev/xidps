@@ -1,28 +1,42 @@
 <template>
   <v-row>
+    <custom-modal :is-show="false" :width="1270">
+      <select-target-user-viewer></select-target-user-viewer>
+    </custom-modal>
     <v-col :offset='800'>
-      <span class='fs-2 light-navy-blue fw-bold' >메시지 발송</span>
+      <span class='fs-2 light-navy-blue fw-bold'>메시지 발송</span>
       <v-card class='mt-3'>
-        <v-card-text class='light-navy-blue fw-bold'>
+        <v-card-text class='light-navy-blue fw-bold d-flex align-center'>
           <span>발신번호</span> |
-          <span>
-            정보통신공학부 박상민 051-123-4567</span>
+          <v-select dense :items="[1]" flat solo hide-details class="none-border-select mb-1">
+            <template v-slot:append-item>
+              <div class="pa-3">
+                <v-btn class="mdi-border-all" icon>
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+                <span class="light-navy-blue fs-4 fw-semi-bold">공통번호 발신번호 보이기</span>
+              </div>
+            </template>
+          </v-select>
         </v-card-text>
       </v-card>
       <v-card class='mt-3'>
         <v-card-text class='light-navy-blue fw-bold d-flex align-center'>
           <span>수신번호</span> |
-          <span class='d-flex align justify-space-around'>
-              <v-chip>2021487</v-chip>
-              <v-chip>2021487</v-chip>
-              <v-chip>2021487</v-chip>
-              <v-chip>2021487</v-chip>
-              <v-chip>2021487</v-chip>
-          </span>
+          <v-select dense attach v-model="a" chips multiple :items="[1]" flat solo hide-details class="mb-1" readonly>
+            <template v-slot:selection>
+              <v-chip pill class="user-chip">
+              <v-avatar left class="user-chip-type">
+                P
+              </v-avatar>
+              20212487
+            </v-chip>
+            </template>
+          </v-select>
         </v-card-text>
       </v-card>
       <v-card class='message-editor mt-2'>
-        <v-card-text >
+        <v-card-text>
           <v-text-field dense label='제목없음'></v-text-field>
           <v-textarea v-model='message'>
           </v-textarea>
@@ -52,7 +66,7 @@
       <div class='message-viewer-wrap'>
         <img src='https://raw.githubusercontent.com/JaeHongDev/xidps/master/static/mobile.png' alt=''/>
         <div class='message-viewer scroll-y-transition overflow-y-auto'>
-            <div v-html='sendMessage'></div>
+          <div v-html='sendMessage'></div>
         </div>
       </div>
     </v-col>
@@ -61,13 +75,21 @@
 
 <script lang='ts'>
 import { sendMessageComposable } from '@/pages/SenMessageComposable';
+import { ref } from 'vue';
+import CustomModal from '@/components/common/CustomModal/CustomModal.vue';
+import SelectTargetUserViewer from '@/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue';
 
 export default {
   name: 'SendMessagePage',
+  components: { SelectTargetUserViewer, CustomModal },
   setup: () => {
     const { message, sendMessage } = sendMessageComposable();
+    const a = ref([1]);
+
     return {
-      message, sendMessage,
+      message,
+      sendMessage,
+      a,
     };
   },
 };
@@ -75,24 +97,27 @@ export default {
 
 <style scoped lang='scss'>
 
-.message-editor{
-  border-top:5px solid $light-navy-blue;
+.message-editor {
+  border-top: 5px solid $light-navy-blue;
 }
-.message-viewer-wrap{
+
+.message-viewer-wrap {
   position: absolute;
-  .message-viewer{
+
+  .message-viewer {
     position: absolute;
-    top:100px;
-    left:50px;
+    top: 100px;
+    left: 50px;
     background-color: #308eff;
-    width:230px;
-    min-height:50px;
-    max-height:400px;
+    width: 230px;
+    min-height: 50px;
+    max-height: 400px;
     border-radius: 25px;
-    padding:20px;
-    color:white;
+    padding: 20px;
+    color: white;
     font-weight: $semi-bold;
     font-size: $fs6;
   }
 }
+
 </style>

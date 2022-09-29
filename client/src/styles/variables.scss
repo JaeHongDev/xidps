@@ -8,6 +8,16 @@
   font-family: "SUIT";
 }
 
+.user-chip {
+  background-color: $white !important;
+  color: $cornflower;
+  border: 1px solid $cornflower;
+
+  .user-chip-type {
+    background-color: $cornflower;
+    color: white;
+  }
+}
 .login_btn {
   background-color: $light-navy-blue;
 }

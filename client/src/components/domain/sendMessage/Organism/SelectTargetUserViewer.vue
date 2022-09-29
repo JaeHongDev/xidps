@@ -1,9 +1,21 @@
 <script lang='ts' setup>
 import SelectAddressBook from '@/components/domain/AddressBook/SelectAddressBook.vue';
-import { reactive } from 'vue';
+import {
+  reactive, withDefaults, defineProps, defineEmits,
+} from 'vue';
 import FileUploader from '@/components/common/FileUploader/FileUploader.vue';
-import CrudDataTable from '@/components/common/CrudDataTable/CrudDataTable.vue';
 import RecentSendNumberViewer from '@/components/domain/sendMessage/Organism/RecentSendNumberViewer.vue';
+
+interface ICallerNumberChip{
+  type: 'PHONE' | 'NUMBER'
+  number : string
+}
+interface ISelectTargetUserViewer{
+  callerList: ICallerNumberChip[]
+}
+
+const props = withDefaults(defineProps<ISelectTargetUserViewer>(), {});
+const emit = defineEmits<{(e:'add:caller', payload:ICallerNumberChip):void}>();
 
 const data = reactive({
   headers: [
@@ -21,25 +33,35 @@ const data = reactive({
     },
   ],
   recentOpen: false,
+  callerNumber: '',
 });
 
+function addCaller() {
+  emit('add:caller', {
+    type: 'NUMBER',
+    number: '010-4164-5367',
+  });
+  data.callerNumber = '';
+}
 const toggleRecent = () => {
   data.recentOpen = !data.recentOpen;
 };
 </script>
 
 <template>
-  <v-card>
-    <v-card-title class='pb-0'>
-      <v-row dense>
+  <div>
+    <v-card-title class='pt-0 pb-0'>
+      <v-row dense no-gutters>
         <v-col md='1'>
-          <div class='right-border fs-4 fw-bold light-navy-blue'><span>수신번호</span></div>
+          <div class='fs-4 fw-bold light-navy-blue'><span>수신번호</span></div>
         </v-col>
         <v-col>
           <div>
-            <v-chip class='cornflower'>
-              <v-avatar class='cornflower'>문</v-avatar>
-              010-2222-2222
+            <v-chip pill class="user-chip">
+              <v-avatar left class="user-chip-type">
+                P
+              </v-avatar>
+              20212487
             </v-chip>
           </div>
         </v-col>
@@ -56,24 +78,26 @@ const toggleRecent = () => {
                 <span>225명</span>
               </div>
             </div>
-            <v-btn class='message-counter-opener mt-2' @click="toggleRecent">메시지 확인하기</v-btn>
+            <v-btn outlined class='message-counter-opener mt-2' @click="toggleRecent">메시지 확인하기</v-btn>
           </div>
         </v-col>
       </v-row>
     </v-card-title>
     <div v-if="!data.recentOpen">
-      <v-card-title class='pt-0 pb-0'>
+      <v-card-title class='pt-2 pb-0'>
         <v-divider></v-divider>
       </v-card-title>
-      <v-card-title>
+      <v-card-title class="pt-2 pb-2">
         <v-row>
           <v-col md='1'>
             <div class='fs-4 right-border'>
               <span class='dark-blue-grey'>텍스트 </span>
             </div>
           </v-col>
-          <v-col>
-            <span class='fs-5 brown--text'>010-1234-5678</span>
+          <v-col class="d-flex align-center">
+            <div style="width:150px">
+              <v-text-field flat  solo dense hide-details placeholder="xxx-xxx-xxxx"></v-text-field>
+            </div>
             <v-btn icon>
               <v-icon>mdi-plus</v-icon>
             </v-btn>
@@ -83,14 +107,14 @@ const toggleRecent = () => {
       <v-card-title class='pt-0 pb-0'>
         <v-divider></v-divider>
       </v-card-title>
-      <v-card-title>
+      <v-card-title class="pt-4 pb-4">
         <v-row>
           <v-col md='1'>
             <div class='fs-4 right-border'>
               <span class='dark-blue-grey'>주소록 </span>
             </div>
           </v-col>
-          <v-col>
+          <v-col cols="5">
             <v-text-field outlined dense hide-details>
               <template #append>
                 <v-btn :width='16' :height='16' icon>
@@ -110,7 +134,7 @@ const toggleRecent = () => {
           </v-col>
         </v-row>
       </v-card-title>
-      <v-card-actions>
+      <v-card-actions class="pt-0">
         <v-row class='user-select-wrap' no-gutters>
           <v-col md='3'>
             <select-address-book></select-address-book>
@@ -136,7 +160,7 @@ const toggleRecent = () => {
         </v-row>
       </v-card-actions>
     </div>
-    <v-card-actions v-else>
+    <v-card-actions class="pt-2 pb-0" v-else>
       <v-card class="pa-5" style="width: 100%">
         <recent-send-number-viewer></recent-send-number-viewer>
       </v-card>
@@ -152,10 +176,11 @@ const toggleRecent = () => {
         </v-col>
       </v-row>
     </v-card-actions>
-  </v-card>
+  </div>
 </template>
 
 <style lang='scss' scoped>
+
 .save-btn {
   width: 100%;
 }
@@ -194,83 +219,10 @@ const toggleRecent = () => {
     width: 100%;
   }
 }
-
-.data-grid-view {
-  border-collapse: collapse;
-  border-bottom: 1px solid $light-gray;
-
-  ::v-deep .v-data-table-header {
-    border-left: none !important;
-    border-right: none !important;
-
-    th {
-      border-top: 1px solid $light-gray !important;
-      border-bottom: 1px solid $warm-grey !important;
-      color: $light-navy-blue !important;
-      vertical-align: middle !important;
-      font-size: $semi-bold;
-      text-align: center;
-      border-right: 2px solid #d5d5d5;
-      border-spacing: 5px;
-      margin-right: 5px !important;
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
-
-  tbody {
-    height: 550px !important;
-
-    tr {
-      max-height: 35px !important;
-
-      ::v-deep .v-input {
-        margin: 0 !important;
-      }
-    }
-
-    ::v-deep tr {
-      :hover {
-        background-color: $pale-lilac !important;
-        cursor: pointer;
-      }
-    }
-
-    tr:hover {
-      background-color: $pale-lilac !important;
-      cursor: pointer;
-    }
-  }
-
-  ::v-deep td, th {
-    border-bottom: none !important;
-    text-align: center;
-    //color: $light-navy-blue-color !important;
-    vertical-align: middle !important;
-    border-right: 2px solid #d5d5d5;
-    border-spacing: 5px;
-    border-collapse: collapse;
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-
-  td, th {
-    //border-right: 1px solid  !important;
-    border-bottom: none !important;
-    text-align: center;
-    //color: $light-navy-blue-color !important;
-    vertical-align: middle !important;
-    border-right: 2px solid #d5d5d5;
-    border-spacing: 5px;
-    border-collapse: collapse;
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-}
 </style>
+
+SQL활용(OFFJT)
+화면구현(OFFJT)
+스마트문화앱구현(OFFJT)
+프로그래밍언어활용(OFFJT)
+직업윤리(OFFJT)

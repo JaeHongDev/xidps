@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <v-row class='pt-3'>
-    <v-col cols='10' md='9' >
+    <v-col cols='10' md='10' >
       <div class='file-list'>
         <div class="file-viewer"></div>
         <div class="file-sizer fs-6">
@@ -23,12 +23,12 @@ const props = withDefaults(defineProps<Props>(), {
         </div>
       </div>
     </v-col>
-    <v-col cols="2" md="3">
-      <v-btn v-show="props.fileUploader.fileType === 'EXCEL'" class="grassh-green" outlined>
+    <v-col cols="1" md="2">
+      <v-btn v-show="props.fileUploader.fileType === 'EXCEL'" class="grassh-green" width="156" outlined>
         <v-icon >mdi-microsoft-excel</v-icon>
         <span>엑셀 샘플 다운로드</span>
       </v-btn>
-      <v-btn v-show="props.fileUploader.fileType === 'EXCEL' " outlined class="mt-3">
+      <v-btn v-show="props.fileUploader.fileType === 'EXCEL' " outlined class="mt-3" width="156">
         <v-icon class="grassh-green">mdi-file</v-icon>
         <span>엑셀 업로드</span>
       </v-btn>

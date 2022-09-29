@@ -47,7 +47,7 @@ const data = reactive({
           </v-btn>
         </template>
         <template #append='{item}'>
-          <v-checkbox v-model='data.items' :value='item.id'></v-checkbox>
+          <v-checkbox v-model='data.items' dense  :value='item.id'></v-checkbox>
         </template>
       </v-treeview>
     </div>
