@@ -1,6 +1,18 @@
+<script lang='ts' setup>
+import { sendMessageComposable } from '@/pages/SenMessageComposable';
+import { ref } from 'vue';
+import CustomModal from '@/components/common/CustomModal/CustomModal.vue';
+import SelectTargetUserViewer from '@/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue';
+import { customModalComposable } from '@/components/common/CustomModal/CustomModalComposable';
+
+const { message, sendMessage } = sendMessageComposable();
+const a = ref([1]);
+
+const selectTargetModal = customModalComposable({ title: '', isShow: false });
+</script>
 <template>
   <v-row>
-    <custom-modal :is-show="false" :width="1270">
+    <custom-modal :is-show="selectTargetModal.modal.isShow" :width="1270" @close='selectTargetModal.closeModal'>
       <select-target-user-viewer></select-target-user-viewer>
     </custom-modal>
     <v-col :offset='800'>
@@ -23,7 +35,7 @@
       <v-card class='mt-3'>
         <v-card-text class='light-navy-blue fw-bold d-flex align-center'>
           <span>수신번호</span> |
-          <v-select dense attach v-model="a" chips multiple :items="[1]" flat solo hide-details class="mb-1" readonly>
+          <v-select dense attach v-model="a" chips multiple :items="[1]" flat solo hide-details class="mb-1" readonly @click='selectTargetModal.openModal'>
             <template v-slot:selection>
               <v-chip pill class="user-chip">
               <v-avatar left class="user-chip-type">
@@ -72,28 +84,6 @@
     </v-col>
   </v-row>
 </template>
-
-<script lang='ts'>
-import { sendMessageComposable } from '@/pages/SenMessageComposable';
-import { ref } from 'vue';
-import CustomModal from '@/components/common/CustomModal/CustomModal.vue';
-import SelectTargetUserViewer from '@/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue';
-
-export default {
-  name: 'SendMessagePage',
-  components: { SelectTargetUserViewer, CustomModal },
-  setup: () => {
-    const { message, sendMessage } = sendMessageComposable();
-    const a = ref([1]);
-
-    return {
-      message,
-      sendMessage,
-      a,
-    };
-  },
-};
-</script>
 
 <style scoped lang='scss'>
 
