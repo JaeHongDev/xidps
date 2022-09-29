@@ -15,11 +15,13 @@ interface ICrudDataTableProps {
   useSelector?: boolean,
   usePageable?: boolean,
   useButtons?:IEditHandlerGroup
+  useHeader?: boolean
   height?: number
 }
 
 const props = withDefaults(defineProps<ICrudDataTableProps>(), {
   height: 750,
+  useHeader: true,
 });
 console.log(props);
 const emit = defineEmits<{(e: 'select', key: number): void,
@@ -41,7 +43,7 @@ function handleRemove() {
 </script>
 <template>
   <div>
-    <v-card-actions>
+    <v-card-actions v-show="props.useHeader">
       <div>
         <span class='fw-semi-bold light-navy-blue fs-3 ' data-test='title'>{{props.tableTitle}}</span>
         <div class=''>
