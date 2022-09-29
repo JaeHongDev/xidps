@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 
-import { defineProps, withDefaults } from 'vue';
+import { defineProps, withDefaults, defineEmits } from 'vue';
 
 interface IMessageTemplate {
   title?: string;
   content?: string;
   size?: number
+  index:number
 }
-
+const emit = defineEmits<{(e:'delete', index:number):void}>();
 const props = withDefaults(defineProps<IMessageTemplate>(), {
   title: '123455',
   content: '\n'
@@ -25,7 +26,7 @@ const props = withDefaults(defineProps<IMessageTemplate>(), {
       <span>{{ props.title }}</span>
       <v-spacer class="message-template-delete"></v-spacer>
       <div class="message-template-delete">
-        <v-btn icon>
+        <v-btn icon @click='emit("delete",index)'>
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </div>

@@ -43,11 +43,11 @@
         </v-card-text>
       </v-card>
       <v-card class='mt-5'>
-        <v-card-text>
+        <v-card-text class='align-center'>
           <v-row>
-            <v-col md='2'><span>이미지</span></v-col>
+            <v-col md='2'><span class='fw-semi-bold fs-4 light-navy-blue text-center'>이미지</span></v-col>
             <v-col cols='8'>
-              <v-text-field dense label='경로'></v-text-field>
+              <v-text-field dense hide-details label='경로'></v-text-field>
             </v-col>
             <v-col col='2'>
               <v-btn class='light-navy-button'>찾기</v-btn>

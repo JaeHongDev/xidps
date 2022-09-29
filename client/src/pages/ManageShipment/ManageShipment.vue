@@ -1,5 +1,4 @@
 <script lang='ts' setup>
-import CrudDataTable from '@/components/common/CrudDataTable/CrudDataTable.vue';
 import { reactive } from 'vue';
 import BarChart from '@/components/common/Chart/BarChart.vue';
 import MessageCountIndicator from '@/components/domain/ManageShipment/MessageCountIndicator/MessageCountIndicator.vue';
