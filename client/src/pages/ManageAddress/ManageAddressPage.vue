@@ -7,12 +7,13 @@ import type { ICrudDataTable, IDataGridViewHeader } from '@/components/common/Cr
 import { IUserRow, ManageUserComposable } from '@/pages/ManageUser/ManageUserComposable';
 import CustomModal from '@/components/common/CustomModal/CustomModal.vue';
 import { customModalComposable } from '@/components/common/CustomModal/CustomModalComposable';
+import { EditStatus, EInputStatus } from '@/pages/CallerManageComposable';
 
 interface ManagedAddressPage extends ICrudDataTable {
   addressBook: IAddressBook[],
   index: number,
   findUserHeaders: IDataGridViewHeader[],
-  selectedTable: IUserRow[]
+  selectedTable: IUserRow[] | null
 }
 
 const data = reactive<ManagedAddressPage>({
@@ -57,7 +58,7 @@ const data = reactive<ManagedAddressPage>({
   usePageable: true,
   useSelector: true,
   tableTitle: '주소록관리',
-  selectedTable: [],
+  selectedTable: null,
   addressBook: [],
   index: 0,
 
@@ -113,11 +114,45 @@ const updateTableName = (payload:IClickItemPayload | null) => {
   if (payload === null) {
     data.tableTitle = '선택되지 않음';
     useManageUser.rows.value = [];
+    data.selectedTable = null;
     return;
   }
   data.tableTitle = payload.item.name;
   useManageUser.rows.value = payload.item.users;
 };
+
+function createDefaultUser(): IUserRow {
+  // eslint-disable-next-line no-return-assign
+  return {
+    inputStatus: EInputStatus.INSERT,
+    editStatus: EditStatus.UNEDITTING,
+    userId: '',
+    divisionValue: '',
+    name: '',
+    key: data.index += 1,
+    var1: '',
+    var2: '',
+    var3: '',
+    var4: '',
+    phoneNumber: '',
+  };
+}
+
+function handleAddUser() {
+  data.selectedTable?.unshift(createDefaultUser());
+}
+/* function handleEditStart() {}
+function handleEditEnd() {}
+function handleEditCancel() {} */
+
+// 문자열 s  문자 n
+// abcdeaaa a
+// 4
+
+const str = 'abcdeaaa';
+const c = 'a';
+str.split('').reduce((pre, cal) => (pre + cal === a ? 1 : 0), 0);
+
 </script>
 
 <template>
@@ -219,83 +254,4 @@ const updateTableName = (payload:IClickItemPayload | null) => {
   height:100px;
   border-radius: 8px;
 }
-.data-grid-view {
-  border-collapse: collapse;
-  border-bottom: 1px solid $light-gray;
-
-  ::v-deep .v-data-table-header {
-    border-left: none !important;
-    border-right: none !important;
-
-    th {
-      border-top: 1px solid $light-gray !important;
-      border-bottom: 1px solid $warm-grey !important;
-      color: $light-navy-blue !important;
-      vertical-align: middle !important;
-      font-size: $semi-bold;
-      text-align: center;
-      border-right: 2px solid #d5d5d5;
-      border-spacing: 5px;
-      margin-right: 5px !important;
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
-
-  tbody {
-    height: 550px !important;
-
-    tr {
-      max-height: 35px !important;
-
-      ::v-deep .v-input {
-        margin: 0 !important;
-      }
-    }
-
-    ::v-deep tr {
-      :hover {
-        background-color: $pale-lilac !important;
-        cursor: pointer;
-      }
-    }
-
-    tr:hover {
-      background-color: $pale-lilac !important;
-      cursor: pointer;
-    }
-  }
-
-  ::v-deep td, th {
-    border-bottom: none !important;
-    text-align: center;
-    //color: $light-navy-blue-color !important;
-    vertical-align: middle !important;
-    border-right: 2px solid #d5d5d5;
-    border-spacing: 5px;
-    border-collapse: collapse;
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-
-  td, th {
-    //border-right: 1px solid  !important;
-    border-bottom: none !important;
-    text-align: center;
-    //color: $light-navy-blue-color !important;
-    vertical-align: middle !important;
-    border-right: 2px solid #d5d5d5;
-    border-spacing: 5px;
-    border-collapse: collapse;
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-}
-
 </style>

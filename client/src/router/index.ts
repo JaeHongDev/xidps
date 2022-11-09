@@ -8,12 +8,14 @@ import ManageUserPage from '@/pages/ManageUser/ManageUserPage.vue';
 import ManageAddressPage from '@/pages/ManageAddress/ManageAddressPage.vue';
 import ManageTemplatePage from '@/pages/ManageTemplate/ManageTemplatePage.vue';
 import ManageShipmentPage from '@/pages/ManageShipment/ManageShipment.vue';
+import Test from '@/pages/TestPage.vue';
 
 const routes: Array<RouteConfig> = [
   {
     path: ERouter.HOME,
     name: 'home',
     beforeEnter: useAuthenticationUserGuard,
+    component: Test,
   },
   {
     path: ERouter.AUTH,

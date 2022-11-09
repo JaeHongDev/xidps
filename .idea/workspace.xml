@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f8e8d7-9a5d-4cae-80ed-65169b55c53f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/common/UserExcelLoader/UserExcelLoader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/TestPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/scss/components/DataTable/dataTable.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/common/FileUploader/FileUploader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/AddressBook.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/AddressBook/SelectAddressBook.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/RecentSendNumberViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/RecentSendNumberViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SendMessagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/domain/callerId/CallerIdForm/CallerIdForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CallerManagePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageAddress/ManageAddressPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ManageUser/ManageUserPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/variables.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +26,9 @@
       <list>
         <option value="CSS File" />
         <option value="SCSS File" />
-        <option value="VueTs" />
         <option value="TypeScript File" />
         <option value="Vue Single File Component" />
+        <option value="VueTs" />
       </list>
     </option>
   </component>
@@ -48,18 +54,11 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jaehong/Documents/nuxt/xidps/client/src/components/common/CrudDataTable&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/jaehong/Documents/nuxt/xidps/client&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\MTPC4-12\\WebstormProjects\\xidps\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jaehong/Documents/nuxt/xidps/client/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -96,6 +95,13 @@
       <workItem from="1664081393226" duration="13699000" />
       <workItem from="1664115188598" duration="15403000" />
       <workItem from="1664321834167" duration="15890000" />
+      <workItem from="1664698085282" duration="2162000" />
+      <workItem from="1664760282974" duration="3475000" />
+      <workItem from="1664779082657" duration="2119000" />
+      <workItem from="1664976597510" duration="366000" />
+      <workItem from="1667210168546" duration="75000" />
+      <workItem from="1667210247612" duration="2000" />
+      <workItem from="1667210256057" duration="5000" />
     </task>
     <servers />
   </component>
@@ -118,8 +124,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/domain/sendMessage/Organism/SelectTargetUserViewer.vue</url>
-          <line>9</line>
-          <properties lambdaOrdinal="-1" />
+          <line>182</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

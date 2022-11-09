@@ -3,6 +3,9 @@ import CrudDataTable from '@/components/common/CrudDataTable/CrudDataTable.vue';
 import { ICrudDataTable } from '@/components/common/CrudDataTable/ICrudTable';
 import { EditStatus, EInputStatus, IBasicRows } from '@/pages/CallerManageComposable';
 import { reactive } from 'vue';
+import { customModalComposable } from '@/components/common/CustomModal/CustomModalComposable';
+import CustomModal from '@/components/common/CustomModal/CustomModal.vue';
+import UserExcelLoader from '@/components/common/UserExcelLoader/UserExcelLoader.vue';
 
 interface IEditUser {
   name: string;
@@ -13,17 +16,14 @@ interface IEditUser {
   var3: string;
   var4: string
 }
-
 interface IUserRow extends IBasicRows, IEditUser {
   userId: string;
 }
-
 interface IManageUserPage {
   editUser: IEditUser,
   table: ICrudDataTable,
   index: number
 }
-
 function createDefaultEditUser(): IEditUser {
   return {
     name: '',
@@ -35,7 +35,6 @@ function createDefaultEditUser(): IEditUser {
     var4: '',
   };
 }
-
 const state = reactive<IManageUserPage>({
   table: {
     rows: [],
@@ -83,6 +82,8 @@ const state = reactive<IManageUserPage>({
   editUser: createDefaultEditUser(),
   index: 0,
 });
+
+const importExcelModal = customModalComposable({ isShow: false, title: '엑셀 추가' });
 
 function createDefaultUser(): IUserRow {
   // eslint-disable-next-line no-return-assign
@@ -146,6 +147,9 @@ function handleRemove(keys:IUserRow[]) {
 </script>
 <template>
   <div>
+    <custom-modal :is-show='importExcelModal.modal.isShow' :title='importExcelModal.modal.title' @close='importExcelModal.closeModal' >
+      <user-excel-loader></user-excel-loader>
+    </custom-modal>
     <v-card class='division-setting'>
       <v-card-title>
         <span class='fs-4'>구분값 설정</span>
@@ -178,6 +182,7 @@ function handleRemove(keys:IUserRow[]) {
         @click:add='handleAddUser'
         @click:save="handleSave"
         @click:remove="handleRemove"
+        @click:import='importExcelModal.openModal'
       >
         <template #state-edit='{item}'>
           <td>{{ item.userId }}</td>
@@ -235,14 +240,4 @@ function handleRemove(keys:IUserRow[]) {
 </template>
 
 <style scoped lang='scss'>
-@import "~@/assets/scss/variables.scss";
-
-.division-setting {
-  min-height: 150px;
-
-  span {
-    color: $light-navy-blue;;
-  }
-}
-
 </style>

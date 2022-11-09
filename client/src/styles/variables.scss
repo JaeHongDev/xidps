@@ -3,7 +3,6 @@
 @import "~@/assets/scss/variables/font.scss";
 
 @import "~@/assets/scss/commons/button/color.scss";
-
 @font-face {
   font-family: "SUIT";
 }
@@ -37,6 +36,36 @@
   top: auto !important;
   z-index: 1 !important;
   background-color:white !important;
+}
+
+.excel-data-viewer {
+  border: 1px solid #d6d6d6 !important;
+  border-collapse: collapse;
+  ::v-deep table {
+    tr{
+      white-space: nowrap;
+    }
+    td, th {
+      border: 1px solid #d6d6d6 !important;
+      vertical-align: middle !important;
+      text-align: center;
+    }
+    td {
+      font-size: $fs5;
+      color: $warm-grey;
+      max-width: 100px !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+    th {
+      color: $light-navy-blue !important;
+      font-size: $semi-bold;
+      border-spacing: 5px;
+    }
+  }
+  ::v-deep .v-data-table-header {
+    background-color: #ebebeb !important;
+  }
 }
 
 $text-field-filled-full-width-outlined-single-line-slot-min-height: 30px !default;

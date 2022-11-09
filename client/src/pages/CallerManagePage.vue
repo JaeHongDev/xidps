@@ -98,7 +98,7 @@ function createDefaultCaller(index:number, callerId: string):ICaller {
     key: index,
     inputStatus: EInputStatus.INSERT,
     editStatus: EditStatus.UNEDITTING,
-    callerId: callerId && '',
+    callerId,
     manager: '123',
     department: '123',
     status: '',
@@ -159,8 +159,9 @@ function handleRemove(keys:ICaller[]) {
     <custom-modal
       :is-show='callerFormModal.modal.isShow'
       :title='callerFormModal.modal.title'
+      :width='1000'
       @close='callerFormModal.closeModal'>
-      <caller-id-form @approve:number="insertNewCaller"></caller-id-form>
+      <caller-id-form  @approve:number="insertNewCaller"></caller-id-form>
     </custom-modal>
     <crud-data-table
       :table-title="data.table.tableTitle"
@@ -170,7 +171,7 @@ function handleRemove(keys:ICaller[]) {
       :selected-key='data.table.selectedKey'
       :use-selector="data.table.useSelector"
       :use-pageable="data.table.usePageable"
-      @click:add = "insertNewCaller"
+      @click:add = "callerFormModal.openModal"
       @click:save="handleSave"
       @click:remove="handleRemove"
     >

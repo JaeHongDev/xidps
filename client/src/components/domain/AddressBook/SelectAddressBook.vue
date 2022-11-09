@@ -54,7 +54,7 @@ const data = reactive({
   </div>
 </template>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .address-book-wrap {
   border: 1px solid $light-gray;
   height:100%;

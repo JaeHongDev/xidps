@@ -27,8 +27,8 @@ function approveCaller() {
   state.isApiCertification = false;
   state.isConsignmentCertification = false;
   state.isFileCertification = false;
-  state.callerNumber = '';
   emit('approve:number', state.callerNumber);
+  state.callerNumber = '';
 }
 const selectionMode = computed(() => !(state.isConsignmentCertification || state.isFileCertification || state.isFileCertification));
 
